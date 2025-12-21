@@ -76,10 +76,10 @@ class DisplayRenderer:
         try:
             # Use absolute paths since we run as root
             font_paths = [
-                "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
-                "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
                 "/home/pi/rpi-rgb-led-matrix/fonts/6x9.bdf",
                 "/home/pi/rpi-rgb-led-matrix/fonts/5x8.bdf",
+                "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
+                "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
             ]
 
             for font_path in font_paths:
