@@ -58,7 +58,7 @@ class KEXPDisplay:
         self.fetch_new_data()
 
         last_fetch_time = time.time()
-        frame_delay = 0.05  # 20 FPS for smooth scrolling
+        frame_delay = 0.1  # 10 FPS
 
         try:
             while True:
