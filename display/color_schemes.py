@@ -1,5 +1,6 @@
 """
 Color schemes for different KEXP shows
+Each show has a unique, carefully crafted color palette
 """
 
 class ColorScheme:
@@ -11,163 +12,227 @@ class ColorScheme:
         self.info = info_color
 
 
-# Define color schemes for different genres/themes
+# Define color schemes for different shows with creative, precise colors
 COLOR_SCHEMES = {
-    # Morning Show - Bright, energetic sunrise colors
+    # Morning Show - Sunrise gradient (warm coral to golden yellow)
     'morning_show': ColorScheme(
         'Morning Show',
-        artist_color=(255, 180, 50),   # Warm orange
-        song_color=(255, 220, 100),    # Sunshine yellow
-        info_color=(100, 200, 255)     # Sky blue
+        artist_color=(255, 127, 80),   # Coral
+        song_color=(255, 215, 0),      # Gold
+        info_color=(135, 206, 250)     # Light sky blue
     ),
 
-    # Afternoon Show - Balanced, clean midday colors
+    # Afternoon - Balanced midday brightness
     'afternoon': ColorScheme(
         'Afternoon',
-        artist_color=(255, 255, 255),  # White
-        song_color=(100, 220, 255),    # Bright blue
-        info_color=(200, 200, 100)     # Soft yellow
+        artist_color=(255, 255, 255),  # Pure white
+        song_color=(70, 130, 180),     # Steel blue
+        info_color=(255, 195, 77)      # Amber
     ),
 
-    # Drive Time - Bold, vibrant commute energy
+    # Drive Time - Traffic light energy (bold primaries)
     'drive_time': ColorScheme(
         'Drive Time',
-        artist_color=(255, 100, 100),  # Bright red
+        artist_color=(220, 20, 60),    # Crimson
         song_color=(255, 255, 255),    # White
-        info_color=(255, 200, 0)       # Gold
+        info_color=(255, 165, 0)       # Orange
     ),
 
-    # Midnight in a Perfect World - Deep electronic blues and purples
+    # Midnight in a Perfect World - Deep space electronic
     'midnight_perfect_world': ColorScheme(
         'Midnight in a Perfect World',
-        artist_color=(150, 100, 255),  # Deep purple
-        song_color=(0, 200, 255),      # Electric cyan
-        info_color=(200, 150, 255)     # Lavender
+        artist_color=(138, 43, 226),   # Blue violet
+        song_color=(0, 191, 255),      # Deep sky blue
+        info_color=(186, 85, 211)      # Medium orchid
     ),
 
-    # Audioasis - Warm world music earth tones
+    # Audioasis - Desert world music palette
     'audioasis': ColorScheme(
         'Audioasis',
-        artist_color=(255, 150, 50),   # Terracotta
-        song_color=(200, 255, 100),    # Lime green
-        info_color=(255, 200, 100)     # Sandy gold
+        artist_color=(205, 92, 92),    # Indian red/terracotta
+        song_color=(189, 183, 107),    # Dark khaki
+        info_color=(244, 164, 96)      # Sandy brown
     ),
 
-    # Shakedown - Reggae colors (green, yellow, red)
+    # Shakedown - True Reggae/Rasta colors
     'shakedown': ColorScheme(
         'Shakedown',
-        artist_color=(255, 220, 0),    # Gold/yellow
-        song_color=(100, 255, 100),    # Bright green
-        info_color=(255, 80, 80)       # Red
+        artist_color=(252, 209, 22),   # Rasta gold
+        song_color=(0, 155, 58),       # Rasta green
+        info_color=(206, 17, 38)       # Rasta red
     ),
 
-    # Street Sounds - Hip-hop vibrant urban colors
+    # Street Sounds - Urban neon graffiti
     'street_sounds': ColorScheme(
         'Street Sounds',
-        artist_color=(255, 50, 200),   # Hot magenta
-        song_color=(100, 255, 255),    # Cyan
-        info_color=(255, 200, 0)       # Gold
+        artist_color=(255, 20, 147),   # Deep pink
+        song_color=(0, 255, 255),      # Cyan
+        info_color=(255, 215, 0)       # Gold
     ),
 
-    # Expansions - Jazz warm sophisticated tones
+    # Expansions - Smoky jazz club (warm, sophisticated)
     'expansions': ColorScheme(
         'Expansions',
-        artist_color=(255, 180, 120),  # Warm peach
-        song_color=(200, 150, 255),    # Soft purple
-        info_color=(255, 200, 100)     # Amber
+        artist_color=(210, 180, 140),  # Tan
+        song_color=(176, 196, 222),    # Light steel blue
+        info_color=(218, 165, 32)      # Goldenrod
     ),
 
-    # Seek and Destroy - Metal high contrast
+    # Seek and Destroy - Metal (high contrast, aggressive)
     'seek_destroy': ColorScheme(
         'Seek and Destroy',
         artist_color=(255, 0, 0),      # Pure red
-        song_color=(255, 255, 255),    # White
-        info_color=(100, 100, 100)     # Gray
+        song_color=(255, 255, 255),    # Pure white
+        info_color=(128, 128, 128)     # Gray
     ),
 
-    # Sonic Reducer - Punk energy
+    # Sonic Reducer - Punk chaos (clashing colors)
     'sonic_reducer': ColorScheme(
         'Sonic Reducer',
-        artist_color=(255, 255, 0),    # Bright yellow
+        artist_color=(255, 255, 0),    # Yellow
         song_color=(255, 0, 255),      # Magenta
-        info_color=(0, 255, 0)         # Neon green
+        info_color=(0, 255, 0)         # Lime green
     ),
 
-    # Pacific Notions - Pacific Northwest indie vibes
+    # Pacific Notions - Pacific Northwest (mossy, misty)
     'pacific_notions': ColorScheme(
         'Pacific Notions',
-        artist_color=(100, 200, 150),  # Pacific green
-        song_color=(200, 220, 255),    # Misty blue
-        info_color=(150, 180, 160)     # Mossy gray
+        artist_color=(102, 205, 170),  # Medium aquamarine
+        song_color=(176, 224, 230),    # Powder blue
+        info_color=(119, 136, 153)     # Light slate gray
     ),
 
-    # Overnight - Late night subdued tones
+    # Overnight - Late night deep blues
     'overnight': ColorScheme(
         'Overnight',
-        artist_color=(100, 150, 200),  # Midnight blue
-        song_color=(150, 150, 255),    # Soft purple
-        info_color=(120, 180, 180)     # Teal
+        artist_color=(72, 61, 139),    # Dark slate blue
+        song_color=(147, 112, 219),    # Medium purple
+        info_color=(95, 158, 160)      # Cadet blue
     ),
 
-    # Wo' Pop - World pop bright eclectic
+    # Wo' Pop - Eclectic world pop (vibrant, playful)
     'wo_pop': ColorScheme(
         "Wo' Pop",
-        artist_color=(255, 100, 150),  # Pink
-        song_color=(100, 255, 200),    # Mint
-        info_color=(255, 200, 50)      # Sunny yellow
+        artist_color=(255, 105, 180),  # Hot pink
+        song_color=(64, 224, 208),     # Turquoise
+        info_color=(255, 215, 0)       # Gold
     ),
 
-    # El Sonido - Latin music warm vibrant
+    # El Sonido - Latin music (spicy, warm)
     'el_sonido': ColorScheme(
         'El Sonido',
-        artist_color=(255, 100, 50),   # Salsa red-orange
-        song_color=(255, 200, 0),      # Sunny gold
-        info_color=(200, 100, 255)     # Purple
+        artist_color=(255, 69, 0),     # Red-orange
+        song_color=(255, 215, 0),      # Gold
+        info_color=(148, 0, 211)       # Dark violet
     ),
 
-    # Seeking Blue - Blues deep rich tones
+    # Seeking Blue - Deep blues tradition
     'seeking_blue': ColorScheme(
         'Seeking Blue',
-        artist_color=(100, 150, 255),  # Deep blue
-        song_color=(200, 200, 100),    # Brass yellow
-        info_color=(150, 100, 200)     # Purple
+        artist_color=(65, 105, 225),   # Royal blue
+        song_color=(218, 165, 32),     # Goldenrod
+        info_color=(123, 104, 238)     # Medium slate blue
     ),
 
-    # Stevie Wonder's House Party - Soul/Funk
+    # Stevie Wonder's House Party - Soul/Funk (retro warm)
     'stevie_wonder': ColorScheme(
         "Stevie Wonder's House Party",
-        artist_color=(255, 150, 0),    # Funky orange
-        song_color=(200, 100, 255),    # Purple
-        info_color=(255, 200, 0)       # Gold
+        artist_color=(255, 140, 0),    # Dark orange
+        song_color=(186, 85, 211),     # Medium orchid
+        info_color=(255, 215, 0)       # Gold
     ),
 
-    # Rockabilly Revolt - Retro rock colors
+    # Rockabilly Revolt - 1950s retro (pink, teal, cream)
     'rockabilly': ColorScheme(
         'Rockabilly Revolt',
-        artist_color=(255, 50, 100),   # Hot pink
-        song_color=(0, 255, 200),      # Turquoise
-        info_color=(255, 200, 0)       # Gold
+        artist_color=(255, 105, 180),  # Hot pink
+        song_color=(64, 224, 208),     # Turquoise
+        info_color=(255, 228, 181)     # Moccasin/cream
     ),
 
-    # Mechanical Breakdown - Industrial/Electronic
+    # Mechanical Breakdown - Industrial (metallic, harsh)
     'mechanical_breakdown': ColorScheme(
         'Mechanical Breakdown',
-        artist_color=(200, 200, 200),  # Metallic gray
-        song_color=(255, 100, 0),      # Industrial orange
-        info_color=(100, 255, 255)     # Electric blue
+        artist_color=(192, 192, 192),  # Silver
+        song_color=(255, 99, 71),      # Tomato red
+        info_color=(0, 206, 209)       # Dark turquoise
     ),
 
-    # Default KEXP - Classic station colors
+    # Psychedelic Shack - 60s psychedelic (acid colors)
+    'psychedelic': ColorScheme(
+        'Psychedelic Shack',
+        artist_color=(255, 20, 147),   # Deep pink
+        song_color=(173, 255, 47),     # Green yellow
+        info_color=(138, 43, 226)      # Blue violet
+    ),
+
+    # Roots & Wires - Folk/Americana (natural earth tones)
+    'roots_wires': ColorScheme(
+        'Roots & Wires',
+        artist_color=(210, 180, 140),  # Tan
+        song_color=(143, 188, 143),    # Dark sea green
+        info_color=(160, 82, 45)       # Sienna
+    ),
+
+    # The Sunray Show - Bright daytime indie
+    'sunray': ColorScheme(
+        'The Sunray Show',
+        artist_color=(255, 250, 205),  # Lemon chiffon
+        song_color=(255, 160, 122),    # Light salmon
+        info_color=(135, 206, 235)     # Sky blue
+    ),
+
+    # Dub Shack - Dub/Bass heavy (deep greens and bass)
+    'dub_shack': ColorScheme(
+        'Dub Shack',
+        artist_color=(34, 139, 34),    # Forest green
+        song_color=(255, 215, 0),      # Gold
+        info_color=(220, 20, 60)       # Crimson
+    ),
+
+    # Rap Attack - Classic hip-hop (bold, high contrast)
+    'rap_attack': ColorScheme(
+        'Rap Attack',
+        artist_color=(255, 215, 0),    # Gold
+        song_color=(0, 0, 0),          # Black (will show as very dim on LED)
+        info_color=(220, 20, 60)       # Crimson
+    ),
+
+    # Soul Serenade - Smooth soul (warm, romantic)
+    'soul_serenade': ColorScheme(
+        'Soul Serenade',
+        artist_color=(219, 112, 147),  # Pale violet red
+        song_color=(255, 218, 185),    # Peach puff
+        info_color=(218, 165, 32)      # Goldenrod
+    ),
+
+    # Audio Oasis - Experimental/Avant-garde (unusual combos)
+    'audio_oasis': ColorScheme(
+        'Audio Oasis',
+        artist_color=(173, 255, 47),   # Green yellow
+        song_color=(255, 20, 147),     # Deep pink
+        info_color=(64, 224, 208)      # Turquoise
+    ),
+
+    # Local show - Seattle scene (gray, green, coffee brown)
+    'local_show': ColorScheme(
+        'Local Show',
+        artist_color=(169, 169, 169),  # Dark gray
+        song_color=(60, 179, 113),     # Medium sea green
+        info_color=(139, 69, 19)       # Saddle brown
+    ),
+
+    # Default KEXP - Classic station palette
     'kexp_default': ColorScheme(
         'KEXP Default',
         artist_color=(255, 255, 255),  # White
-        song_color=(100, 200, 255),    # KEXP blue
-        info_color=(200, 200, 100)     # Warm yellow
+        song_color=(100, 200, 255),    # Bright blue
+        info_color=(255, 200, 100)     # Warm yellow
     ),
 }
 
 
-# Comprehensive mapping of KEXP show names to color schemes
+# Map KEXP show names to color schemes
 SHOW_COLOR_MAPPING = {
     # Morning programming
     'Morning Show': 'morning_show',
@@ -177,11 +242,10 @@ SHOW_COLOR_MAPPING = {
     'The Afternoon Show': 'afternoon',
     'Drive Time': 'drive_time',
     
-    # Electronic/Dance
+    # Specialty shows - Electronic/Dance
     'Midnight in a Perfect World': 'midnight_perfect_world',
     'MIPW': 'midnight_perfect_world',
     'Mechanical Breakdown': 'mechanical_breakdown',
-    'Positive Vibrations': 'wo_pop',
     
     # World Music
     'Audioasis': 'audioasis',
@@ -191,13 +255,14 @@ SHOW_COLOR_MAPPING = {
     
     # Reggae/Dub
     'Shakedown': 'shakedown',
-    'Dub Shack': 'shakedown',
+    'Dub Shack': 'dub_shack',
     
     # Hip-Hop/R&B/Soul
     'Street Sounds': 'street_sounds',
-    'Rap Attack': 'street_sounds',
+    'Rap Attack': 'rap_attack',
     "Stevie Wonder's House Party": 'stevie_wonder',
     'Shake The Shack': 'stevie_wonder',
+    'Soul Serenade': 'soul_serenade',
     
     # Jazz/Blues
     'Expansions': 'expansions',
@@ -209,10 +274,19 @@ SHOW_COLOR_MAPPING = {
     'Sonic Reducer': 'sonic_reducer',
     'Rockers': 'sonic_reducer',
     'Rockabilly Revolt': 'rockabilly',
+    'Psychedelic Shack': 'psychedelic',
+    
+    # Folk/Americana
+    'Roots & Wires': 'roots_wires',
+    'Americana': 'roots_wires',
     
     # Pacific Northwest/Indie
     'Pacific Notions': 'pacific_notions',
-    'Local Show': 'pacific_notions',
+    'Local Show': 'local_show',
+    'The Sunray Show': 'sunray',
+    
+    # Experimental
+    'Audio Oasis': 'audio_oasis',
     
     # Late Night
     'Overnight': 'overnight',
@@ -250,41 +324,5 @@ def get_color_scheme_for_show(show_name):
         if show_key.lower() in show_lower or show_lower in show_key.lower():
             return COLOR_SCHEMES[scheme_name]
     
-    # Try genre/keyword detection from show name
-    if any(word in show_lower for word in ['morning', 'breakfast', 'sunrise']):
-        return COLOR_SCHEMES['morning_show']
-    elif any(word in show_lower for word in ['afternoon', 'midday']):
-        return COLOR_SCHEMES['afternoon']
-    elif any(word in show_lower for word in ['drive', 'commute', 'rush hour']):
-        return COLOR_SCHEMES['drive_time']
-    elif any(word in show_lower for word in ['midnight', 'late night', 'overnight']):
-        return COLOR_SCHEMES['overnight']
-    elif any(word in show_lower for word in ['world', 'global', 'international', 'audioasis']):
-        return COLOR_SCHEMES['audioasis']
-    elif any(word in show_lower for word in ['reggae', 'dub', 'dancehall', 'shakedown']):
-        return COLOR_SCHEMES['shakedown']
-    elif any(word in show_lower for word in ['hip hop', 'hiphop', 'rap', 'street']):
-        return COLOR_SCHEMES['street_sounds']
-    elif any(word in show_lower for word in ['electronic', 'techno', 'house', 'edm', 'dance']):
-        return COLOR_SCHEMES['midnight_perfect_world']
-    elif any(word in show_lower for word in ['jazz', 'expansion']):
-        return COLOR_SCHEMES['expansions']
-    elif any(word in show_lower for word in ['soul', 'funk', 'stevie', 'r&b']):
-        return COLOR_SCHEMES['stevie_wonder']
-    elif any(word in show_lower for word in ['blues', 'seeking']):
-        return COLOR_SCHEMES['seeking_blue']
-    elif any(word in show_lower for word in ['metal', 'seek', 'destroy']):
-        return COLOR_SCHEMES['seek_destroy']
-    elif any(word in show_lower for word in ['punk', 'hardcore', 'sonic', 'reducer']):
-        return COLOR_SCHEMES['sonic_reducer']
-    elif any(word in show_lower for word in ['latin', 'sonido', 'spanish']):
-        return COLOR_SCHEMES['el_sonido']
-    elif any(word in show_lower for word in ['pacific', 'northwest', 'local', 'seattle']):
-        return COLOR_SCHEMES['pacific_notions']
-    elif any(word in show_lower for word in ['rockabilly', 'rock and roll', 'retro']):
-        return COLOR_SCHEMES['rockabilly']
-    elif any(word in show_lower for word in ['mechanical', 'industrial']):
-        return COLOR_SCHEMES['mechanical_breakdown']
-    
-    # Default to KEXP standard colors
+    # Default fallback
     return COLOR_SCHEMES['kexp_default']
