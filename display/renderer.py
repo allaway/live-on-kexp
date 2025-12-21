@@ -70,48 +70,30 @@ class DisplayRenderer:
         if not MATRIX_AVAILABLE:
             return
 
-        # Try to load a bitmap font from rpi-rgb-led-matrix
-        # These are in /home/pi/rpi-rgb-led-matrix/fonts/
-        logger.info("Attempting to load fonts...")
+        logger.info("Loading fonts...")
+        
+        # Use absolute path since we run as root
+        font_paths = [
+            "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
+            "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
+            "/home/pi/rpi-rgb-led-matrix/fonts/6x9.bdf",
+        ]
+        
         font_loaded = False
-
-        try:
-            # Try common font locations
-            # Note: Some versions of the library work better with relative paths or without extension
-            font_paths = [
-                "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
-                "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
-                "/home/pi/rpi-rgb-led-matrix/fonts/6x10",
-                "/home/pi/rpi-rgb-led-matrix/fonts/7x13",
-                "../rpi-rgb-led-matrix/fonts/6x10.bdf",
-                "fonts/6x10.bdf",
-                "fonts/6x10"
-            ]
-
-            for font_path in font_paths:
-                try:
-                    logger.info(f"Trying to load font from: {font_path}")
-                    test_font = graphics.Font()
-                    test_font.LoadFont(font_path)
+        for font_path in font_paths:
+            try:
+                logger.info(f"Trying to load: {font_path}")
+                test_font = graphics.Font()
+                if test_font.LoadFont(font_path):
                     self.font = test_font
-                    logger.info(f"SUCCESS: Loaded font from {font_path}")
+                    logger.info(f"✓✓✓ SUCCESS! Font loaded from {font_path}")
                     font_loaded = True
                     break
-                except Exception as font_error:
-                    logger.warning(f"Failed to load font {font_path}: {font_error}")
-                    continue
-
-            if not font_loaded:
-                logger.error("=" * 60)
-                logger.error("CRITICAL: Could not load any bitmap font!")
-                logger.error("Text will NOT display on the matrix!")
-                logger.error("Font paths tried:")
-                for path in font_paths:
-                    logger.error(f"  - {path}")
-                logger.error("=" * 60)
-                self.font = graphics.Font()
-        except Exception as e:
-            logger.error(f"Fatal error loading fonts: {e}")
+            except Exception as e:
+                logger.warning(f"Failed to load {font_path}: {e}")
+        
+        if not font_loaded:
+            logger.error("CRITICAL: Could not load any fonts!")
             self.font = graphics.Font()
 
     def render_now_playing(self, play_data):
@@ -119,7 +101,7 @@ class DisplayRenderer:
         Render the currently playing track information
 
         Args:
-            play_data: Dictionary containing artist, song, album, show info
+            play_data: Dictionary containing artist, song, show info
         """
         if not MATRIX_AVAILABLE:
             self._simulate_display(play_data)
@@ -205,14 +187,17 @@ class DisplayRenderer:
                 # Normal track display
                 artist = str(play_data.get('artist', 'Unknown'))
                 song = str(play_data.get('song', 'Unknown'))
-                album = str(play_data.get('album', ''))
+                show_name_display = str(play_data.get('show_name', 'KEXP 90.3'))
 
                 # Calculate text width for scrolling
                 artist_width = len(artist) * 6
                 song_width = len(song) * 6
+                show_width = len(show_name_display) * 6
 
-                # Determine if we need to scroll (either artist or song is too long)
-                needs_scrolling = artist_width > self.matrix.width or song_width > self.matrix.width
+                # Determine if we need to scroll (any line is too long)
+                needs_scrolling = (artist_width > self.matrix.width or 
+                                 song_width > self.matrix.width or 
+                                 show_width > self.matrix.width)
 
                 # Position for artist (top line, y=8)
                 if artist_width > self.matrix.width:
@@ -233,6 +218,16 @@ class DisplayRenderer:
                     x_pos = max(0, (self.matrix.width - song_width) // 2)
                     graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, song)
 
+                # Position for show name (bottom line, y=28)
+                if show_width > self.matrix.width:
+                    # Scroll the show name using same scroll position
+                    x_pos = self.current_scroll_pos
+                    graphics.DrawText(self.canvas, self.font, x_pos, 28, info_color, show_name_display)
+                else:
+                    # Center the show name if it fits
+                    x_pos = max(0, (self.matrix.width - show_width) // 2)
+                    graphics.DrawText(self.canvas, self.font, x_pos, 28, info_color, show_name_display)
+
                 # Update scroll position if anything needs scrolling
                 if needs_scrolling:
                     # Scroll at moderate speed - advance every 2 frames
@@ -240,19 +235,10 @@ class DisplayRenderer:
                     if self.scroll_counter >= 2:
                         self.current_scroll_pos -= 1
                         self.scroll_counter = 0
-                    # Reset when completely off screen (use the larger width)
-                    max_width = max(artist_width, song_width)
+                    # Reset when completely off screen (use the largest width)
+                    max_width = max(artist_width, song_width, show_width)
                     if self.current_scroll_pos < -max_width:
                         self.current_scroll_pos = self.matrix.width
-
-                # Draw album at bottom (or blank if no album)
-                if album:
-                    album_width = len(album) * 6
-                    if album_width > self.matrix.width:
-                        # Truncate long album names
-                        max_chars = self.matrix.width // 6
-                        album = album[:max_chars]
-                    graphics.DrawText(self.canvas, self.font, 2, 28, info_color, album)
 
             # Swap buffer - this is atomic and thread-safe
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
@@ -266,7 +252,7 @@ class DisplayRenderer:
         logger.info(f"NOW PLAYING:")
         logger.info(f"  Artist: {play_data.get('artist', 'Unknown')}")
         logger.info(f"  Song:   {play_data.get('song', 'Unknown')}")
-        logger.info(f"  Album:  {play_data.get('album', 'N/A')}")
+        logger.info(f"  Show:   {play_data.get('show_name', 'KEXP')}")
         if play_data.get('comment'):
             logger.info(f"  Note:   {play_data.get('comment')}")
         logger.info("=" * 60)
