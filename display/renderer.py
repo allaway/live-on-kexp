@@ -141,9 +141,9 @@ class DisplayRenderer:
                 if show_width > self.matrix.width:
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, display_show_name)
-                    # Scroll slower - only advance every 4 frames (75% slower)
+                    # Scroll at moderate speed - advance every 2 frames
                     self.scroll_counter += 1
-                    if self.scroll_counter >= 4:
+                    if self.scroll_counter >= 2:
                         self.current_scroll_pos -= 1
                         self.scroll_counter = 0
                     # Reset when completely off screen
@@ -181,9 +181,9 @@ class DisplayRenderer:
                     # Scroll the artist name
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, artist)
-                    # Scroll slower - only advance every 4 frames (75% slower)
+                    # Scroll at moderate speed - advance every 2 frames
                     self.scroll_counter += 1
-                    if self.scroll_counter >= 4:
+                    if self.scroll_counter >= 2:
                         self.current_scroll_pos -= 1
                         self.scroll_counter = 0
                     # Reset when completely off screen
