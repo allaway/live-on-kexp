@@ -1,6 +1,5 @@
 """
 Color schemes for different KEXP shows
-UPDATED: More accurate show mappings and representative colors
 """
 
 class ColorScheme:
