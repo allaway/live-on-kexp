@@ -193,19 +193,14 @@ class DisplayRenderer:
                 artist_width = len(artist) * 6
                 song_width = len(song) * 6
 
+                # Determine if we need to scroll (either artist or song is too long)
+                needs_scrolling = artist_width > self.matrix.width or song_width > self.matrix.width
+
                 # Position for artist (top line, y=8)
                 if artist_width > self.matrix.width:
                     # Scroll the artist name
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, artist)
-                    # Scroll at moderate speed - advance every 2 frames
-                    self.scroll_counter += 1
-                    if self.scroll_counter >= 2:
-                        self.current_scroll_pos -= 1
-                        self.scroll_counter = 0
-                    # Reset when completely off screen
-                    if self.current_scroll_pos < -artist_width:
-                        self.current_scroll_pos = self.matrix.width
                 else:
                     # Center the artist name if it fits
                     x_pos = max(0, (self.matrix.width - artist_width) // 2)
@@ -219,6 +214,18 @@ class DisplayRenderer:
                 else:
                     x_pos = max(0, (self.matrix.width - song_width) // 2)
                     graphics.DrawText(canvas, self.font, x_pos, 18, song_color, song)
+
+                # Update scroll position if anything needs scrolling
+                if needs_scrolling:
+                    # Scroll at moderate speed - advance every 2 frames
+                    self.scroll_counter += 1
+                    if self.scroll_counter >= 2:
+                        self.current_scroll_pos -= 1
+                        self.scroll_counter = 0
+                    # Reset when completely off screen (use the larger width)
+                    max_width = max(artist_width, song_width)
+                    if self.current_scroll_pos < -max_width:
+                        self.current_scroll_pos = self.matrix.width
 
                 # Draw album at bottom (or blank if no album)
                 if album:
