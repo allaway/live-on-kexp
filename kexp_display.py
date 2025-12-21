@@ -37,7 +37,12 @@ class KEXPDisplay:
                     show_details = self.kexp_client.get_show_details(play_data['show'])
                     if show_details:
                         play_data['show_name'] = show_details.get('program_name', 'KEXP')
-                        play_data['host_name'] = show_details.get('host_names', '')
+                        # host_names is a list, join it into a string
+                        host_names = show_details.get('host_names', [])
+                        if isinstance(host_names, list):
+                            play_data['host_name'] = ', '.join(host_names) if host_names else ''
+                        else:
+                            play_data['host_name'] = host_names or ''
 
                 self.current_play = play_data
 
