@@ -74,9 +74,13 @@ class DisplayRenderer:
         
         # Use absolute path since we run as root
         font_paths = [
-            "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
             "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
-            "/home/pi/rpi-rgb-led-matrix/fonts/6x9.bdf",
+            "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
+            "/home/pi/rpi-rgb-led-matrix/fonts/6x10",
+            "/home/pi/rpi-rgb-led-matrix/fonts/7x13",
+            "../rpi-rgb-led-matrix/fonts/6x10.bdf",
+            "fonts/6x10.bdf",
+            "fonts/6x10"
         ]
         
         font_loaded = False
