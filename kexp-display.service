@@ -1,0 +1,16 @@
+[Unit]
+Description=KEXP Now Playing Display
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/pi/live-on-kexp
+ExecStart=/usr/bin/python3 /home/pi/live-on-kexp/kexp_display.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
