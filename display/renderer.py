@@ -60,6 +60,8 @@ class DisplayRenderer:
         options.disable_hardware_pulsing = True  # Better image quality
 
         self.matrix = RGBMatrix(options=options)
+        # Create canvas once and reuse it
+        self.canvas = self.matrix.CreateFrameCanvas()
 
         logger.info(f"Matrix initialized: {options.cols}x{options.rows}")
 
@@ -85,11 +87,13 @@ class DisplayRenderer:
                     self.font.LoadFont(font_path)
                     logger.info(f"Loaded font: {font_path}")
                     break
-                except:
+                except Exception as font_error:
+                    logger.debug(f"Could not load font {font_path}: {font_error}")
                     continue
 
-            if not self.font:
-                logger.warning("Could not load bitmap font, using default")
+            if not self.font or not hasattr(self.font, 'CharacterWidth'):
+                logger.error("Could not load any bitmap font - text will not display!")
+                logger.error("Font paths tried: " + ", ".join(font_paths))
                 self.font = graphics.Font()
         except Exception as e:
             logger.error(f"Error loading fonts: {e}")
@@ -117,9 +121,8 @@ class DisplayRenderer:
                 self.current_scroll_pos = self.matrix.width
                 self.scroll_counter = 0
 
-            # Create a fresh canvas for this frame
-            canvas = self.matrix.CreateFrameCanvas()
-            canvas.Clear()
+            # Clear the canvas for this frame (reuse existing canvas)
+            self.canvas.Clear()
 
             # Ensure font is loaded
             if not self.font:
@@ -157,7 +160,7 @@ class DisplayRenderer:
                 show_width = len(display_show_name) * 6
                 if show_width > self.matrix.width:
                     x_pos = self.current_scroll_pos
-                    graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, display_show_name)
+                    graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
                     # Scroll at moderate speed - advance every 2 frames
                     self.scroll_counter += 1
                     if self.scroll_counter >= 2:
@@ -168,7 +171,7 @@ class DisplayRenderer:
                         self.current_scroll_pos = self.matrix.width
                 else:
                     x_pos = max(0, (self.matrix.width - show_width) // 2)
-                    graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, display_show_name)
+                    graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
 
                 # Draw host name (middle line) if available
                 if host_name:
@@ -177,12 +180,12 @@ class DisplayRenderer:
                         # Truncate if too long
                         max_chars = self.matrix.width // 6
                         host_name = host_name[:max_chars]
-                    graphics.DrawText(canvas, self.font, 2, 18, song_color, host_name)
+                    graphics.DrawText(self.canvas, self.font, 2, 18, song_color, host_name)
                 else:
-                    graphics.DrawText(canvas, self.font, 2, 18, song_color, "Now Playing...")
+                    graphics.DrawText(self.canvas, self.font, 2, 18, song_color, "Now Playing...")
 
                 # Show station ID at bottom
-                graphics.DrawText(canvas, self.font, 2, 28, info_color, "90.3 FM")
+                graphics.DrawText(self.canvas, self.font, 2, 28, info_color, "90.3 FM")
             else:
                 # Normal track display
                 artist = str(play_data.get('artist', 'Unknown'))
@@ -200,20 +203,20 @@ class DisplayRenderer:
                 if artist_width > self.matrix.width:
                     # Scroll the artist name
                     x_pos = self.current_scroll_pos
-                    graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, artist)
+                    graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, artist)
                 else:
                     # Center the artist name if it fits
                     x_pos = max(0, (self.matrix.width - artist_width) // 2)
-                    graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, artist)
+                    graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, artist)
 
                 # Position for song (middle line, y=18)
                 if song_width > self.matrix.width:
                     # Use same scroll position for consistency
                     x_pos = self.current_scroll_pos
-                    graphics.DrawText(canvas, self.font, x_pos, 18, song_color, song)
+                    graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, song)
                 else:
                     x_pos = max(0, (self.matrix.width - song_width) // 2)
-                    graphics.DrawText(canvas, self.font, x_pos, 18, song_color, song)
+                    graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, song)
 
                 # Update scroll position if anything needs scrolling
                 if needs_scrolling:
@@ -234,10 +237,10 @@ class DisplayRenderer:
                         # Truncate long album names
                         max_chars = self.matrix.width // 6
                         album = album[:max_chars]
-                    graphics.DrawText(canvas, self.font, 2, 28, info_color, album)
+                    graphics.DrawText(self.canvas, self.font, 2, 28, info_color, album)
 
             # Swap buffer - this is atomic and thread-safe
-            canvas = self.matrix.SwapOnVSync(canvas)
+            self.canvas = self.matrix.SwapOnVSync(self.canvas)
 
         except Exception as e:
             logger.error(f"Error rendering display: {e}", exc_info=True)
