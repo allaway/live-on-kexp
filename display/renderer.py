@@ -77,11 +77,15 @@ class DisplayRenderer:
 
         try:
             # Try common font locations
+            # Note: Some versions of the library work better with relative paths or without extension
             font_paths = [
                 "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
                 "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
+                "/home/pi/rpi-rgb-led-matrix/fonts/6x10",
+                "/home/pi/rpi-rgb-led-matrix/fonts/7x13",
                 "../rpi-rgb-led-matrix/fonts/6x10.bdf",
-                "fonts/6x10.bdf"
+                "fonts/6x10.bdf",
+                "fonts/6x10"
             ]
 
             for font_path in font_paths:
