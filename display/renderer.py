@@ -37,8 +37,7 @@ class DisplayRenderer:
         self.canvas = None
         self.font = None
         self.current_scroll_pos = 0
-        self.current_text = ""
-        self.scroll_text_width = 0
+        self.scroll_counter = 0  # Counter for slower scrolling
         self.last_play_id = None
 
         if MATRIX_AVAILABLE:
@@ -112,6 +111,7 @@ class DisplayRenderer:
             if play_id != self.last_play_id:
                 self.last_play_id = play_id
                 self.current_scroll_pos = self.matrix.width
+                self.scroll_counter = 0
 
             # Clear canvas
             canvas = self.matrix.CreateFrameCanvas()
@@ -122,42 +122,90 @@ class DisplayRenderer:
             blue = graphics.Color(100, 200, 255)
             gray = graphics.Color(150, 150, 150)
 
-            # Get text content
-            artist = play_data.get('artist', 'Unknown')
-            song = play_data.get('song', 'Unknown')
+            # Check if this is an airbreak
+            play_type = play_data.get('play_type', '')
+            is_airbreak = play_type == 'airbreak'
 
-            # Calculate text width for scrolling
-            # Approximate: each character is about 6 pixels wide
-            artist_width = len(artist) * 6
-            song_width = len(song) * 6
+            if is_airbreak:
+                # Show program/DJ info during airbreaks
+                show_name = play_data.get('show_name', 'KEXP')
+                host_name = play_data.get('host_name', '')
 
-            # Position for artist (top line, y=8)
-            if artist_width > self.matrix.width:
-                # Scroll the artist name
-                x_pos = self.current_scroll_pos
-                graphics.DrawText(canvas, self.font, x_pos, 8, white, artist)
-                # Draw it again for seamless loop
-                graphics.DrawText(canvas, self.font, x_pos + artist_width + 20, 8, white, artist)
-                self.current_scroll_pos -= 1
-                if self.current_scroll_pos < -(artist_width + 20):
-                    self.current_scroll_pos = self.matrix.width
+                # Draw show name (top line)
+                show_width = len(show_name) * 6
+                if show_width > self.matrix.width:
+                    x_pos = self.current_scroll_pos
+                    graphics.DrawText(canvas, self.font, x_pos, 8, white, show_name)
+                    # Scroll slower - only advance every 4 frames (75% slower)
+                    self.scroll_counter += 1
+                    if self.scroll_counter >= 4:
+                        self.current_scroll_pos -= 1
+                        self.scroll_counter = 0
+                    # Reset when completely off screen
+                    if self.current_scroll_pos < -show_width:
+                        self.current_scroll_pos = self.matrix.width
+                else:
+                    x_pos = max(0, (self.matrix.width - show_width) // 2)
+                    graphics.DrawText(canvas, self.font, x_pos, 8, white, show_name)
+
+                # Draw host name (middle line) if available
+                if host_name:
+                    host_width = len(host_name) * 6
+                    if host_width > self.matrix.width:
+                        # Truncate if too long
+                        max_chars = self.matrix.width // 6
+                        host_name = host_name[:max_chars]
+                    graphics.DrawText(canvas, self.font, 2, 18, blue, host_name)
+                else:
+                    graphics.DrawText(canvas, self.font, 2, 18, blue, "Now Playing...")
+
+                # Show station ID at bottom
+                graphics.DrawText(canvas, self.font, 2, 28, gray, "90.3 FM")
             else:
-                # Center the artist name if it fits
-                x_pos = max(0, (self.matrix.width - artist_width) // 2)
-                graphics.DrawText(canvas, self.font, x_pos, 8, white, artist)
+                # Normal track display
+                artist = play_data.get('artist', 'Unknown')
+                song = play_data.get('song', 'Unknown')
+                album = play_data.get('album', '')
 
-            # Position for song (middle line, y=18)
-            if song_width > self.matrix.width:
-                # Use same scroll position for consistency
-                x_pos = self.current_scroll_pos
-                graphics.DrawText(canvas, self.font, x_pos, 18, blue, song)
-                graphics.DrawText(canvas, self.font, x_pos + song_width + 20, 18, blue, song)
-            else:
-                x_pos = max(0, (self.matrix.width - song_width) // 2)
-                graphics.DrawText(canvas, self.font, x_pos, 18, blue, song)
+                # Calculate text width for scrolling
+                artist_width = len(artist) * 6
+                song_width = len(song) * 6
 
-            # Draw "KEXP" logo at bottom
-            graphics.DrawText(canvas, self.font, 2, 28, gray, "KEXP")
+                # Position for artist (top line, y=8)
+                if artist_width > self.matrix.width:
+                    # Scroll the artist name
+                    x_pos = self.current_scroll_pos
+                    graphics.DrawText(canvas, self.font, x_pos, 8, white, artist)
+                    # Scroll slower - only advance every 4 frames (75% slower)
+                    self.scroll_counter += 1
+                    if self.scroll_counter >= 4:
+                        self.current_scroll_pos -= 1
+                        self.scroll_counter = 0
+                    # Reset when completely off screen
+                    if self.current_scroll_pos < -artist_width:
+                        self.current_scroll_pos = self.matrix.width
+                else:
+                    # Center the artist name if it fits
+                    x_pos = max(0, (self.matrix.width - artist_width) // 2)
+                    graphics.DrawText(canvas, self.font, x_pos, 8, white, artist)
+
+                # Position for song (middle line, y=18)
+                if song_width > self.matrix.width:
+                    # Use same scroll position for consistency
+                    x_pos = self.current_scroll_pos
+                    graphics.DrawText(canvas, self.font, x_pos, 18, blue, song)
+                else:
+                    x_pos = max(0, (self.matrix.width - song_width) // 2)
+                    graphics.DrawText(canvas, self.font, x_pos, 18, blue, song)
+
+                # Draw album at bottom (or blank if no album)
+                if album:
+                    album_width = len(album) * 6
+                    if album_width > self.matrix.width:
+                        # Truncate long album names
+                        max_chars = self.matrix.width // 6
+                        album = album[:max_chars]
+                    graphics.DrawText(canvas, self.font, 2, 28, gray, album)
 
             # Swap buffer
             self.matrix.SwapOnVSync(canvas)
