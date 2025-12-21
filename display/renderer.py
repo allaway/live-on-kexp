@@ -72,6 +72,9 @@ class DisplayRenderer:
 
         # Try to load a bitmap font from rpi-rgb-led-matrix
         # These are in /home/pi/rpi-rgb-led-matrix/fonts/
+        logger.info("Attempting to load fonts...")
+        font_loaded = False
+
         try:
             # Try common font locations
             font_paths = [
@@ -83,20 +86,28 @@ class DisplayRenderer:
 
             for font_path in font_paths:
                 try:
-                    self.font = graphics.Font()
-                    self.font.LoadFont(font_path)
-                    logger.info(f"Loaded font: {font_path}")
+                    logger.info(f"Trying to load font from: {font_path}")
+                    test_font = graphics.Font()
+                    test_font.LoadFont(font_path)
+                    self.font = test_font
+                    logger.info(f"SUCCESS: Loaded font from {font_path}")
+                    font_loaded = True
                     break
                 except Exception as font_error:
-                    logger.debug(f"Could not load font {font_path}: {font_error}")
+                    logger.warning(f"Failed to load font {font_path}: {font_error}")
                     continue
 
-            if not self.font or not hasattr(self.font, 'CharacterWidth'):
-                logger.error("Could not load any bitmap font - text will not display!")
-                logger.error("Font paths tried: " + ", ".join(font_paths))
+            if not font_loaded:
+                logger.error("=" * 60)
+                logger.error("CRITICAL: Could not load any bitmap font!")
+                logger.error("Text will NOT display on the matrix!")
+                logger.error("Font paths tried:")
+                for path in font_paths:
+                    logger.error(f"  - {path}")
+                logger.error("=" * 60)
                 self.font = graphics.Font()
         except Exception as e:
-            logger.error(f"Error loading fonts: {e}")
+            logger.error(f"Fatal error loading fonts: {e}")
             self.font = graphics.Font()
 
     def render_now_playing(self, play_data):
