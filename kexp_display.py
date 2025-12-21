@@ -31,8 +31,9 @@ class KEXPDisplay:
             play_data = self.kexp_client.get_current_play()
 
             if play_data and play_data != self.current_play:
-                # If it's an airbreak and we have a show ID, fetch show details
-                if play_data.get('play_type') == 'airbreak' and play_data.get('show'):
+                # Always fetch show details if we have a show ID
+                # This is used for color scheme selection
+                if play_data.get('show'):
                     show_details = self.kexp_client.get_show_details(play_data['show'])
                     if show_details:
                         play_data['show_name'] = show_details.get('program_name', 'KEXP')
@@ -43,7 +44,8 @@ class KEXPDisplay:
                 if play_data.get('play_type') == 'airbreak':
                     logger.info(f"Air break: {play_data.get('show_name', 'KEXP')}")
                 else:
-                    logger.info(f"Now playing: {play_data['artist']} - {play_data['song']}")
+                    show_name = play_data.get('show_name', 'KEXP')
+                    logger.info(f"Now playing: {play_data['artist']} - {play_data['song']} ({show_name})")
 
         except Exception as e:
             logger.error(f"Error fetching data: {e}")

@@ -6,6 +6,7 @@ Handles rendering of KEXP data to RGB LED matrix
 import time
 import logging
 from PIL import Image, ImageDraw, ImageFont
+from display.color_schemes import get_color_scheme_for_show
 
 logger = logging.getLogger(__name__)
 
@@ -117,10 +118,14 @@ class DisplayRenderer:
             canvas = self.matrix.CreateFrameCanvas()
             canvas.Clear()
 
-            # Define colors
-            white = graphics.Color(255, 255, 255)
-            blue = graphics.Color(100, 200, 255)
-            gray = graphics.Color(150, 150, 150)
+            # Get color scheme based on current show
+            show_name = play_data.get('show_name', '')
+            color_scheme = get_color_scheme_for_show(show_name)
+
+            # Define colors from scheme
+            artist_color = graphics.Color(*color_scheme.artist)
+            song_color = graphics.Color(*color_scheme.song)
+            info_color = graphics.Color(*color_scheme.info)
 
             # Check if this is an airbreak
             play_type = play_data.get('play_type', '')
@@ -128,14 +133,14 @@ class DisplayRenderer:
 
             if is_airbreak:
                 # Show program/DJ info during airbreaks
-                show_name = play_data.get('show_name', 'KEXP')
+                display_show_name = play_data.get('show_name', 'KEXP')
                 host_name = play_data.get('host_name', '')
 
                 # Draw show name (top line)
-                show_width = len(show_name) * 6
+                show_width = len(display_show_name) * 6
                 if show_width > self.matrix.width:
                     x_pos = self.current_scroll_pos
-                    graphics.DrawText(canvas, self.font, x_pos, 8, white, show_name)
+                    graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, display_show_name)
                     # Scroll slower - only advance every 4 frames (75% slower)
                     self.scroll_counter += 1
                     if self.scroll_counter >= 4:
@@ -146,7 +151,7 @@ class DisplayRenderer:
                         self.current_scroll_pos = self.matrix.width
                 else:
                     x_pos = max(0, (self.matrix.width - show_width) // 2)
-                    graphics.DrawText(canvas, self.font, x_pos, 8, white, show_name)
+                    graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, display_show_name)
 
                 # Draw host name (middle line) if available
                 if host_name:
@@ -155,12 +160,12 @@ class DisplayRenderer:
                         # Truncate if too long
                         max_chars = self.matrix.width // 6
                         host_name = host_name[:max_chars]
-                    graphics.DrawText(canvas, self.font, 2, 18, blue, host_name)
+                    graphics.DrawText(canvas, self.font, 2, 18, song_color, host_name)
                 else:
-                    graphics.DrawText(canvas, self.font, 2, 18, blue, "Now Playing...")
+                    graphics.DrawText(canvas, self.font, 2, 18, song_color, "Now Playing...")
 
                 # Show station ID at bottom
-                graphics.DrawText(canvas, self.font, 2, 28, gray, "90.3 FM")
+                graphics.DrawText(canvas, self.font, 2, 28, info_color, "90.3 FM")
             else:
                 # Normal track display
                 artist = play_data.get('artist', 'Unknown')
@@ -175,7 +180,7 @@ class DisplayRenderer:
                 if artist_width > self.matrix.width:
                     # Scroll the artist name
                     x_pos = self.current_scroll_pos
-                    graphics.DrawText(canvas, self.font, x_pos, 8, white, artist)
+                    graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, artist)
                     # Scroll slower - only advance every 4 frames (75% slower)
                     self.scroll_counter += 1
                     if self.scroll_counter >= 4:
@@ -187,16 +192,16 @@ class DisplayRenderer:
                 else:
                     # Center the artist name if it fits
                     x_pos = max(0, (self.matrix.width - artist_width) // 2)
-                    graphics.DrawText(canvas, self.font, x_pos, 8, white, artist)
+                    graphics.DrawText(canvas, self.font, x_pos, 8, artist_color, artist)
 
                 # Position for song (middle line, y=18)
                 if song_width > self.matrix.width:
                     # Use same scroll position for consistency
                     x_pos = self.current_scroll_pos
-                    graphics.DrawText(canvas, self.font, x_pos, 18, blue, song)
+                    graphics.DrawText(canvas, self.font, x_pos, 18, song_color, song)
                 else:
                     x_pos = max(0, (self.matrix.width - song_width) // 2)
-                    graphics.DrawText(canvas, self.font, x_pos, 18, blue, song)
+                    graphics.DrawText(canvas, self.font, x_pos, 18, song_color, song)
 
                 # Draw album at bottom (or blank if no album)
                 if album:
@@ -205,7 +210,7 @@ class DisplayRenderer:
                         # Truncate long album names
                         max_chars = self.matrix.width // 6
                         album = album[:max_chars]
-                    graphics.DrawText(canvas, self.font, 2, 28, gray, album)
+                    graphics.DrawText(canvas, self.font, 2, 28, info_color, album)
 
             # Swap buffer
             self.matrix.SwapOnVSync(canvas)
