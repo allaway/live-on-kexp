@@ -70,34 +70,42 @@ class DisplayRenderer:
         if not MATRIX_AVAILABLE:
             return
 
-        logger.info("Loading fonts...")
-        
-        # Use absolute path since we run as root
-        font_paths = [
-            "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
-            "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
-            "/home/pi/rpi-rgb-led-matrix/fonts/6x10",
-            "/home/pi/rpi-rgb-led-matrix/fonts/7x13",
-            "../rpi-rgb-led-matrix/fonts/6x10.bdf",
-            "fonts/6x10.bdf",
-            "fonts/6x10"
-        ]
-        
+        logger.info("Attempting to load fonts...")
         font_loaded = False
-        for font_path in font_paths:
-            try:
-                logger.info(f"Trying to load: {font_path}")
-                test_font = graphics.Font()
-                if test_font.LoadFont(font_path):
+
+        try:
+            # Use absolute paths since we run as root
+            font_paths = [
+                "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
+                "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
+                "/home/pi/rpi-rgb-led-matrix/fonts/6x9.bdf",
+                "/home/pi/rpi-rgb-led-matrix/fonts/5x8.bdf",
+            ]
+
+            for font_path in font_paths:
+                try:
+                    logger.info(f"Trying to load font from: {font_path}")
+                    test_font = graphics.Font()
+                    test_font.LoadFont(font_path)
                     self.font = test_font
-                    logger.info(f"✓✓✓ SUCCESS! Font loaded from {font_path}")
+                    logger.info(f"SUCCESS: Loaded font from {font_path}")
                     font_loaded = True
                     break
-            except Exception as e:
-                logger.warning(f"Failed to load {font_path}: {e}")
-        
-        if not font_loaded:
-            logger.error("CRITICAL: Could not load any fonts!")
+                except Exception as font_error:
+                    logger.warning(f"Failed to load font {font_path}: {font_error}")
+                    continue
+
+            if not font_loaded:
+                logger.error("=" * 60)
+                logger.error("CRITICAL: Could not load any bitmap font!")
+                logger.error("Text will NOT display on the matrix!")
+                logger.error("Font paths tried:")
+                for path in font_paths:
+                    logger.error(f"  - {path}")
+                logger.error("=" * 60)
+                self.font = graphics.Font()
+        except Exception as e:
+            logger.error(f"Fatal error loading fonts: {e}")
             self.font = graphics.Font()
 
     def render_now_playing(self, play_data):
@@ -222,7 +230,7 @@ class DisplayRenderer:
                     x_pos = max(0, (self.matrix.width - song_width) // 2)
                     graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, song)
 
-                # Position for show name (bottom line, y=28)
+                # Position for show name (bottom line, y=28) - CHANGED FROM ALBUM
                 if show_width > self.matrix.width:
                     # Scroll the show name using same scroll position
                     x_pos = self.current_scroll_pos
