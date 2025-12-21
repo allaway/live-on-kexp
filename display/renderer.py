@@ -106,6 +106,9 @@ class DisplayRenderer:
             self._simulate_display(play_data)
             return
 
+        if not play_data:
+            return
+
         try:
             # Check if this is a new track
             play_id = f"{play_data.get('artist', '')}:{play_data.get('song', '')}"
@@ -114,13 +117,27 @@ class DisplayRenderer:
                 self.current_scroll_pos = self.matrix.width
                 self.scroll_counter = 0
 
-            # Clear canvas
+            # Create a fresh canvas for this frame
             canvas = self.matrix.CreateFrameCanvas()
             canvas.Clear()
 
+            # Ensure font is loaded
+            if not self.font:
+                logger.warning("Font not loaded, attempting to reload")
+                self._load_fonts()
+                if not self.font:
+                    logger.error("Cannot render without font")
+                    return
+
             # Get color scheme based on current show
             show_name = play_data.get('show_name', '')
-            color_scheme = get_color_scheme_for_show(show_name)
+            try:
+                color_scheme = get_color_scheme_for_show(show_name)
+            except Exception as e:
+                logger.error(f"Error getting color scheme: {e}")
+                # Fallback to default colors
+                from display.color_schemes import COLOR_SCHEMES
+                color_scheme = COLOR_SCHEMES['indie_rock']
 
             # Define colors from scheme
             artist_color = graphics.Color(*color_scheme.artist)
@@ -133,8 +150,8 @@ class DisplayRenderer:
 
             if is_airbreak:
                 # Show program/DJ info during airbreaks
-                display_show_name = play_data.get('show_name', 'KEXP')
-                host_name = play_data.get('host_name', '')
+                display_show_name = str(play_data.get('show_name', 'KEXP'))
+                host_name = str(play_data.get('host_name', ''))
 
                 # Draw show name (top line)
                 show_width = len(display_show_name) * 6
@@ -168,9 +185,9 @@ class DisplayRenderer:
                 graphics.DrawText(canvas, self.font, 2, 28, info_color, "90.3 FM")
             else:
                 # Normal track display
-                artist = play_data.get('artist', 'Unknown')
-                song = play_data.get('song', 'Unknown')
-                album = play_data.get('album', '')
+                artist = str(play_data.get('artist', 'Unknown'))
+                song = str(play_data.get('song', 'Unknown'))
+                album = str(play_data.get('album', ''))
 
                 # Calculate text width for scrolling
                 artist_width = len(artist) * 6
@@ -212,11 +229,11 @@ class DisplayRenderer:
                         album = album[:max_chars]
                     graphics.DrawText(canvas, self.font, 2, 28, info_color, album)
 
-            # Swap buffer
-            self.matrix.SwapOnVSync(canvas)
+            # Swap buffer - this is atomic and thread-safe
+            canvas = self.matrix.SwapOnVSync(canvas)
 
         except Exception as e:
-            logger.error(f"Error rendering display: {e}")
+            logger.error(f"Error rendering display: {e}", exc_info=True)
 
     def _simulate_display(self, play_data):
         """Simulate display output when matrix is not available"""

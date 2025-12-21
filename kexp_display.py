@@ -75,14 +75,19 @@ class KEXPDisplay:
 
                 # Render current data (for scrolling animation)
                 if self.current_play:
-                    self.renderer.render_now_playing(self.current_play)
+                    try:
+                        self.renderer.render_now_playing(self.current_play)
+                    except Exception as e:
+                        logger.error(f"Error in render loop: {e}")
+                        # Continue running even if one frame fails
+                        pass
 
                 time.sleep(frame_delay)
 
         except KeyboardInterrupt:
             logger.info("KEXP Display stopped by user")
         except Exception as e:
-            logger.error(f"Fatal error: {e}")
+            logger.error(f"Fatal error: {e}", exc_info=True)
         finally:
             self.renderer.cleanup()
 
