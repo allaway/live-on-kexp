@@ -10,11 +10,22 @@ from PIL import Image, ImageDraw, ImageFont
 logger = logging.getLogger(__name__)
 
 try:
-    from rgbmatrix import RGBMatrix, RGBMatrixOptions
+    from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
     MATRIX_AVAILABLE = True
 except ImportError:
     logger.warning("RGB Matrix library not available. Running in simulation mode.")
     MATRIX_AVAILABLE = False
+    # Create dummy graphics class for simulation
+    class graphics:
+        class Font:
+            def __init__(self):
+                pass
+        class Color:
+            def __init__(self, r, g, b):
+                pass
+        @staticmethod
+        def DrawText(canvas, font, x, y, color, text):
+            pass
 
 
 class DisplayRenderer:
@@ -24,9 +35,15 @@ class DisplayRenderer:
         self.config = config
         self.matrix = None
         self.canvas = None
+        self.font = None
+        self.current_scroll_pos = 0
+        self.current_text = ""
+        self.scroll_text_width = 0
+        self.last_play_id = None
 
         if MATRIX_AVAILABLE:
             self._init_matrix()
+            self._load_fonts()
         else:
             logger.info("Running in simulation mode - display output will be logged")
 
@@ -40,11 +57,43 @@ class DisplayRenderer:
         options.hardware_mapping = self.config.gpio_mapping
         options.brightness = self.config.brightness
         options.gpio_slowdown = 4  # Needed for Pi 4
+        options.disable_hardware_pulsing = True  # Better image quality
 
         self.matrix = RGBMatrix(options=options)
-        self.canvas = self.matrix.CreateFrameCanvas()
 
         logger.info(f"Matrix initialized: {options.cols}x{options.rows}")
+
+    def _load_fonts(self):
+        """Load fonts for matrix display"""
+        if not MATRIX_AVAILABLE:
+            return
+
+        # Try to load a bitmap font from rpi-rgb-led-matrix
+        # These are in /home/pi/rpi-rgb-led-matrix/fonts/
+        try:
+            # Try common font locations
+            font_paths = [
+                "/home/pi/rpi-rgb-led-matrix/fonts/6x10.bdf",
+                "/home/pi/rpi-rgb-led-matrix/fonts/7x13.bdf",
+                "../rpi-rgb-led-matrix/fonts/6x10.bdf",
+                "fonts/6x10.bdf"
+            ]
+
+            for font_path in font_paths:
+                try:
+                    self.font = graphics.Font()
+                    self.font.LoadFont(font_path)
+                    logger.info(f"Loaded font: {font_path}")
+                    break
+                except:
+                    continue
+
+            if not self.font:
+                logger.warning("Could not load bitmap font, using default")
+                self.font = graphics.Font()
+        except Exception as e:
+            logger.error(f"Error loading fonts: {e}")
+            self.font = graphics.Font()
 
     def render_now_playing(self, play_data):
         """
@@ -58,36 +107,60 @@ class DisplayRenderer:
             return
 
         try:
-            # Create image for rendering
-            width = self.matrix.width
-            height = self.matrix.height
-            image = Image.new('RGB', (width, height))
-            draw = ImageDraw.Draw(image)
+            # Check if this is a new track
+            play_id = f"{play_data.get('artist', '')}:{play_data.get('song', '')}"
+            if play_id != self.last_play_id:
+                self.last_play_id = play_id
+                self.current_scroll_pos = self.matrix.width
 
-            # Load fonts (using bitmap fonts if PIL fonts not available)
-            try:
-                font_small = ImageFont.truetype(self.config.font_path, self.config.small_font_size)
-                font_medium = ImageFont.truetype(self.config.font_path, self.config.medium_font_size)
-            except:
-                font_small = ImageFont.load_default()
-                font_medium = ImageFont.load_default()
+            # Clear canvas
+            canvas = self.matrix.CreateFrameCanvas()
+            canvas.Clear()
 
-            # Draw artist (top line)
+            # Define colors
+            white = graphics.Color(255, 255, 255)
+            blue = graphics.Color(100, 200, 255)
+            gray = graphics.Color(150, 150, 150)
+
+            # Get text content
             artist = play_data.get('artist', 'Unknown')
-            draw.text((2, 0), artist, fill=(255, 255, 255), font=font_medium)
-
-            # Draw song (middle line)
             song = play_data.get('song', 'Unknown')
-            draw.text((2, 12), song, fill=(100, 200, 255), font=font_small)
 
-            # Draw album or show name (bottom line)
-            album = play_data.get('album', '')
-            if album:
-                draw.text((2, 22), album, fill=(150, 150, 150), font=font_small)
+            # Calculate text width for scrolling
+            # Approximate: each character is about 6 pixels wide
+            artist_width = len(artist) * 6
+            song_width = len(song) * 6
 
-            # Convert PIL image to matrix canvas
-            self.canvas.SetImage(image.convert('RGB'))
-            self.canvas = self.matrix.SwapOnVSync(self.canvas)
+            # Position for artist (top line, y=8)
+            if artist_width > self.matrix.width:
+                # Scroll the artist name
+                x_pos = self.current_scroll_pos
+                graphics.DrawText(canvas, self.font, x_pos, 8, white, artist)
+                # Draw it again for seamless loop
+                graphics.DrawText(canvas, self.font, x_pos + artist_width + 20, 8, white, artist)
+                self.current_scroll_pos -= 1
+                if self.current_scroll_pos < -(artist_width + 20):
+                    self.current_scroll_pos = self.matrix.width
+            else:
+                # Center the artist name if it fits
+                x_pos = max(0, (self.matrix.width - artist_width) // 2)
+                graphics.DrawText(canvas, self.font, x_pos, 8, white, artist)
+
+            # Position for song (middle line, y=18)
+            if song_width > self.matrix.width:
+                # Use same scroll position for consistency
+                x_pos = self.current_scroll_pos
+                graphics.DrawText(canvas, self.font, x_pos, 18, blue, song)
+                graphics.DrawText(canvas, self.font, x_pos + song_width + 20, 18, blue, song)
+            else:
+                x_pos = max(0, (self.matrix.width - song_width) // 2)
+                graphics.DrawText(canvas, self.font, x_pos, 18, blue, song)
+
+            # Draw "KEXP" logo at bottom
+            graphics.DrawText(canvas, self.font, 2, 28, gray, "KEXP")
+
+            # Swap buffer
+            self.matrix.SwapOnVSync(canvas)
 
         except Exception as e:
             logger.error(f"Error rendering display: {e}")

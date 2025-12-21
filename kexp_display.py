@@ -24,8 +24,8 @@ class KEXPDisplay:
         self.renderer = DisplayRenderer(config)
         self.current_play = None
 
-    def update_display(self):
-        """Fetch latest data from KEXP and update display"""
+    def fetch_new_data(self):
+        """Fetch latest data from KEXP API"""
         try:
             # Get current play (now playing)
             play_data = self.kexp_client.get_current_play()
@@ -34,20 +34,32 @@ class KEXPDisplay:
                 self.current_play = play_data
                 logger.info(f"Now playing: {play_data['artist']} - {play_data['song']}")
 
-                # Update display with new data
-                self.renderer.render_now_playing(play_data)
-
         except Exception as e:
-            logger.error(f"Error updating display: {e}")
+            logger.error(f"Error fetching data: {e}")
 
     def run(self):
         """Main loop"""
         logger.info("KEXP Display started")
 
+        # Fetch initial data
+        self.fetch_new_data()
+
+        last_fetch_time = time.time()
+        frame_delay = 0.05  # 20 FPS for smooth scrolling
+
         try:
             while True:
-                self.update_display()
-                time.sleep(self.config.update_interval)
+                # Fetch new data periodically
+                current_time = time.time()
+                if current_time - last_fetch_time >= self.config.update_interval:
+                    self.fetch_new_data()
+                    last_fetch_time = current_time
+
+                # Render current data (for scrolling animation)
+                if self.current_play:
+                    self.renderer.render_now_playing(self.current_play)
+
+                time.sleep(frame_delay)
 
         except KeyboardInterrupt:
             logger.info("KEXP Display stopped by user")
