@@ -118,6 +118,117 @@ COLOR_SCHEMES = {
         info_color=(0, 206, 209)       # Dark turquoise
     ),
 
+    # 90.TEEN - Youth energy (vibrant, bold)
+    'ninety_teen': ColorScheme(
+        '90.TEEN',
+        artist_color=(255, 0, 127),    # Bright pink
+        song_color=(0, 255, 255),      # Cyan
+        info_color=(255, 255, 0)       # Yellow
+    ),
+
+    # Astral Plane - Cosmic psychedelic (space colors)
+    'astral_plane': ColorScheme(
+        'Astral Plane',
+        artist_color=(138, 43, 226),   # Blue violet
+        song_color=(255, 0, 255),      # Magenta
+        info_color=(0, 191, 255)       # Deep sky blue
+    ),
+
+    # Early - Sunrise morning (dawn colors)
+    'early': ColorScheme(
+        'Early',
+        artist_color=(255, 182, 193),  # Light pink
+        song_color=(255, 218, 185),    # Peach
+        info_color=(255, 239, 213)     # Papaya whip
+    ),
+
+    # Eastern Echoes - Asian Diaspora (Eastern-inspired)
+    'eastern_echoes': ColorScheme(
+        'Eastern Echoes',
+        artist_color=(220, 20, 60),    # Crimson red
+        song_color=(255, 215, 0),      # Gold
+        info_color=(0, 128, 128)       # Teal
+    ),
+
+    # Live on KEXP - Stage lighting (vibrant performance)
+    'live_on_kexp': ColorScheme(
+        'Live on KEXP',
+        artist_color=(255, 69, 0),     # Red-orange
+        song_color=(255, 255, 255),    # White spotlight
+        info_color=(138, 43, 226)      # Blue violet
+    ),
+
+    # Positive Vibrations - Reggae/Rasta (traditional colors)
+    'positive_vibrations': ColorScheme(
+        'Positive Vibrations',
+        artist_color=(252, 209, 22),   # Rasta gold
+        song_color=(0, 155, 58),       # Rasta green
+        info_color=(206, 17, 38)       # Rasta red
+    ),
+
+    # Sounds of Survivance - Indigenous (earth and sky)
+    'sounds_survivance': ColorScheme(
+        'Sounds of Survivance',
+        artist_color=(139, 69, 19),    # Saddle brown
+        song_color=(210, 180, 140),    # Tan
+        info_color=(135, 206, 235)     # Sky blue
+    ),
+
+    # Sound & Vision - Multimedia (bold visual)
+    'sound_vision': ColorScheme(
+        'Sound & Vision',
+        artist_color=(255, 20, 147),   # Deep pink
+        song_color=(0, 255, 127),      # Spring green
+        info_color=(255, 165, 0)       # Orange
+    ),
+
+    # Sunday Soul - Smooth soul (warm vintage)
+    'sunday_soul': ColorScheme(
+        'Sunday Soul',
+        artist_color=(184, 134, 11),   # Dark goldenrod
+        song_color=(219, 112, 147),    # Pale violet red
+        info_color=(255, 218, 185)     # Peach puff
+    ),
+
+    # The Continent - Afrobeat (African vibrant earthy)
+    'the_continent': ColorScheme(
+        'The Continent',
+        artist_color=(255, 140, 0),    # Dark orange
+        song_color=(34, 139, 34),      # Forest green
+        info_color=(220, 20, 60)       # Crimson
+    ),
+
+    # The Midday Show - Bright midday (full sun)
+    'midday_show': ColorScheme(
+        'The Midday Show',
+        artist_color=(255, 255, 0),    # Yellow
+        song_color=(255, 165, 0),      # Orange
+        info_color=(135, 206, 250)     # Light sky blue
+    ),
+
+    # The Roadhouse - Honky tonk roadhouse (rustic)
+    'roadhouse': ColorScheme(
+        'The Roadhouse',
+        artist_color=(139, 69, 19),    # Saddle brown
+        song_color=(210, 105, 30),     # Chocolate
+        info_color=(255, 215, 0)       # Gold
+    ),
+
+    # Variety Mix - Eclectic mix (rainbow)
+    'variety_mix': ColorScheme(
+        'Variety Mix',
+        artist_color=(255, 99, 71),    # Tomato
+        song_color=(64, 224, 208),     # Turquoise
+        info_color=(255, 215, 0)       # Gold
+    ),
+
+    # Vinelands - Wine country Bay Area (wine/vineyard)
+    'vinelands': ColorScheme(
+        'Vinelands',
+        artist_color=(128, 0, 32),     # Dark wine red
+        song_color=(107, 142, 35),     # Olive drab (vine green)
+        info_color=(218, 165, 32)      # Goldenrod
+    ),
 
     # Default KEXP - Classic station palette
     'kexp_default': ColorScheme(
@@ -134,35 +245,53 @@ SHOW_COLOR_MAPPING = {
     # Morning programming
     'Morning Show': 'morning_show',
     'The Morning Show': 'morning_show',
+    'Early': 'early',
+    'The Midday Show': 'midday_show',
     'Afternoon Show': 'afternoon',
     'The Afternoon Show': 'afternoon',
     'Drive Time': 'drive_time',
-    
+
     # Specialty shows - Electronic/Dance
     'Midnight in a Perfect World': 'midnight_perfect_world',
     'MIPW': 'midnight_perfect_world',
     'Mechanical Breakdown': 'mechanical_breakdown',
-    
+    'Astral Plane': 'astral_plane',
+
     # World Music
     'Audioasis': 'audioasis',
     "Wo' Pop": 'wo_pop',
     'El Sonido': 'el_sonido',
-    
+    'Eastern Echoes': 'eastern_echoes',
+    'Sounds of Survivance': 'sounds_survivance',
+    'The Continent': 'the_continent',
+
+    # Reggae
+    'Positive Vibrations': 'positive_vibrations',
+
     # Hip-Hop/R&B/Soul
     'Street Sounds': 'street_sounds',
-    
-    # Jazz/Blues
+    'Sunday Soul': 'sunday_soul',
+
+    # Jazz/Blues/Roots
     'Expansions': 'expansions',
     'Jazz Theatre': 'expansions',
     'Jazz Theater': 'expansions',
+    'The Roadhouse': 'roadhouse',
 
     # Rock/Metal/Punk
     'Seek and Destroy': 'seek_destroy',
     'Seek & Destroy': 'seek_destroy',
     'Sonic Reducer': 'sonic_reducer',
+    '90.TEEN': 'ninety_teen',
 
-    # Pacific Northwest/Indie
+    # Pacific Northwest/Indie/Local
     'Pacific Notions': 'pacific_notions',
+    'Vinelands': 'vinelands',
+
+    # Live/Special Programming
+    'Live on KEXP': 'live_on_kexp',
+    'Sound & Vision': 'sound_vision',
+    'Variety Mix': 'variety_mix',
 }
 
 

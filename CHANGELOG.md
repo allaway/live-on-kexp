@@ -46,6 +46,25 @@
    - All 19 show mappings now verified against live API data
    - Kept only shows that are confirmed active KEXP programs
 
+6. **Added color schemes for all remaining active KEXP shows**
+   - Added 14 new color schemes for previously missing shows
+   - Color palettes inspired by each show's name and theme:
+     - **90.TEEN** - Youth energy (vibrant pink, cyan, yellow)
+     - **Astral Plane** - Cosmic psychedelic (space colors)
+     - **Early** - Sunrise morning (dawn pastels)
+     - **Eastern Echoes** - Asian Diaspora (crimson, gold, teal)
+     - **Live on KEXP** - Stage lighting (performance colors)
+     - **Positive Vibrations** - Reggae/Rasta (traditional colors)
+     - **Sounds of Survivance** - Indigenous (earth and sky)
+     - **Sound & Vision** - Multimedia (bold visual colors)
+     - **Sunday Soul** - Smooth soul (warm vintage)
+     - **The Continent** - Afrobeat (African vibrant earthy)
+     - **The Midday Show** - Bright midday (full sun)
+     - **The Roadhouse** - Honky tonk (rustic roadhouse)
+     - **Variety Mix** - Eclectic mix (rainbow)
+     - **Vinelands** - Wine country Bay Area (wine/vineyard)
+   - **Coverage: 100%** - Now have color schemes for all 28 active KEXP programs
+
 ### New Features
 
 - **Show verification utility** (`verify_shows.py`)
