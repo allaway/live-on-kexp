@@ -116,9 +116,9 @@ class DisplayRenderer:
             return
 
         # KEXP orange/gold background color
-        bg_color = graphics.Color(255, 180, 0)
+        bg_color = graphics.Color(255, 186, 58)
         # Dark brown/black for bars and text
-        fg_color = graphics.Color(70, 60, 40)
+        fg_color = graphics.Color(59, 43, 27)
 
         # Fill background with KEXP orange
         for y in range(self.matrix.height):
