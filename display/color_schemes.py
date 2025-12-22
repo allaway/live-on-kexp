@@ -54,14 +54,6 @@ COLOR_SCHEMES = {
         info_color=(244, 164, 96)      # Sandy brown
     ),
 
-    # Shakedown - True Reggae/Rasta colors
-    'shakedown': ColorScheme(
-        'Shakedown',
-        artist_color=(252, 209, 22),   # Rasta gold
-        song_color=(0, 155, 58),       # Rasta green
-        info_color=(206, 17, 38)       # Rasta red
-    ),
-
     # Street Sounds - Urban neon graffiti
     'street_sounds': ColorScheme(
         'Street Sounds',
@@ -102,14 +94,6 @@ COLOR_SCHEMES = {
         info_color=(119, 136, 153)     # Light slate gray
     ),
 
-    # Overnight - Late night deep blues
-    'overnight': ColorScheme(
-        'Overnight',
-        artist_color=(72, 61, 139),    # Dark slate blue
-        song_color=(147, 112, 219),    # Medium purple
-        info_color=(95, 158, 160)      # Cadet blue
-    ),
-
     # Wo' Pop - Eclectic world pop (vibrant, playful)
     'wo_pop': ColorScheme(
         "Wo' Pop",
@@ -124,14 +108,6 @@ COLOR_SCHEMES = {
         artist_color=(255, 69, 0),     # Red-orange
         song_color=(255, 215, 0),      # Gold
         info_color=(148, 0, 211)       # Dark violet
-    ),
-
-    # Seeking Blue - Deep blues tradition
-    'seeking_blue': ColorScheme(
-        'Seeking Blue',
-        artist_color=(65, 105, 225),   # Royal blue
-        song_color=(218, 165, 32),     # Goldenrod
-        info_color=(123, 104, 238)     # Medium slate blue
     ),
 
     # Mechanical Breakdown - Industrial (metallic, harsh)
@@ -158,7 +134,6 @@ SHOW_COLOR_MAPPING = {
     # Morning programming
     'Morning Show': 'morning_show',
     'The Morning Show': 'morning_show',
-    'Daytime': 'afternoon',
     'Afternoon Show': 'afternoon',
     'The Afternoon Show': 'afternoon',
     'Drive Time': 'drive_time',
@@ -170,33 +145,24 @@ SHOW_COLOR_MAPPING = {
     
     # World Music
     'Audioasis': 'audioasis',
-    'Global Music': 'audioasis',
     "Wo' Pop": 'wo_pop',
     'El Sonido': 'el_sonido',
-    
-    # Reggae/Dub
-    'Shakedown': 'shakedown',
     
     # Hip-Hop/R&B/Soul
     'Street Sounds': 'street_sounds',
     
     # Jazz/Blues
     'Expansions': 'expansions',
+    'Jazz Theatre': 'expansions',
     'Jazz Theater': 'expansions',
-    'Seeking Blue': 'seeking_blue',
-    
+
     # Rock/Metal/Punk
     'Seek and Destroy': 'seek_destroy',
+    'Seek & Destroy': 'seek_destroy',
     'Sonic Reducer': 'sonic_reducer',
-    'Rockers': 'sonic_reducer',
 
     # Pacific Northwest/Indie
     'Pacific Notions': 'pacific_notions',
-    
-    # Late Night
-    'Overnight': 'overnight',
-    'Late Night': 'overnight',
-    'Overnight: Live from the Archives': 'overnight',
 }
 
 

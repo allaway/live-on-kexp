@@ -23,7 +23,9 @@
    - Provides a smoother, more professional viewing experience
 
 5. **Cleaned up color schemes**
-   - Removed show names that don't appear in actual KEXP API responses:
+   - Removed ALL show names that don't appear in actual KEXP API responses
+   - Verified against live KEXP programs API (41 total programs, 28 active)
+   - Removed these non-existent shows:
      - "Psychedelic Shack"
      - "Roots & Wires"
      - "The Sunray Show"
@@ -34,8 +36,15 @@
      - "Local Show"
      - "Stevie Wonder's House Party"
      - "Rockabilly Revolt"
-   - Reduced from ~27 color schemes to 17 verified shows
-   - Kept only shows that are confirmed KEXP programs
+     - "Shakedown" (real reggae show is "Positive Vibrations")
+     - "Seeking Blue"
+     - "Daytime"
+     - "Global Music"
+     - "Rockers"
+     - "Overnight" / "Late Night"
+   - Reduced from ~27 schemes to 14 verified shows
+   - All 19 show mappings now verified against live API data
+   - Kept only shows that are confirmed active KEXP programs
 
 ### New Features
 
