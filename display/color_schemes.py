@@ -241,19 +241,17 @@ COLOR_SCHEMES = {
 
 
 # Map KEXP show names to color schemes
+# Only includes exact show names from KEXP Programs API
 SHOW_COLOR_MAPPING = {
     # Morning programming
-    'Morning Show': 'morning_show',
     'The Morning Show': 'morning_show',
     'Early': 'early',
     'The Midday Show': 'midday_show',
-    'Afternoon Show': 'afternoon',
     'The Afternoon Show': 'afternoon',
     'Drive Time': 'drive_time',
 
     # Specialty shows - Electronic/Dance
     'Midnight in a Perfect World': 'midnight_perfect_world',
-    'MIPW': 'midnight_perfect_world',
     'Mechanical Breakdown': 'mechanical_breakdown',
     'Astral Plane': 'astral_plane',
 
@@ -275,11 +273,9 @@ SHOW_COLOR_MAPPING = {
     # Jazz/Blues/Roots
     'Expansions': 'expansions',
     'Jazz Theatre': 'expansions',
-    'Jazz Theater': 'expansions',
     'The Roadhouse': 'roadhouse',
 
     # Rock/Metal/Punk
-    'Seek and Destroy': 'seek_destroy',
     'Seek & Destroy': 'seek_destroy',
     'Sonic Reducer': 'sonic_reducer',
     '90.TEEN': 'ninety_teen',
