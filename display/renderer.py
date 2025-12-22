@@ -40,6 +40,8 @@ class DisplayRenderer:
         self.current_scroll_pos = 0
         self.scroll_counter = 0  # Counter for slower scrolling
         self.last_play_id = None
+        self.airbreak_display_toggle = False  # Toggle between info and logo during airbreak
+        self.airbreak_frame_counter = 0  # Counter to switch displays every few seconds
 
         if MATRIX_AVAILABLE:
             self._init_matrix()
@@ -56,7 +58,7 @@ class DisplayRenderer:
         options.parallel = self.config.matrix_parallel
         options.hardware_mapping = self.config.gpio_mapping
         options.brightness = self.config.brightness
-        options.gpio_slowdown = 4  # Needed for Pi 4
+        options.gpio_slowdown = self.config.gpio_slowdown  # Adjust for flickering
         options.disable_hardware_pulsing = True  # Better image quality
 
         self.matrix = RGBMatrix(options=options)
@@ -107,6 +109,113 @@ class DisplayRenderer:
         except Exception as e:
             logger.error(f"Fatal error loading fonts: {e}")
             self.font = graphics.Font()
+
+    def _draw_kexp_logo(self):
+        """Draw the KEXP logo on the display (32h x 64w)"""
+        if not MATRIX_AVAILABLE:
+            return
+
+        # KEXP orange/gold background color
+        bg_color = graphics.Color(255, 186, 58)
+        # Dark brown/black for bars and text
+        fg_color = graphics.Color(59, 43, 27)
+
+        # Fill background with KEXP orange
+        for y in range(self.matrix.height):
+            for x in range(self.matrix.width):
+                self.canvas.SetPixel(x, y, bg_color.red, bg_color.green, bg_color.blue)
+
+        # Draw four bars (bar graph visualization)
+        # Bar heights (in pixels) - scaled for 32-pixel height display
+        bar_heights = [13, 10, 15, 12]
+        bar_width = 6
+        bar_spacing = 3
+        start_x = 16  # Center the bars (4 bars * 6 wide + 3 spacing * 3 = 33, (64-33)/2 ≈ 16)
+        baseline_y = 16  # Baseline from which bars grow upward (moved up)
+
+        for i, height in enumerate(bar_heights):
+            x = start_x + i * (bar_width + bar_spacing)
+            # Draw each bar UPWARD from baseline (like a bar chart)
+            for bx in range(bar_width):
+                for by in range(height):
+                    px = x + bx
+                    py = baseline_y - by  # Draw upward from baseline
+                    if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
+                        self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
+
+        # Draw "KEXP" text at the bottom using pixel art
+        # Define each letter with higher resolution (7-8 pixels wide x 10 pixels tall)
+        letters = {
+            'K': [
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 0, 0, 1, 1, 0],
+                [1, 1, 0, 1, 1, 0, 0],
+                [1, 1, 1, 1, 0, 0, 0],
+                [1, 1, 1, 0, 0, 0, 0],
+                [1, 1, 1, 1, 0, 0, 0],
+                [1, 1, 0, 1, 1, 0, 0],
+                [1, 1, 0, 0, 1, 1, 0],
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 0, 0, 0, 1, 1],
+            ],
+            'E': [
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 1, 1, 1, 1, 0],
+                [1, 1, 1, 1, 1, 1, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1],
+            ],
+            'X': [
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 1, 0, 1, 1, 1],
+                [0, 1, 1, 1, 1, 1, 0],
+                [0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 1, 1, 1, 0, 0],
+                [0, 1, 1, 1, 1, 1, 0],
+                [1, 1, 1, 0, 1, 1, 1],
+                [1, 1, 0, 0, 0, 1, 1],
+            ],
+            'P': [
+                [1, 1, 1, 1, 1, 1, 0],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+            ],
+        }
+
+        # Draw KEXP aligned with bars at the bottom using single pixels
+        text = "KEXP"
+        char_spacing = 2
+
+        start_x = 16  # Align with bars (same as bar start_x)
+        start_y = 20  # Position at bottom
+
+        for i, char in enumerate(text):
+            if char in letters:
+                letter_pattern = letters[char]
+                char_width = len(letter_pattern[0]) if letter_pattern else 0
+                x_offset = start_x + sum(len(letters[text[j]][0]) + char_spacing for j in range(i))
+
+                for row_idx, row in enumerate(letter_pattern):
+                    for col_idx, pixel in enumerate(row):
+                        if pixel:
+                            px = x_offset + col_idx
+                            py = start_y + row_idx
+                            if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
+                                self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
 
     def render_now_playing(self, play_data):
         """
@@ -161,75 +270,85 @@ class DisplayRenderer:
             is_airbreak = play_type == 'airbreak'
 
             if is_airbreak:
-                # Show program/DJ info during airbreaks
-                display_show_name = str(play_data.get('show_name', 'KEXP'))
-                host_name = str(play_data.get('host_name', ''))
+                # Alternate between info display and KEXP logo every 20 seconds (200 frames at 10fps)
+                self.airbreak_frame_counter += 1
+                if self.airbreak_frame_counter >= 200:
+                    self.airbreak_display_toggle = not self.airbreak_display_toggle
+                    self.airbreak_frame_counter = 0
 
-                # Calculate widths
-                show_width = len(display_show_name) * 6
-                host_width = len(host_name) * 6 if host_name else 0
-
-                # Check if any text needs scrolling
-                needs_scrolling = (show_width > self.matrix.width or
-                                 host_width > self.matrix.width)
-
-                # Draw show name (top line)
-                if show_width > self.matrix.width:
-                    # Continuous scrolling with separator
-                    separator = "  |  "
-                    separator_width = len(separator) * 6
-                    x_pos = self.current_scroll_pos
-                    graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
-                    # Draw separator and text again for continuous loop
-                    graphics.DrawText(self.canvas, self.font, x_pos + show_width, 8, artist_color, separator)
-                    graphics.DrawText(self.canvas, self.font, x_pos + show_width + separator_width, 8, artist_color, display_show_name)
+                # If showing logo, draw it and skip the rest
+                if self.airbreak_display_toggle:
+                    self._draw_kexp_logo()
                 else:
-                    x_pos = max(0, (self.matrix.width - show_width) // 2)
-                    graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
+                    # Show program/DJ info during airbreaks
+                    display_show_name = str(play_data.get('show_name', 'KEXP'))
+                    host_name = str(play_data.get('host_name', ''))
 
-                # Draw host name (middle line) if available
-                if host_name:
-                    host_width = len(host_name) * 6
-                    if host_width > self.matrix.width:
-                        # Continuous scrolling with separator (using same scroll position as show name)
+                    # Calculate widths
+                    show_width = len(display_show_name) * 6
+                    host_width = len(host_name) * 6 if host_name else 0
+
+                    # Check if any text needs scrolling
+                    needs_scrolling = (show_width > self.matrix.width or
+                                     host_width > self.matrix.width)
+
+                    # Draw show name (top line)
+                    if show_width > self.matrix.width:
+                        # Continuous scrolling with separator
                         separator = "  |  "
                         separator_width = len(separator) * 6
                         x_pos = self.current_scroll_pos
-                        graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, host_name)
+                        graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
                         # Draw separator and text again for continuous loop
-                        graphics.DrawText(self.canvas, self.font, x_pos + host_width, 18, song_color, separator)
-                        graphics.DrawText(self.canvas, self.font, x_pos + host_width + separator_width, 18, song_color, host_name)
+                        graphics.DrawText(self.canvas, self.font, x_pos + show_width, 8, artist_color, separator)
+                        graphics.DrawText(self.canvas, self.font, x_pos + show_width + separator_width, 8, artist_color, display_show_name)
                     else:
-                        # Center if it fits
-                        x_pos = max(0, (self.matrix.width - host_width) // 2)
-                        graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, host_name)
-                else:
-                    # Center "Now Playing..." message
-                    now_playing_text = "Now Playing..."
-                    now_playing_width = len(now_playing_text) * 6
-                    x_pos = max(0, (self.matrix.width - now_playing_width) // 2)
-                    graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, now_playing_text)
+                        x_pos = max(0, (self.matrix.width - show_width) // 2)
+                        graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
 
-                # Show station ID at bottom (centered)
-                station_id = "90.3 FM"
-                station_width = len(station_id) * 6
-                station_x = max(0, (self.matrix.width - station_width) // 2)
-                graphics.DrawText(self.canvas, self.font, station_x, 28, info_color, station_id)
+                    # Draw host name (middle line) if available
+                    if host_name:
+                        host_width = len(host_name) * 6
+                        if host_width > self.matrix.width:
+                            # Continuous scrolling with separator (using same scroll position as show name)
+                            separator = "  |  "
+                            separator_width = len(separator) * 6
+                            x_pos = self.current_scroll_pos
+                            graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, host_name)
+                            # Draw separator and text again for continuous loop
+                            graphics.DrawText(self.canvas, self.font, x_pos + host_width, 18, song_color, separator)
+                            graphics.DrawText(self.canvas, self.font, x_pos + host_width + separator_width, 18, song_color, host_name)
+                        else:
+                            # Center if it fits
+                            x_pos = max(0, (self.matrix.width - host_width) // 2)
+                            graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, host_name)
+                    else:
+                        # Center "Now Playing..." message
+                        now_playing_text = "Now Playing..."
+                        now_playing_width = len(now_playing_text) * 6
+                        x_pos = max(0, (self.matrix.width - now_playing_width) // 2)
+                        graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, now_playing_text)
 
-                # Update scroll position if anything needs scrolling
-                if needs_scrolling:
-                    # Scroll at moderate speed - advance every 1.6 frames (25% faster than every 2 frames)
-                    self.scroll_counter += 1
-                    if self.scroll_counter >= 1.6:
-                        self.current_scroll_pos -= 1
-                        self.scroll_counter = 0
-                    # Reset for continuous scrolling - add back the cycle length for seamless loop
-                    separator = "  |  "
-                    separator_width = len(separator) * 6
-                    max_width = max(show_width, host_width)
-                    # When scrolled past one full cycle, add back to create seamless loop
-                    if self.current_scroll_pos < -(max_width + separator_width):
-                        self.current_scroll_pos += (max_width + separator_width)
+                    # Show station ID at bottom (centered)
+                    station_id = "90.3 FM"
+                    station_width = len(station_id) * 6
+                    station_x = max(0, (self.matrix.width - station_width) // 2)
+                    graphics.DrawText(self.canvas, self.font, station_x, 28, info_color, station_id)
+
+                    # Update scroll position if anything needs scrolling
+                    if needs_scrolling:
+                        # Scroll at moderate speed - advance every 1.6 frames (25% faster than every 2 frames)
+                        self.scroll_counter += 1
+                        if self.scroll_counter >= 1.6:
+                            self.current_scroll_pos -= 1
+                            self.scroll_counter = 0
+                        # Reset for continuous scrolling - add back the cycle length for seamless loop
+                        separator = "  |  "
+                        separator_width = len(separator) * 6
+                        max_width = max(show_width, host_width)
+                        # When scrolled past one full cycle, add back to create seamless loop
+                        if self.current_scroll_pos < -(max_width + separator_width):
+                            self.current_scroll_pos += (max_width + separator_width)
             else:
                 # Normal track display
                 artist = str(play_data.get('artist', 'Unknown'))
