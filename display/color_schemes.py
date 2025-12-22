@@ -54,14 +54,6 @@ COLOR_SCHEMES = {
         info_color=(244, 164, 96)      # Sandy brown
     ),
 
-    # Shakedown - True Reggae/Rasta colors
-    'shakedown': ColorScheme(
-        'Shakedown',
-        artist_color=(252, 209, 22),   # Rasta gold
-        song_color=(0, 155, 58),       # Rasta green
-        info_color=(206, 17, 38)       # Rasta red
-    ),
-
     # Street Sounds - Urban neon graffiti
     'street_sounds': ColorScheme(
         'Street Sounds',
@@ -102,14 +94,6 @@ COLOR_SCHEMES = {
         info_color=(119, 136, 153)     # Light slate gray
     ),
 
-    # Overnight - Late night deep blues
-    'overnight': ColorScheme(
-        'Overnight',
-        artist_color=(72, 61, 139),    # Dark slate blue
-        song_color=(147, 112, 219),    # Medium purple
-        info_color=(95, 158, 160)      # Cadet blue
-    ),
-
     # Wo' Pop - Eclectic world pop (vibrant, playful)
     'wo_pop': ColorScheme(
         "Wo' Pop",
@@ -126,30 +110,6 @@ COLOR_SCHEMES = {
         info_color=(148, 0, 211)       # Dark violet
     ),
 
-    # Seeking Blue - Deep blues tradition
-    'seeking_blue': ColorScheme(
-        'Seeking Blue',
-        artist_color=(65, 105, 225),   # Royal blue
-        song_color=(218, 165, 32),     # Goldenrod
-        info_color=(123, 104, 238)     # Medium slate blue
-    ),
-
-    # Stevie Wonder's House Party - Soul/Funk (retro warm)
-    'stevie_wonder': ColorScheme(
-        "Stevie Wonder's House Party",
-        artist_color=(255, 140, 0),    # Dark orange
-        song_color=(186, 85, 211),     # Medium orchid
-        info_color=(255, 215, 0)       # Gold
-    ),
-
-    # Rockabilly Revolt - 1950s retro (pink, teal, cream)
-    'rockabilly': ColorScheme(
-        'Rockabilly Revolt',
-        artist_color=(255, 105, 180),  # Hot pink
-        song_color=(64, 224, 208),     # Turquoise
-        info_color=(255, 228, 181)     # Moccasin/cream
-    ),
-
     # Mechanical Breakdown - Industrial (metallic, harsh)
     'mechanical_breakdown': ColorScheme(
         'Mechanical Breakdown',
@@ -158,68 +118,116 @@ COLOR_SCHEMES = {
         info_color=(0, 206, 209)       # Dark turquoise
     ),
 
-    # Psychedelic Shack - 60s psychedelic (acid colors)
-    'psychedelic': ColorScheme(
-        'Psychedelic Shack',
-        artist_color=(255, 20, 147),   # Deep pink
-        song_color=(173, 255, 47),     # Green yellow
+    # 90.TEEN - Youth energy (vibrant, bold)
+    'ninety_teen': ColorScheme(
+        '90.TEEN',
+        artist_color=(255, 0, 127),    # Bright pink
+        song_color=(0, 255, 255),      # Cyan
+        info_color=(255, 255, 0)       # Yellow
+    ),
+
+    # Astral Plane - Cosmic psychedelic (space colors)
+    'astral_plane': ColorScheme(
+        'Astral Plane',
+        artist_color=(138, 43, 226),   # Blue violet
+        song_color=(255, 0, 255),      # Magenta
+        info_color=(0, 191, 255)       # Deep sky blue
+    ),
+
+    # Early - Sunrise morning (dawn colors)
+    'early': ColorScheme(
+        'Early',
+        artist_color=(255, 182, 193),  # Light pink
+        song_color=(255, 218, 185),    # Peach
+        info_color=(255, 239, 213)     # Papaya whip
+    ),
+
+    # Eastern Echoes - Asian Diaspora (Eastern-inspired)
+    'eastern_echoes': ColorScheme(
+        'Eastern Echoes',
+        artist_color=(220, 20, 60),    # Crimson red
+        song_color=(255, 215, 0),      # Gold
+        info_color=(0, 128, 128)       # Teal
+    ),
+
+    # Live on KEXP - Stage lighting (vibrant performance)
+    'live_on_kexp': ColorScheme(
+        'Live on KEXP',
+        artist_color=(255, 69, 0),     # Red-orange
+        song_color=(255, 255, 255),    # White spotlight
         info_color=(138, 43, 226)      # Blue violet
     ),
 
-    # Roots & Wires - Folk/Americana (natural earth tones)
-    'roots_wires': ColorScheme(
-        'Roots & Wires',
-        artist_color=(210, 180, 140),  # Tan
-        song_color=(143, 188, 143),    # Dark sea green
-        info_color=(160, 82, 45)       # Sienna
+    # Positive Vibrations - Reggae/Rasta (traditional colors)
+    'positive_vibrations': ColorScheme(
+        'Positive Vibrations',
+        artist_color=(252, 209, 22),   # Rasta gold
+        song_color=(0, 155, 58),       # Rasta green
+        info_color=(206, 17, 38)       # Rasta red
     ),
 
-    # The Sunray Show - Bright daytime indie
-    'sunray': ColorScheme(
-        'The Sunray Show',
-        artist_color=(255, 250, 205),  # Lemon chiffon
-        song_color=(255, 160, 122),    # Light salmon
+    # Sounds of Survivance - Indigenous (earth and sky)
+    'sounds_survivance': ColorScheme(
+        'Sounds of Survivance',
+        artist_color=(139, 69, 19),    # Saddle brown
+        song_color=(210, 180, 140),    # Tan
         info_color=(135, 206, 235)     # Sky blue
     ),
 
-    # Dub Shack - Dub/Bass heavy (deep greens and bass)
-    'dub_shack': ColorScheme(
-        'Dub Shack',
-        artist_color=(34, 139, 34),    # Forest green
-        song_color=(255, 215, 0),      # Gold
+    # Sound & Vision - Multimedia (bold visual)
+    'sound_vision': ColorScheme(
+        'Sound & Vision',
+        artist_color=(255, 20, 147),   # Deep pink
+        song_color=(0, 255, 127),      # Spring green
+        info_color=(255, 165, 0)       # Orange
+    ),
+
+    # Sunday Soul - Smooth soul (warm vintage)
+    'sunday_soul': ColorScheme(
+        'Sunday Soul',
+        artist_color=(184, 134, 11),   # Dark goldenrod
+        song_color=(219, 112, 147),    # Pale violet red
+        info_color=(255, 218, 185)     # Peach puff
+    ),
+
+    # The Continent - Afrobeat (African vibrant earthy)
+    'the_continent': ColorScheme(
+        'The Continent',
+        artist_color=(255, 140, 0),    # Dark orange
+        song_color=(34, 139, 34),      # Forest green
         info_color=(220, 20, 60)       # Crimson
     ),
 
-    # Rap Attack - Classic hip-hop (bold, high contrast)
-    'rap_attack': ColorScheme(
-        'Rap Attack',
-        artist_color=(255, 215, 0),    # Gold
-        song_color=(0, 0, 0),          # Black (will show as very dim on LED)
-        info_color=(220, 20, 60)       # Crimson
+    # The Midday Show - Bright midday (full sun)
+    'midday_show': ColorScheme(
+        'The Midday Show',
+        artist_color=(255, 255, 0),    # Yellow
+        song_color=(255, 165, 0),      # Orange
+        info_color=(135, 206, 250)     # Light sky blue
     ),
 
-    # Soul Serenade - Smooth soul (warm, romantic)
-    'soul_serenade': ColorScheme(
-        'Soul Serenade',
-        artist_color=(219, 112, 147),  # Pale violet red
-        song_color=(255, 218, 185),    # Peach puff
+    # The Roadhouse - Honky tonk roadhouse (rustic)
+    'roadhouse': ColorScheme(
+        'The Roadhouse',
+        artist_color=(139, 69, 19),    # Saddle brown
+        song_color=(210, 105, 30),     # Chocolate
+        info_color=(255, 215, 0)       # Gold
+    ),
+
+    # Variety Mix - Eclectic mix (rainbow)
+    'variety_mix': ColorScheme(
+        'Variety Mix',
+        artist_color=(255, 99, 71),    # Tomato
+        song_color=(64, 224, 208),     # Turquoise
+        info_color=(255, 215, 0)       # Gold
+    ),
+
+    # Vinelands - Wine country Bay Area (wine/vineyard)
+    'vinelands': ColorScheme(
+        'Vinelands',
+        artist_color=(128, 0, 32),     # Dark wine red
+        song_color=(107, 142, 35),     # Olive drab (vine green)
         info_color=(218, 165, 32)      # Goldenrod
-    ),
-
-    # Audio Oasis - Experimental/Avant-garde (unusual combos)
-    'audio_oasis': ColorScheme(
-        'Audio Oasis',
-        artist_color=(173, 255, 47),   # Green yellow
-        song_color=(255, 20, 147),     # Deep pink
-        info_color=(64, 224, 208)      # Turquoise
-    ),
-
-    # Local show - Seattle scene (gray, green, coffee brown)
-    'local_show': ColorScheme(
-        'Local Show',
-        artist_color=(169, 169, 169),  # Dark gray
-        song_color=(60, 179, 113),     # Medium sea green
-        info_color=(139, 69, 19)       # Saddle brown
     ),
 
     # Default KEXP - Classic station palette
@@ -233,65 +241,53 @@ COLOR_SCHEMES = {
 
 
 # Map KEXP show names to color schemes
+# Only includes exact show names from KEXP Programs API
 SHOW_COLOR_MAPPING = {
     # Morning programming
-    'Morning Show': 'morning_show',
     'The Morning Show': 'morning_show',
-    'Daytime': 'afternoon',
-    'Afternoon Show': 'afternoon',
+    'Early': 'early',
+    'The Midday Show': 'midday_show',
     'The Afternoon Show': 'afternoon',
     'Drive Time': 'drive_time',
-    
+
     # Specialty shows - Electronic/Dance
     'Midnight in a Perfect World': 'midnight_perfect_world',
-    'MIPW': 'midnight_perfect_world',
     'Mechanical Breakdown': 'mechanical_breakdown',
-    
+    'Astral Plane': 'astral_plane',
+
     # World Music
     'Audioasis': 'audioasis',
-    'Global Music': 'audioasis',
     "Wo' Pop": 'wo_pop',
     'El Sonido': 'el_sonido',
-    
-    # Reggae/Dub
-    'Shakedown': 'shakedown',
-    'Dub Shack': 'dub_shack',
-    
+    'Eastern Echoes': 'eastern_echoes',
+    'Sounds of Survivance': 'sounds_survivance',
+    'The Continent': 'the_continent',
+
+    # Reggae
+    'Positive Vibrations': 'positive_vibrations',
+
     # Hip-Hop/R&B/Soul
     'Street Sounds': 'street_sounds',
-    'Rap Attack': 'rap_attack',
-    "Stevie Wonder's House Party": 'stevie_wonder',
-    'Shake The Shack': 'stevie_wonder',
-    'Soul Serenade': 'soul_serenade',
-    
-    # Jazz/Blues
+    'Sunday Soul': 'sunday_soul',
+
+    # Jazz/Blues/Roots
     'Expansions': 'expansions',
-    'Jazz Theater': 'expansions',
-    'Seeking Blue': 'seeking_blue',
-    
+    'Jazz Theatre': 'expansions',
+    'The Roadhouse': 'roadhouse',
+
     # Rock/Metal/Punk
-    'Seek and Destroy': 'seek_destroy',
+    'Seek & Destroy': 'seek_destroy',
     'Sonic Reducer': 'sonic_reducer',
-    'Rockers': 'sonic_reducer',
-    'Rockabilly Revolt': 'rockabilly',
-    'Psychedelic Shack': 'psychedelic',
-    
-    # Folk/Americana
-    'Roots & Wires': 'roots_wires',
-    'Americana': 'roots_wires',
-    
-    # Pacific Northwest/Indie
+    '90.TEEN': 'ninety_teen',
+
+    # Pacific Northwest/Indie/Local
     'Pacific Notions': 'pacific_notions',
-    'Local Show': 'local_show',
-    'The Sunray Show': 'sunray',
-    
-    # Experimental
-    'Audio Oasis': 'audio_oasis',
-    
-    # Late Night
-    'Overnight': 'overnight',
-    'Late Night': 'overnight',
-    'Overnight: Live from the Archives': 'overnight',
+    'Vinelands': 'vinelands',
+
+    # Live/Special Programming
+    'Live on KEXP': 'live_on_kexp',
+    'Sound & Vision': 'sound_vision',
+    'Variety Mix': 'variety_mix',
 }
 
 
