@@ -165,19 +165,24 @@ class DisplayRenderer:
                 display_show_name = str(play_data.get('show_name', 'KEXP'))
                 host_name = str(play_data.get('host_name', ''))
 
-                # Draw show name (top line)
+                # Calculate widths
                 show_width = len(display_show_name) * 6
+                host_width = len(host_name) * 6 if host_name else 0
+
+                # Check if any text needs scrolling
+                needs_scrolling = (show_width > self.matrix.width or
+                                 host_width > self.matrix.width)
+
+                # Draw show name (top line)
                 if show_width > self.matrix.width:
+                    # Continuous scrolling with separator
+                    separator = "   |   "
+                    separator_width = len(separator) * 6
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
-                    # Scroll at moderate speed - advance every 2 frames
-                    self.scroll_counter += 1
-                    if self.scroll_counter >= 2:
-                        self.current_scroll_pos -= 1
-                        self.scroll_counter = 0
-                    # Reset when completely off screen
-                    if self.current_scroll_pos < -show_width:
-                        self.current_scroll_pos = self.matrix.width
+                    # Draw separator and text again for continuous loop
+                    graphics.DrawText(self.canvas, self.font, x_pos + show_width, 8, artist_color, separator)
+                    graphics.DrawText(self.canvas, self.font, x_pos + show_width + separator_width, 8, artist_color, display_show_name)
                 else:
                     x_pos = max(0, (self.matrix.width - show_width) // 2)
                     graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
@@ -186,15 +191,45 @@ class DisplayRenderer:
                 if host_name:
                     host_width = len(host_name) * 6
                     if host_width > self.matrix.width:
-                        # Truncate if too long
-                        max_chars = self.matrix.width // 6
-                        host_name = host_name[:max_chars]
-                    graphics.DrawText(self.canvas, self.font, 2, 18, song_color, host_name)
+                        # Continuous scrolling with separator (using same scroll position as show name)
+                        separator = "   |   "
+                        separator_width = len(separator) * 6
+                        x_pos = self.current_scroll_pos
+                        graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, host_name)
+                        # Draw separator and text again for continuous loop
+                        graphics.DrawText(self.canvas, self.font, x_pos + host_width, 18, song_color, separator)
+                        graphics.DrawText(self.canvas, self.font, x_pos + host_width + separator_width, 18, song_color, host_name)
+                    else:
+                        # Center if it fits
+                        x_pos = max(0, (self.matrix.width - host_width) // 2)
+                        graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, host_name)
                 else:
-                    graphics.DrawText(self.canvas, self.font, 2, 18, song_color, "Now Playing...")
+                    # Center "Now Playing..." message
+                    now_playing_text = "Now Playing..."
+                    now_playing_width = len(now_playing_text) * 6
+                    x_pos = max(0, (self.matrix.width - now_playing_width) // 2)
+                    graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, now_playing_text)
 
-                # Show station ID at bottom
-                graphics.DrawText(self.canvas, self.font, 2, 28, info_color, "90.3 FM")
+                # Show station ID at bottom (centered)
+                station_id = "90.3 FM"
+                station_width = len(station_id) * 6
+                station_x = max(0, (self.matrix.width - station_width) // 2)
+                graphics.DrawText(self.canvas, self.font, station_x, 28, info_color, station_id)
+
+                # Update scroll position if anything needs scrolling
+                if needs_scrolling:
+                    # Scroll at moderate speed - advance every 1.6 frames (25% faster than every 2 frames)
+                    self.scroll_counter += 1
+                    if self.scroll_counter >= 1.6:
+                        self.current_scroll_pos -= 1
+                        self.scroll_counter = 0
+                    # Reset for continuous scrolling (text + separator width)
+                    separator = "   |   "
+                    separator_width = len(separator) * 6
+                    max_width = max(show_width, host_width)
+                    # Reset when the first instance + separator has scrolled past
+                    if self.current_scroll_pos < -(max_width + separator_width):
+                        self.current_scroll_pos = 0
             else:
                 # Normal track display
                 artist = str(play_data.get('artist', 'Unknown'))
@@ -213,9 +248,14 @@ class DisplayRenderer:
 
                 # Position for artist (top line, y=8)
                 if artist_width > self.matrix.width:
-                    # Scroll the artist name
+                    # Continuous scrolling with separator
+                    separator = "   |   "
+                    separator_width = len(separator) * 6
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, artist)
+                    # Draw separator and text again for continuous loop
+                    graphics.DrawText(self.canvas, self.font, x_pos + artist_width, 8, artist_color, separator)
+                    graphics.DrawText(self.canvas, self.font, x_pos + artist_width + separator_width, 8, artist_color, artist)
                 else:
                     # Center the artist name if it fits
                     x_pos = max(0, (self.matrix.width - artist_width) // 2)
@@ -223,18 +263,28 @@ class DisplayRenderer:
 
                 # Position for song (middle line, y=18)
                 if song_width > self.matrix.width:
-                    # Use same scroll position for consistency
+                    # Continuous scrolling with separator
+                    separator = "   |   "
+                    separator_width = len(separator) * 6
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, song)
+                    # Draw separator and text again for continuous loop
+                    graphics.DrawText(self.canvas, self.font, x_pos + song_width, 18, song_color, separator)
+                    graphics.DrawText(self.canvas, self.font, x_pos + song_width + separator_width, 18, song_color, song)
                 else:
                     x_pos = max(0, (self.matrix.width - song_width) // 2)
                     graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, song)
 
                 # Position for show name (bottom line, y=28) - CHANGED FROM ALBUM
                 if show_width > self.matrix.width:
-                    # Scroll the show name using same scroll position
+                    # Continuous scrolling with separator
+                    separator = "   |   "
+                    separator_width = len(separator) * 6
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(self.canvas, self.font, x_pos, 28, info_color, show_name_display)
+                    # Draw separator and text again for continuous loop
+                    graphics.DrawText(self.canvas, self.font, x_pos + show_width, 28, info_color, separator)
+                    graphics.DrawText(self.canvas, self.font, x_pos + show_width + separator_width, 28, info_color, show_name_display)
                 else:
                     # Center the show name if it fits
                     x_pos = max(0, (self.matrix.width - show_width) // 2)
@@ -242,15 +292,18 @@ class DisplayRenderer:
 
                 # Update scroll position if anything needs scrolling
                 if needs_scrolling:
-                    # Scroll at moderate speed - advance every 2 frames
+                    # Scroll at moderate speed - advance every 1.6 frames (25% faster than every 2 frames)
                     self.scroll_counter += 1
-                    if self.scroll_counter >= 2:
+                    if self.scroll_counter >= 1.6:
                         self.current_scroll_pos -= 1
                         self.scroll_counter = 0
-                    # Reset when completely off screen (use the largest width)
+                    # Reset for continuous scrolling (text + separator width)
+                    separator = "   |   "
+                    separator_width = len(separator) * 6
                     max_width = max(artist_width, song_width, show_width)
-                    if self.current_scroll_pos < -max_width:
-                        self.current_scroll_pos = self.matrix.width
+                    # Reset when the first instance + separator has scrolled past
+                    if self.current_scroll_pos < -(max_width + separator_width):
+                        self.current_scroll_pos = 0
 
             # Swap buffer - this is atomic and thread-safe
             self.canvas = self.matrix.SwapOnVSync(self.canvas)

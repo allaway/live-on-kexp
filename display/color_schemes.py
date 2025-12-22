@@ -134,22 +134,6 @@ COLOR_SCHEMES = {
         info_color=(123, 104, 238)     # Medium slate blue
     ),
 
-    # Stevie Wonder's House Party - Soul/Funk (retro warm)
-    'stevie_wonder': ColorScheme(
-        "Stevie Wonder's House Party",
-        artist_color=(255, 140, 0),    # Dark orange
-        song_color=(186, 85, 211),     # Medium orchid
-        info_color=(255, 215, 0)       # Gold
-    ),
-
-    # Rockabilly Revolt - 1950s retro (pink, teal, cream)
-    'rockabilly': ColorScheme(
-        'Rockabilly Revolt',
-        artist_color=(255, 105, 180),  # Hot pink
-        song_color=(64, 224, 208),     # Turquoise
-        info_color=(255, 228, 181)     # Moccasin/cream
-    ),
-
     # Mechanical Breakdown - Industrial (metallic, harsh)
     'mechanical_breakdown': ColorScheme(
         'Mechanical Breakdown',
@@ -158,69 +142,6 @@ COLOR_SCHEMES = {
         info_color=(0, 206, 209)       # Dark turquoise
     ),
 
-    # Psychedelic Shack - 60s psychedelic (acid colors)
-    'psychedelic': ColorScheme(
-        'Psychedelic Shack',
-        artist_color=(255, 20, 147),   # Deep pink
-        song_color=(173, 255, 47),     # Green yellow
-        info_color=(138, 43, 226)      # Blue violet
-    ),
-
-    # Roots & Wires - Folk/Americana (natural earth tones)
-    'roots_wires': ColorScheme(
-        'Roots & Wires',
-        artist_color=(210, 180, 140),  # Tan
-        song_color=(143, 188, 143),    # Dark sea green
-        info_color=(160, 82, 45)       # Sienna
-    ),
-
-    # The Sunray Show - Bright daytime indie
-    'sunray': ColorScheme(
-        'The Sunray Show',
-        artist_color=(255, 250, 205),  # Lemon chiffon
-        song_color=(255, 160, 122),    # Light salmon
-        info_color=(135, 206, 235)     # Sky blue
-    ),
-
-    # Dub Shack - Dub/Bass heavy (deep greens and bass)
-    'dub_shack': ColorScheme(
-        'Dub Shack',
-        artist_color=(34, 139, 34),    # Forest green
-        song_color=(255, 215, 0),      # Gold
-        info_color=(220, 20, 60)       # Crimson
-    ),
-
-    # Rap Attack - Classic hip-hop (bold, high contrast)
-    'rap_attack': ColorScheme(
-        'Rap Attack',
-        artist_color=(255, 215, 0),    # Gold
-        song_color=(0, 0, 0),          # Black (will show as very dim on LED)
-        info_color=(220, 20, 60)       # Crimson
-    ),
-
-    # Soul Serenade - Smooth soul (warm, romantic)
-    'soul_serenade': ColorScheme(
-        'Soul Serenade',
-        artist_color=(219, 112, 147),  # Pale violet red
-        song_color=(255, 218, 185),    # Peach puff
-        info_color=(218, 165, 32)      # Goldenrod
-    ),
-
-    # Audio Oasis - Experimental/Avant-garde (unusual combos)
-    'audio_oasis': ColorScheme(
-        'Audio Oasis',
-        artist_color=(173, 255, 47),   # Green yellow
-        song_color=(255, 20, 147),     # Deep pink
-        info_color=(64, 224, 208)      # Turquoise
-    ),
-
-    # Local show - Seattle scene (gray, green, coffee brown)
-    'local_show': ColorScheme(
-        'Local Show',
-        artist_color=(169, 169, 169),  # Dark gray
-        song_color=(60, 179, 113),     # Medium sea green
-        info_color=(139, 69, 19)       # Saddle brown
-    ),
 
     # Default KEXP - Classic station palette
     'kexp_default': ColorScheme(
@@ -255,14 +176,9 @@ SHOW_COLOR_MAPPING = {
     
     # Reggae/Dub
     'Shakedown': 'shakedown',
-    'Dub Shack': 'dub_shack',
     
     # Hip-Hop/R&B/Soul
     'Street Sounds': 'street_sounds',
-    'Rap Attack': 'rap_attack',
-    "Stevie Wonder's House Party": 'stevie_wonder',
-    'Shake The Shack': 'stevie_wonder',
-    'Soul Serenade': 'soul_serenade',
     
     # Jazz/Blues
     'Expansions': 'expansions',
@@ -273,20 +189,9 @@ SHOW_COLOR_MAPPING = {
     'Seek and Destroy': 'seek_destroy',
     'Sonic Reducer': 'sonic_reducer',
     'Rockers': 'sonic_reducer',
-    'Rockabilly Revolt': 'rockabilly',
-    'Psychedelic Shack': 'psychedelic',
-    
-    # Folk/Americana
-    'Roots & Wires': 'roots_wires',
-    'Americana': 'roots_wires',
-    
+
     # Pacific Northwest/Indie
     'Pacific Notions': 'pacific_notions',
-    'Local Show': 'local_show',
-    'The Sunray Show': 'sunray',
-    
-    # Experimental
-    'Audio Oasis': 'audio_oasis',
     
     # Late Night
     'Overnight': 'overnight',
