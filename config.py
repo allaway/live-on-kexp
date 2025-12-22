@@ -26,6 +26,9 @@ class Config:
     # GPIO mapping (use adafruit-hat for Adafruit RGB Matrix Bonnet)
     gpio_mapping = os.getenv('GPIO_MAPPING', 'adafruit-hat')
 
+    # GPIO slowdown (adjust for flickering - Pi 4 typically needs 4, Pi 5 may need 2-3)
+    gpio_slowdown = int(os.getenv('GPIO_SLOWDOWN', '4'))
+
     # Font settings
     font_path = os.getenv('FONT_PATH', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf')
     small_font_size = int(os.getenv('SMALL_FONT_SIZE', '8'))

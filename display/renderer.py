@@ -58,7 +58,7 @@ class DisplayRenderer:
         options.parallel = self.config.matrix_parallel
         options.hardware_mapping = self.config.gpio_mapping
         options.brightness = self.config.brightness
-        options.gpio_slowdown = 4  # Needed for Pi 4
+        options.gpio_slowdown = self.config.gpio_slowdown  # Adjust for flickering
         options.disable_hardware_pulsing = True  # Better image quality
 
         self.matrix = RGBMatrix(options=options)
