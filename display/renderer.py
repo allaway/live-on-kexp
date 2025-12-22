@@ -176,26 +176,29 @@ class DisplayRenderer:
             ],
         }
 
-        # Draw KEXP centered at the bottom
+        # Draw KEXP aligned with bars at the bottom
         text = "KEXP"
         char_width = 4
         char_height = 5
-        char_spacing = 2
-        total_width = len(text) * char_width + (len(text) - 1) * char_spacing
-        start_x = (self.matrix.width - total_width) // 2
+        char_spacing = 1
+        pixel_thickness = 2  # Make each pixel 2 pixels wide for better readability
+
+        start_x = 16  # Align with bars (same as bar start_x)
         start_y = 24  # Position at bottom
 
         for i, char in enumerate(text):
             if char in letters:
                 letter_pattern = letters[char]
-                x_offset = start_x + i * (char_width + char_spacing)
+                x_offset = start_x + i * (char_width * pixel_thickness + char_spacing)
                 for row_idx, row in enumerate(letter_pattern):
                     for col_idx, pixel in enumerate(row):
                         if pixel:
-                            px = x_offset + col_idx
-                            py = start_y + row_idx
-                            if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
-                                self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
+                            # Draw each pixel as 2 pixels wide for thickness
+                            for thickness in range(pixel_thickness):
+                                px = x_offset + col_idx * pixel_thickness + thickness
+                                py = start_y + row_idx
+                                if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
+                                    self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
 
     def render_now_playing(self, play_data):
         """
