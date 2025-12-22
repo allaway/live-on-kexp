@@ -176,7 +176,7 @@ class DisplayRenderer:
                 # Draw show name (top line)
                 if show_width > self.matrix.width:
                     # Continuous scrolling with separator
-                    separator = "   |   "
+                    separator = "  |  "
                     separator_width = len(separator) * 6
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, display_show_name)
@@ -192,7 +192,7 @@ class DisplayRenderer:
                     host_width = len(host_name) * 6
                     if host_width > self.matrix.width:
                         # Continuous scrolling with separator (using same scroll position as show name)
-                        separator = "   |   "
+                        separator = "  |  "
                         separator_width = len(separator) * 6
                         x_pos = self.current_scroll_pos
                         graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, host_name)
@@ -223,13 +223,13 @@ class DisplayRenderer:
                     if self.scroll_counter >= 1.6:
                         self.current_scroll_pos -= 1
                         self.scroll_counter = 0
-                    # Reset for continuous scrolling (text + separator width)
-                    separator = "   |   "
+                    # Reset for continuous scrolling - add back the cycle length for seamless loop
+                    separator = "  |  "
                     separator_width = len(separator) * 6
                     max_width = max(show_width, host_width)
-                    # Reset when the first instance + separator has scrolled past
+                    # When scrolled past one full cycle, add back to create seamless loop
                     if self.current_scroll_pos < -(max_width + separator_width):
-                        self.current_scroll_pos = 0
+                        self.current_scroll_pos += (max_width + separator_width)
             else:
                 # Normal track display
                 artist = str(play_data.get('artist', 'Unknown'))
@@ -249,7 +249,7 @@ class DisplayRenderer:
                 # Position for artist (top line, y=8)
                 if artist_width > self.matrix.width:
                     # Continuous scrolling with separator
-                    separator = "   |   "
+                    separator = "  |  "
                     separator_width = len(separator) * 6
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(self.canvas, self.font, x_pos, 8, artist_color, artist)
@@ -264,7 +264,7 @@ class DisplayRenderer:
                 # Position for song (middle line, y=18)
                 if song_width > self.matrix.width:
                     # Continuous scrolling with separator
-                    separator = "   |   "
+                    separator = "  |  "
                     separator_width = len(separator) * 6
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(self.canvas, self.font, x_pos, 18, song_color, song)
@@ -278,7 +278,7 @@ class DisplayRenderer:
                 # Position for show name (bottom line, y=28) - CHANGED FROM ALBUM
                 if show_width > self.matrix.width:
                     # Continuous scrolling with separator
-                    separator = "   |   "
+                    separator = "  |  "
                     separator_width = len(separator) * 6
                     x_pos = self.current_scroll_pos
                     graphics.DrawText(self.canvas, self.font, x_pos, 28, info_color, show_name_display)
@@ -297,13 +297,13 @@ class DisplayRenderer:
                     if self.scroll_counter >= 1.6:
                         self.current_scroll_pos -= 1
                         self.scroll_counter = 0
-                    # Reset for continuous scrolling (text + separator width)
-                    separator = "   |   "
+                    # Reset for continuous scrolling - add back the cycle length for seamless loop
+                    separator = "  |  "
                     separator_width = len(separator) * 6
                     max_width = max(artist_width, song_width, show_width)
-                    # Reset when the first instance + separator has scrolled past
+                    # When scrolled past one full cycle, add back to create seamless loop
                     if self.current_scroll_pos < -(max_width + separator_width):
-                        self.current_scroll_pos = 0
+                        self.current_scroll_pos += (max_width + separator_width)
 
             # Swap buffer - this is atomic and thread-safe
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
