@@ -127,11 +127,11 @@ class DisplayRenderer:
 
         # Draw four bars (bar graph visualization)
         # Bar heights (in pixels) - scaled for 32-pixel height display
-        bar_heights = [10, 7, 12, 9]
+        bar_heights = [13, 10, 15, 12]
         bar_width = 6
         bar_spacing = 3
         start_x = 16  # Center the bars (4 bars * 6 wide + 3 spacing * 3 = 33, (64-33)/2 ≈ 16)
-        baseline_y = 20  # Baseline from which bars grow upward
+        baseline_y = 16  # Baseline from which bars grow upward (moved up)
 
         for i, height in enumerate(bar_heights):
             x = start_x + i * (bar_width + bar_spacing)
@@ -181,10 +181,10 @@ class DisplayRenderer:
         char_width = 4
         char_height = 5
         char_spacing = 1
-        pixel_thickness = 2  # Make each pixel 2 pixels wide for better readability
+        pixel_thickness = 2  # Make each pixel 2x2 for better readability
 
         start_x = 16  # Align with bars (same as bar start_x)
-        start_y = 24  # Position at bottom
+        start_y = 20  # Position at bottom
 
         for i, char in enumerate(text):
             if char in letters:
@@ -193,12 +193,13 @@ class DisplayRenderer:
                 for row_idx, row in enumerate(letter_pattern):
                     for col_idx, pixel in enumerate(row):
                         if pixel:
-                            # Draw each pixel as 2 pixels wide for thickness
-                            for thickness in range(pixel_thickness):
-                                px = x_offset + col_idx * pixel_thickness + thickness
-                                py = start_y + row_idx
-                                if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
-                                    self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
+                            # Draw each pixel as 2x2 block for thickness
+                            for dx in range(pixel_thickness):
+                                for dy in range(pixel_thickness):
+                                    px = x_offset + col_idx * pixel_thickness + dx
+                                    py = start_y + row_idx * pixel_thickness + dy
+                                    if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
+                                        self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
 
     def render_now_playing(self, play_data):
         """
