@@ -144,44 +144,61 @@ class DisplayRenderer:
                         self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
 
         # Draw "KEXP" text at the bottom using pixel art
-        # Define each letter as a 5x5 pixel pattern (1 = draw pixel, 0 = skip)
+        # Define each letter with higher resolution (7-8 pixels wide x 10 pixels tall)
         letters = {
             'K': [
-                [1, 0, 0, 1],
-                [1, 0, 1, 0],
-                [1, 1, 0, 0],
-                [1, 0, 1, 0],
-                [1, 0, 0, 1],
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 0, 0, 1, 1, 0],
+                [1, 1, 0, 1, 1, 0, 0],
+                [1, 1, 1, 1, 0, 0, 0],
+                [1, 1, 1, 0, 0, 0, 0],
+                [1, 1, 1, 1, 0, 0, 0],
+                [1, 1, 0, 1, 1, 0, 0],
+                [1, 1, 0, 0, 1, 1, 0],
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 0, 0, 0, 1, 1],
             ],
             'E': [
-                [1, 1, 1, 1],
-                [1, 0, 0, 0],
-                [1, 1, 1, 0],
-                [1, 0, 0, 0],
-                [1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 1, 1, 1, 1, 0],
+                [1, 1, 1, 1, 1, 1, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1],
             ],
             'X': [
-                [1, 0, 0, 1],
-                [1, 1, 1, 1],
-                [0, 1, 1, 0],
-                [1, 1, 1, 1],
-                [1, 0, 0, 1],
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 1, 0, 1, 1, 1],
+                [0, 1, 1, 1, 1, 1, 0],
+                [0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 1, 1, 1, 0, 0],
+                [0, 1, 1, 1, 1, 1, 0],
+                [1, 1, 1, 0, 1, 1, 1],
+                [1, 1, 0, 0, 0, 1, 1],
             ],
             'P': [
-                [1, 1, 1, 0],
-                [1, 0, 0, 1],
-                [1, 1, 1, 0],
-                [1, 0, 0, 0],
-                [1, 0, 0, 0],
+                [1, 1, 1, 1, 1, 1, 0],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 0, 0, 0, 1, 1],
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 1, 1, 1, 1, 1, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 0, 0, 0],
             ],
         }
 
-        # Draw KEXP aligned with bars at the bottom
+        # Draw KEXP aligned with bars at the bottom using single pixels
         text = "KEXP"
-        char_width = 4
-        char_height = 5
-        char_spacing = 1
-        pixel_thickness = 2  # Make each pixel 2x2 for better readability
+        char_spacing = 2
 
         start_x = 16  # Align with bars (same as bar start_x)
         start_y = 20  # Position at bottom
@@ -189,17 +206,16 @@ class DisplayRenderer:
         for i, char in enumerate(text):
             if char in letters:
                 letter_pattern = letters[char]
-                x_offset = start_x + i * (char_width * pixel_thickness + char_spacing)
+                char_width = len(letter_pattern[0]) if letter_pattern else 0
+                x_offset = start_x + sum(len(letters[text[j]][0]) + char_spacing for j in range(i))
+
                 for row_idx, row in enumerate(letter_pattern):
                     for col_idx, pixel in enumerate(row):
                         if pixel:
-                            # Draw each pixel as 2x2 block for thickness
-                            for dx in range(pixel_thickness):
-                                for dy in range(pixel_thickness):
-                                    px = x_offset + col_idx * pixel_thickness + dx
-                                    py = start_y + row_idx * pixel_thickness + dy
-                                    if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
-                                        self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
+                            px = x_offset + col_idx
+                            py = start_y + row_idx
+                            if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
+                                self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
 
     def render_now_playing(self, play_data):
         """
