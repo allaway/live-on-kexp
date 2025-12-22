@@ -162,9 +162,9 @@ class DisplayRenderer:
             ],
             'X': [
                 [1, 0, 0, 1],
+                [1, 1, 1, 1],
                 [0, 1, 1, 0],
-                [0, 1, 1, 0],
-                [0, 1, 1, 0],
+                [1, 1, 1, 1],
                 [1, 0, 0, 1],
             ],
             'P': [
@@ -254,9 +254,9 @@ class DisplayRenderer:
             is_airbreak = play_type == 'airbreak'
 
             if is_airbreak:
-                # Alternate between info display and KEXP logo every 3 seconds (30 frames at 10fps)
+                # Alternate between info display and KEXP logo every 20 seconds (200 frames at 10fps)
                 self.airbreak_frame_counter += 1
-                if self.airbreak_frame_counter >= 30:
+                if self.airbreak_frame_counter >= 200:
                     self.airbreak_display_toggle = not self.airbreak_display_toggle
                     self.airbreak_frame_counter = 0
 
