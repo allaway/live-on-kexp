@@ -125,28 +125,28 @@ class DisplayRenderer:
             for x in range(self.matrix.width):
                 self.canvas.SetPixel(x, y, bg_color.red, bg_color.green, bg_color.blue)
 
-        # Draw four bars at the top (bar graph visualization)
+        # Draw four bars (bar graph visualization)
         # Bar heights (in pixels) - scaled for 32-pixel height display
         bar_heights = [10, 7, 12, 9]
         bar_width = 6
         bar_spacing = 3
         start_x = 16  # Center the bars (4 bars * 6 wide + 3 spacing * 3 = 33, (64-33)/2 ≈ 16)
-        y_start = 2  # Start from near the top
+        baseline_y = 20  # Baseline from which bars grow upward
 
         for i, height in enumerate(bar_heights):
             x = start_x + i * (bar_width + bar_spacing)
-            # Draw each bar from top downward
+            # Draw each bar UPWARD from baseline (like a bar chart)
             for bx in range(bar_width):
                 for by in range(height):
                     px = x + bx
-                    py = y_start + by  # Draw downward
+                    py = baseline_y - by  # Draw upward from baseline
                     if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
                         self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
 
-        # Draw "KEXP" text at the bottom (y=28 for 6-pixel font on 32-pixel display)
+        # Draw "KEXP" text at the bottom
         if self.font:
             # Center the text: "KEXP" is 4 chars * 6 pixels = 24 pixels, (64-24)/2 = 20
-            graphics.DrawText(self.canvas, self.font, 20, 28, fg_color, "KEXP")
+            graphics.DrawText(self.canvas, self.font, 20, 30, fg_color, "KEXP")
 
     def render_now_playing(self, play_data):
         """
