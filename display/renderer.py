@@ -143,10 +143,59 @@ class DisplayRenderer:
                     if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
                         self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
 
-        # Draw "KEXP" text at the bottom
-        if self.font:
-            # Center the text: "KEXP" is 4 chars * 6 pixels = 24 pixels, (64-24)/2 = 20
-            graphics.DrawText(self.canvas, self.font, 20, 30, fg_color, "KEXP")
+        # Draw "KEXP" text at the bottom using pixel art
+        # Define each letter as a 5x5 pixel pattern (1 = draw pixel, 0 = skip)
+        letters = {
+            'K': [
+                [1, 0, 0, 1],
+                [1, 0, 1, 0],
+                [1, 1, 0, 0],
+                [1, 0, 1, 0],
+                [1, 0, 0, 1],
+            ],
+            'E': [
+                [1, 1, 1, 1],
+                [1, 0, 0, 0],
+                [1, 1, 1, 0],
+                [1, 0, 0, 0],
+                [1, 1, 1, 1],
+            ],
+            'X': [
+                [1, 0, 0, 1],
+                [0, 1, 1, 0],
+                [0, 1, 1, 0],
+                [0, 1, 1, 0],
+                [1, 0, 0, 1],
+            ],
+            'P': [
+                [1, 1, 1, 0],
+                [1, 0, 0, 1],
+                [1, 1, 1, 0],
+                [1, 0, 0, 0],
+                [1, 0, 0, 0],
+            ],
+        }
+
+        # Draw KEXP centered at the bottom
+        text = "KEXP"
+        char_width = 4
+        char_height = 5
+        char_spacing = 2
+        total_width = len(text) * char_width + (len(text) - 1) * char_spacing
+        start_x = (self.matrix.width - total_width) // 2
+        start_y = 24  # Position at bottom
+
+        for i, char in enumerate(text):
+            if char in letters:
+                letter_pattern = letters[char]
+                x_offset = start_x + i * (char_width + char_spacing)
+                for row_idx, row in enumerate(letter_pattern):
+                    for col_idx, pixel in enumerate(row):
+                        if pixel:
+                            px = x_offset + col_idx
+                            py = start_y + row_idx
+                            if 0 <= px < self.matrix.width and 0 <= py < self.matrix.height:
+                                self.canvas.SetPixel(px, py, fg_color.red, fg_color.green, fg_color.blue)
 
     def render_now_playing(self, play_data):
         """
