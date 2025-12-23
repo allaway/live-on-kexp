@@ -164,80 +164,80 @@ Each KEXP show has a unique, carefully crafted color palette that reflects its m
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Early** | Sunrise morning | Light Pink (255, 182, 193) | Peach (255, 218, 185) | Papaya Whip (255, 239, 213) |
-| **The Morning Show** | Warm sunrise gradient | Coral (255, 127, 80) | Gold (255, 215, 0) | Light Sky Blue (135, 206, 250) |
-| **The Midday Show** | Bright midday sun | Yellow (255, 255, 0) | Orange (255, 165, 0) | Light Sky Blue (135, 206, 250) |
-| **The Afternoon Show** | Balanced brightness | White (255, 255, 255) | Steel Blue (70, 130, 180) | Amber (255, 195, 77) |
-| **Drive Time** | Bold primaries | Crimson (220, 20, 60) | White (255, 255, 255) | Orange (255, 165, 0) |
+| **Early** | Sunrise morning | ![#FFB6C1](https://via.placeholder.com/80x20/FFB6C1/FFB6C1.png) Light Pink | ![#FFDAB9](https://via.placeholder.com/80x20/FFDAB9/FFDAB9.png) Peach | ![#FFEFD5](https://via.placeholder.com/80x20/FFEFD5/000000.png?text=+) Papaya Whip |
+| **The Morning Show** | Warm sunrise gradient | ![#FF7F50](https://via.placeholder.com/80x20/FF7F50/FF7F50.png) Coral | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold | ![#87CEEB](https://via.placeholder.com/80x20/87CEEB/000000.png?text=+) Light Sky Blue |
+| **The Midday Show** | Bright midday sun | ![#FFFF00](https://via.placeholder.com/80x20/FFFF00/000000.png?text=+) Yellow | ![#FFA500](https://via.placeholder.com/80x20/FFA500/FFA500.png) Orange | ![#87CEEB](https://via.placeholder.com/80x20/87CEEB/000000.png?text=+) Light Sky Blue |
+| **The Afternoon Show** | Balanced brightness | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) White | ![#4682B4](https://via.placeholder.com/80x20/4682B4/4682B4.png) Steel Blue | ![#FFC34D](https://via.placeholder.com/80x20/FFC34D/000000.png?text=+) Amber |
+| **Drive Time** | Bold primaries | ![#DC143C](https://via.placeholder.com/80x20/DC143C/DC143C.png) Crimson | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) White | ![#FFA500](https://via.placeholder.com/80x20/FFA500/FFA500.png) Orange |
 
 ### Electronic & Dance
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Midnight in a Perfect World** | Deep space electronic | Blue Violet (138, 43, 226) | Deep Sky Blue (0, 191, 255) | Medium Orchid (186, 85, 211) |
-| **Mechanical Breakdown** | Industrial metallic | Silver (192, 192, 192) | Tomato Red (255, 99, 71) | Dark Turquoise (0, 206, 209) |
-| **Astral Plane** | Cosmic psychedelic | Blue Violet (138, 43, 226) | Magenta (255, 0, 255) | Deep Sky Blue (0, 191, 255) |
+| **Midnight in a Perfect World** | Deep space electronic | ![#8A2BE2](https://via.placeholder.com/80x20/8A2BE2/8A2BE2.png) Blue Violet | ![#00BFFF](https://via.placeholder.com/80x20/00BFFF/00BFFF.png) Deep Sky Blue | ![#BA55D3](https://via.placeholder.com/80x20/BA55D3/BA55D3.png) Medium Orchid |
+| **Mechanical Breakdown** | Industrial metallic | ![#C0C0C0](https://via.placeholder.com/80x20/C0C0C0/000000.png?text=+) Silver | ![#FF6347](https://via.placeholder.com/80x20/FF6347/FF6347.png) Tomato Red | ![#00CED1](https://via.placeholder.com/80x20/00CED1/00CED1.png) Dark Turquoise |
+| **Astral Plane** | Cosmic psychedelic | ![#8A2BE2](https://via.placeholder.com/80x20/8A2BE2/8A2BE2.png) Blue Violet | ![#FF00FF](https://via.placeholder.com/80x20/FF00FF/FF00FF.png) Magenta | ![#00BFFF](https://via.placeholder.com/80x20/00BFFF/00BFFF.png) Deep Sky Blue |
 
 ### World Music
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Audioasis** | Desert palette | Indian Red (205, 92, 92) | Dark Khaki (189, 183, 107) | Sandy Brown (244, 164, 96) |
-| **Wo' Pop** | Vibrant eclectic | Hot Pink (255, 105, 180) | Turquoise (64, 224, 208) | Gold (255, 215, 0) |
-| **El Sonido** | Spicy Latin warmth | Red-Orange (255, 69, 0) | Gold (255, 215, 0) | Dark Violet (148, 0, 211) |
-| **Eastern Echoes** | Eastern-inspired | Crimson Red (220, 20, 60) | Gold (255, 215, 0) | Teal (0, 128, 128) |
-| **Sounds of Survivance** | Earth and sky | Saddle Brown (139, 69, 19) | Tan (210, 180, 140) | Sky Blue (135, 206, 235) |
-| **The Continent** | African vibrant | Dark Orange (255, 140, 0) | Forest Green (34, 139, 34) | Crimson (220, 20, 60) |
+| **Audioasis** | Desert palette | ![#CD5C5C](https://via.placeholder.com/80x20/CD5C5C/CD5C5C.png) Indian Red | ![#BDB76B](https://via.placeholder.com/80x20/BDB76B/BDB76B.png) Dark Khaki | ![#F4A460](https://via.placeholder.com/80x20/F4A460/F4A460.png) Sandy Brown |
+| **Wo' Pop** | Vibrant eclectic | ![#FF69B4](https://via.placeholder.com/80x20/FF69B4/FF69B4.png) Hot Pink | ![#40E0D0](https://via.placeholder.com/80x20/40E0D0/40E0D0.png) Turquoise | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold |
+| **El Sonido** | Spicy Latin warmth | ![#FF4500](https://via.placeholder.com/80x20/FF4500/FF4500.png) Red-Orange | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold | ![#9400D3](https://via.placeholder.com/80x20/9400D3/9400D3.png) Dark Violet |
+| **Eastern Echoes** | Eastern-inspired | ![#DC143C](https://via.placeholder.com/80x20/DC143C/DC143C.png) Crimson Red | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold | ![#008080](https://via.placeholder.com/80x20/008080/008080.png) Teal |
+| **Sounds of Survivance** | Earth and sky | ![#8B4513](https://via.placeholder.com/80x20/8B4513/8B4513.png) Saddle Brown | ![#D2B48C](https://via.placeholder.com/80x20/D2B48C/000000.png?text=+) Tan | ![#87CEEB](https://via.placeholder.com/80x20/87CEEB/000000.png?text=+) Sky Blue |
+| **The Continent** | African vibrant | ![#FF8C00](https://via.placeholder.com/80x20/FF8C00/FF8C00.png) Dark Orange | ![#228B22](https://via.placeholder.com/80x20/228B22/228B22.png) Forest Green | ![#DC143C](https://via.placeholder.com/80x20/DC143C/DC143C.png) Crimson |
 
 ### Reggae & Caribbean
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Positive Vibrations** | Rasta colors | Rasta Gold (252, 209, 22) | Rasta Green (0, 155, 58) | Rasta Red (206, 17, 38) |
+| **Positive Vibrations** | Rasta colors | ![#FCD116](https://via.placeholder.com/80x20/FCD116/000000.png?text=+) Rasta Gold | ![#009B3A](https://via.placeholder.com/80x20/009B3A/009B3A.png) Rasta Green | ![#CE1126](https://via.placeholder.com/80x20/CE1126/CE1126.png) Rasta Red |
 
 ### Hip-Hop, R&B & Soul
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Street Sounds** | Urban neon graffiti | Deep Pink (255, 20, 147) | Cyan (0, 255, 255) | Gold (255, 215, 0) |
-| **Sunday Soul** | Warm vintage soul | Dark Goldenrod (184, 134, 11) | Pale Violet Red (219, 112, 147) | Peach Puff (255, 218, 185) |
+| **Street Sounds** | Urban neon graffiti | ![#FF1493](https://via.placeholder.com/80x20/FF1493/FF1493.png) Deep Pink | ![#00FFFF](https://via.placeholder.com/80x20/00FFFF/00FFFF.png) Cyan | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold |
+| **Sunday Soul** | Warm vintage soul | ![#B8860B](https://via.placeholder.com/80x20/B8860B/B8860B.png) Dark Goldenrod | ![#DB7093](https://via.placeholder.com/80x20/DB7093/DB7093.png) Pale Violet Red | ![#FFDAB9](https://via.placeholder.com/80x20/FFDAB9/FFDAB9.png) Peach Puff |
 
 ### Jazz, Blues & Roots
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Expansions** | Smoky jazz club | Tan (210, 180, 140) | Light Steel Blue (176, 196, 222) | Goldenrod (218, 165, 32) |
-| **Jazz Theatre** | Smoky jazz club | Tan (210, 180, 140) | Light Steel Blue (176, 196, 222) | Goldenrod (218, 165, 32) |
-| **The Roadhouse** | Rustic honky tonk | Saddle Brown (139, 69, 19) | Chocolate (210, 105, 30) | Gold (255, 215, 0) |
+| **Expansions** | Smoky jazz club | ![#D2B48C](https://via.placeholder.com/80x20/D2B48C/000000.png?text=+) Tan | ![#B0C4DE](https://via.placeholder.com/80x20/B0C4DE/000000.png?text=+) Light Steel Blue | ![#DAA520](https://via.placeholder.com/80x20/DAA520/DAA520.png) Goldenrod |
+| **Jazz Theatre** | Smoky jazz club | ![#D2B48C](https://via.placeholder.com/80x20/D2B48C/000000.png?text=+) Tan | ![#B0C4DE](https://via.placeholder.com/80x20/B0C4DE/000000.png?text=+) Light Steel Blue | ![#DAA520](https://via.placeholder.com/80x20/DAA520/DAA520.png) Goldenrod |
+| **The Roadhouse** | Rustic honky tonk | ![#8B4513](https://via.placeholder.com/80x20/8B4513/8B4513.png) Saddle Brown | ![#D2691E](https://via.placeholder.com/80x20/D2691E/D2691E.png) Chocolate | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold |
 
 ### Rock, Metal & Punk
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Seek & Destroy** | Aggressive metal | Pure Red (255, 0, 0) | Pure White (255, 255, 255) | Gray (128, 128, 128) |
-| **Sonic Reducer** | Punk chaos | Yellow (255, 255, 0) | Magenta (255, 0, 255) | Lime Green (0, 255, 0) |
-| **90.TEEN** | Youth energy | Bright Pink (255, 0, 127) | Cyan (0, 255, 255) | Yellow (255, 255, 0) |
+| **Seek & Destroy** | Aggressive metal | ![#FF0000](https://via.placeholder.com/80x20/FF0000/FF0000.png) Pure Red | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) Pure White | ![#808080](https://via.placeholder.com/80x20/808080/808080.png) Gray |
+| **Sonic Reducer** | Punk chaos | ![#FFFF00](https://via.placeholder.com/80x20/FFFF00/000000.png?text=+) Yellow | ![#FF00FF](https://via.placeholder.com/80x20/FF00FF/FF00FF.png) Magenta | ![#00FF00](https://via.placeholder.com/80x20/00FF00/00FF00.png) Lime Green |
+| **90.TEEN** | Youth energy | ![#FF007F](https://via.placeholder.com/80x20/FF007F/FF007F.png) Bright Pink | ![#00FFFF](https://via.placeholder.com/80x20/00FFFF/00FFFF.png) Cyan | ![#FFFF00](https://via.placeholder.com/80x20/FFFF00/000000.png?text=+) Yellow |
 
 ### Pacific Northwest & Local
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Pacific Notions** | Mossy, misty PNW | Medium Aquamarine (102, 205, 170) | Powder Blue (176, 224, 230) | Light Slate Gray (119, 136, 153) |
-| **Vinelands** | Wine country | Dark Wine Red (128, 0, 32) | Olive Drab (107, 142, 35) | Goldenrod (218, 165, 32) |
+| **Pacific Notions** | Mossy, misty PNW | ![#66CDAA](https://via.placeholder.com/80x20/66CDAA/66CDAA.png) Medium Aquamarine | ![#B0E0E6](https://via.placeholder.com/80x20/B0E0E6/000000.png?text=+) Powder Blue | ![#778899](https://via.placeholder.com/80x20/778899/778899.png) Light Slate Gray |
+| **Vinelands** | Wine country | ![#800020](https://via.placeholder.com/80x20/800020/800020.png) Dark Wine Red | ![#6B8E23](https://via.placeholder.com/80x20/6B8E23/6B8E23.png) Olive Drab | ![#DAA520](https://via.placeholder.com/80x20/DAA520/DAA520.png) Goldenrod |
 
 ### Special Programming
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Live on KEXP** | Stage lighting | Red-Orange (255, 69, 0) | White Spotlight (255, 255, 255) | Blue Violet (138, 43, 226) |
-| **Sound & Vision** | Bold multimedia | Deep Pink (255, 20, 147) | Spring Green (0, 255, 127) | Orange (255, 165, 0) |
-| **Variety Mix** | Eclectic rainbow | Tomato (255, 99, 71) | Turquoise (64, 224, 208) | Gold (255, 215, 0) |
+| **Live on KEXP** | Stage lighting | ![#FF4500](https://via.placeholder.com/80x20/FF4500/FF4500.png) Red-Orange | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) White Spotlight | ![#8A2BE2](https://via.placeholder.com/80x20/8A2BE2/8A2BE2.png) Blue Violet |
+| **Sound & Vision** | Bold multimedia | ![#FF1493](https://via.placeholder.com/80x20/FF1493/FF1493.png) Deep Pink | ![#00FF7F](https://via.placeholder.com/80x20/00FF7F/00FF7F.png) Spring Green | ![#FFA500](https://via.placeholder.com/80x20/FFA500/FFA500.png) Orange |
+| **Variety Mix** | Eclectic rainbow | ![#FF6347](https://via.placeholder.com/80x20/FF6347/FF6347.png) Tomato | ![#40E0D0](https://via.placeholder.com/80x20/40E0D0/40E0D0.png) Turquoise | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold |
 
 ### Default
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **KEXP Default** | Classic station | White (255, 255, 255) | Bright Blue (100, 200, 255) | Warm Yellow (255, 200, 100) |
+| **KEXP Default** | Classic station | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) White | ![#64C8FF](https://via.placeholder.com/80x20/64C8FF/64C8FF.png) Bright Blue | ![#FFC864](https://via.placeholder.com/80x20/FFC864/000000.png?text=+) Warm Yellow |
 
 *Used for shows without a specific color scheme or when show information is unavailable.*
 
