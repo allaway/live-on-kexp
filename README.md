@@ -168,7 +168,7 @@ Each KEXP show has a unique, carefully crafted color palette that reflects its m
 | **The Morning Show** | ![#FF7F50](https://img.shields.io/badge/-FF7F50-FF7F50?style=flat-square) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) | ![#87CEFA](https://img.shields.io/badge/-87CEFA-87CEFA?style=flat-square&labelColor=87CEFA) |
 | **The Midday Show** | ![#FFFF00](https://img.shields.io/badge/-FFFF00-FFFF00?style=flat-square&labelColor=FFFF00) | ![#FFA500](https://img.shields.io/badge/-FFA500-FFA500?style=flat-square) | ![#87CEFA](https://img.shields.io/badge/-87CEFA-87CEFA?style=flat-square&labelColor=87CEFA) |
 | **The Afternoon Show** | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) | ![#4682B4](https://img.shields.io/badge/-4682B4-4682B4?style=flat-square) | ![#FFC34D](https://img.shields.io/badge/-FFC34D-FFC34D?style=flat-square&labelColor=FFC34D) |
-| **Drive Time** | ![#DC143C](https://img.shields.io/badge/-DC143C-DC143C?style=flat-square) | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) | ![#FFA500](https://img.shields.io/badge/-FFA500-FFA500?style=flat-square) |
+| **Drive Time** | ![#EA324C](https://img.shields.io/badge/-EA324C-EA324C?style=flat-square) | ![#F2AC42](https://img.shields.io/badge/-F2AC42-F2AC42?style=flat-square) | ![#00B38A](https://img.shields.io/badge/-00B38A-00B38A?style=flat-square) |
 
 ### Electronic & Dance
 
@@ -182,7 +182,7 @@ Each KEXP show has a unique, carefully crafted color palette that reflects its m
 
 | Show | Artist Color | Song Color | Info Color |
 |------|--------------|------------|------------|
-| **Audioasis** | ![#CD5C5C](https://img.shields.io/badge/-CD5C5C-CD5C5C?style=flat-square) | ![#BDB76B](https://img.shields.io/badge/-BDB76B-BDB76B?style=flat-square) | ![#F4A460](https://img.shields.io/badge/-F4A460-F4A460?style=flat-square) |
+| **Audioasis** | ![#547067](https://img.shields.io/badge/-547067-547067?style=flat-square) | ![#40595E](https://img.shields.io/badge/-40595E-40595E?style=flat-square) | ![#8EA091](https://img.shields.io/badge/-8EA091-8EA091?style=flat-square) |
 | **Wo' Pop** | ![#FF69B4](https://img.shields.io/badge/-FF69B4-FF69B4?style=flat-square) | ![#40E0D0](https://img.shields.io/badge/-40E0D0-40E0D0?style=flat-square&labelColor=40E0D0) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) |
 | **El Sonido** | ![#FF4500](https://img.shields.io/badge/-FF4500-FF4500?style=flat-square) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) | ![#9400D3](https://img.shields.io/badge/-9400D3-9400D3?style=flat-square) |
 | **Eastern Echoes** | ![#DC143C](https://img.shields.io/badge/-DC143C-DC143C?style=flat-square) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) | ![#008080](https://img.shields.io/badge/-008080-008080?style=flat-square) |
@@ -206,8 +206,8 @@ Each KEXP show has a unique, carefully crafted color palette that reflects its m
 
 | Show | Artist Color | Song Color | Info Color |
 |------|--------------|------------|------------|
-| **Expansions** | ![#D2B48C](https://img.shields.io/badge/-D2B48C-D2B48C?style=flat-square&labelColor=D2B48C) | ![#B0C4DE](https://img.shields.io/badge/-B0C4DE-B0C4DE?style=flat-square&labelColor=B0C4DE) | ![#DAA520](https://img.shields.io/badge/-DAA520-DAA520?style=flat-square) |
-| **Jazz Theatre** | ![#D2B48C](https://img.shields.io/badge/-D2B48C-D2B48C?style=flat-square&labelColor=D2B48C) | ![#B0C4DE](https://img.shields.io/badge/-B0C4DE-B0C4DE?style=flat-square&labelColor=B0C4DE) | ![#DAA520](https://img.shields.io/badge/-DAA520-DAA520?style=flat-square) |
+| **Expansions** | ![#8A629A](https://img.shields.io/badge/-8A629A-8A629A?style=flat-square) | ![#5F9EA0](https://img.shields.io/badge/-5F9EA0-5F9EA0?style=flat-square) | ![#D2691E](https://img.shields.io/badge/-D2691E-D2691E?style=flat-square) |
+| **Jazz Theatre** | ![#8A629A](https://img.shields.io/badge/-8A629A-8A629A?style=flat-square) | ![#5F9EA0](https://img.shields.io/badge/-5F9EA0-5F9EA0?style=flat-square) | ![#D2691E](https://img.shields.io/badge/-D2691E-D2691E?style=flat-square) |
 | **The Roadhouse** | ![#8B4513](https://img.shields.io/badge/-8B4513-8B4513?style=flat-square) | ![#D2691E](https://img.shields.io/badge/-D2691E-D2691E?style=flat-square) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) |
 
 ### Rock, Metal & Punk
@@ -222,7 +222,7 @@ Each KEXP show has a unique, carefully crafted color palette that reflects its m
 
 | Show | Artist Color | Song Color | Info Color |
 |------|--------------|------------|------------|
-| **Pacific Notions** | ![#66CDAA](https://img.shields.io/badge/-66CDAA-66CDAA?style=flat-square&labelColor=66CDAA) | ![#B0E0E6](https://img.shields.io/badge/-B0E0E6-B0E0E6?style=flat-square&labelColor=B0E0E6) | ![#778899](https://img.shields.io/badge/-778899-778899?style=flat-square) |
+| **Pacific Notions** | ![#B0C4DE](https://img.shields.io/badge/-B0C4DE-B0C4DE?style=flat-square&labelColor=B0C4DE) | ![#C6D5D8](https://img.shields.io/badge/-C6D5D8-C6D5D8?style=flat-square) | ![#A9A9A9](https://img.shields.io/badge/-A9A9A9-A9A9A9?style=flat-square) |
 | **Vinelands** | ![#800020](https://img.shields.io/badge/-800020-800020?style=flat-square) | ![#6B8E23](https://img.shields.io/badge/-6B8E23-6B8E23?style=flat-square) | ![#DAA520](https://img.shields.io/badge/-DAA520-DAA520?style=flat-square) |
 
 ### Special Programming
