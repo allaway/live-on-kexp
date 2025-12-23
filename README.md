@@ -83,6 +83,26 @@ To test the KEXP API connection:
 python3 test_api.py
 ```
 
+### Test Color Schemes
+
+To cycle through all show color schemes and verify them on your display:
+
+```bash
+# Auto-cycle through all shows (5 seconds each)
+sudo python3 test_colors.py
+
+# Auto-cycle with custom delay (10 seconds per show)
+sudo python3 test_colors.py --delay 10
+
+# Manual mode with keyboard controls (space=next, b=previous, q=quit)
+sudo python3 test_colors.py --manual
+```
+
+This is useful for:
+- Verifying color palettes look good on your specific LED matrix
+- Checking all shows have correct color schemes configured
+- Testing display functionality without waiting for KEXP API data
+
 ### Run on Hardware
 
 To run on actual RGB matrix hardware, you need sudo privileges:
