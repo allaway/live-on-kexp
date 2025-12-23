@@ -160,8 +160,6 @@ Each KEXP show has a unique, carefully crafted color palette that reflects its m
 - **Song Color**: Used for the song title (middle line)
 - **Info Color**: Used for show name or station ID (bottom line)
 
-### Daily Programming
-
 | Show | Artist Color | Song Color | Info Color |
 |------|--------------|------------|------------|
 | **Early** | ![#FFB6C1](https://img.shields.io/badge/-FFB6C1-FFB6C1?style=flat-square) | ![#FFDAB9](https://img.shields.io/badge/-FFDAB9-FFDAB9?style=flat-square&labelColor=FFDAB9) | ![#FFEFD5](https://img.shields.io/badge/-FFEFD5-FFEFD5?style=flat-square&labelColor=FFEFD5) |
@@ -169,77 +167,32 @@ Each KEXP show has a unique, carefully crafted color palette that reflects its m
 | **The Midday Show** | ![#FFFF00](https://img.shields.io/badge/-FFFF00-FFFF00?style=flat-square&labelColor=FFFF00) | ![#FFA500](https://img.shields.io/badge/-FFA500-FFA500?style=flat-square) | ![#87CEFA](https://img.shields.io/badge/-87CEFA-87CEFA?style=flat-square&labelColor=87CEFA) |
 | **The Afternoon Show** | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) | ![#4682B4](https://img.shields.io/badge/-4682B4-4682B4?style=flat-square) | ![#FFC34D](https://img.shields.io/badge/-FFC34D-FFC34D?style=flat-square&labelColor=FFC34D) |
 | **Drive Time** | ![#EA324C](https://img.shields.io/badge/-EA324C-EA324C?style=flat-square) | ![#F2AC42](https://img.shields.io/badge/-F2AC42-F2AC42?style=flat-square) | ![#00B38A](https://img.shields.io/badge/-00B38A-00B38A?style=flat-square) |
-
-### Electronic & Dance
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **Midnight in a Perfect World** | ![#8A2BE2](https://img.shields.io/badge/-8A2BE2-8A2BE2?style=flat-square) | ![#00BFFF](https://img.shields.io/badge/-00BFFF-00BFFF?style=flat-square) | ![#BA55D3](https://img.shields.io/badge/-BA55D3-BA55D3?style=flat-square) |
 | **Mechanical Breakdown** | ![#C0C0C0](https://img.shields.io/badge/-C0C0C0-C0C0C0?style=flat-square) | ![#FF6347](https://img.shields.io/badge/-FF6347-FF6347?style=flat-square) | ![#00CED1](https://img.shields.io/badge/-00CED1-00CED1?style=flat-square&labelColor=00CED1) |
 | **Astral Plane** | ![#8A2BE2](https://img.shields.io/badge/-8A2BE2-8A2BE2?style=flat-square) | ![#FF00FF](https://img.shields.io/badge/-FF00FF-FF00FF?style=flat-square) | ![#00BFFF](https://img.shields.io/badge/-00BFFF-00BFFF?style=flat-square) |
-
-### World Music
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **Audioasis** | ![#547067](https://img.shields.io/badge/-547067-547067?style=flat-square) | ![#40595E](https://img.shields.io/badge/-40595E-40595E?style=flat-square) | ![#8EA091](https://img.shields.io/badge/-8EA091-8EA091?style=flat-square) |
 | **Wo' Pop** | ![#FF69B4](https://img.shields.io/badge/-FF69B4-FF69B4?style=flat-square) | ![#40E0D0](https://img.shields.io/badge/-40E0D0-40E0D0?style=flat-square&labelColor=40E0D0) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) |
 | **El Sonido** | ![#FF4500](https://img.shields.io/badge/-FF4500-FF4500?style=flat-square) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) | ![#9400D3](https://img.shields.io/badge/-9400D3-9400D3?style=flat-square) |
 | **Eastern Echoes** | ![#DC143C](https://img.shields.io/badge/-DC143C-DC143C?style=flat-square) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) | ![#008080](https://img.shields.io/badge/-008080-008080?style=flat-square) |
 | **Sounds of Survivance** | ![#8B4513](https://img.shields.io/badge/-8B4513-8B4513?style=flat-square) | ![#D2B48C](https://img.shields.io/badge/-D2B48C-D2B48C?style=flat-square&labelColor=D2B48C) | ![#87CEEB](https://img.shields.io/badge/-87CEEB-87CEEB?style=flat-square&labelColor=87CEEB) |
 | **The Continent** | ![#FF8C00](https://img.shields.io/badge/-FF8C00-FF8C00?style=flat-square) | ![#228B22](https://img.shields.io/badge/-228B22-228B22?style=flat-square) | ![#DC143C](https://img.shields.io/badge/-DC143C-DC143C?style=flat-square) |
-
-### Reggae & Caribbean
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **Positive Vibrations** | ![#FCD116](https://img.shields.io/badge/-FCD116-FCD116?style=flat-square&labelColor=FCD116) | ![#009B3A](https://img.shields.io/badge/-009B3A-009B3A?style=flat-square) | ![#CE1126](https://img.shields.io/badge/-CE1126-CE1126?style=flat-square) |
-
-### Hip-Hop, R&B & Soul
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **Street Sounds** | ![#FF1493](https://img.shields.io/badge/-FF1493-FF1493?style=flat-square) | ![#00FFFF](https://img.shields.io/badge/-00FFFF-00FFFF?style=flat-square&labelColor=00FFFF) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) |
 | **Sunday Soul** | ![#B8860B](https://img.shields.io/badge/-B8860B-B8860B?style=flat-square) | ![#DB7093](https://img.shields.io/badge/-DB7093-DB7093?style=flat-square) | ![#FFDAB9](https://img.shields.io/badge/-FFDAB9-FFDAB9?style=flat-square&labelColor=FFDAB9) |
-
-### Jazz, Blues & Roots
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **Expansions** | ![#8A629A](https://img.shields.io/badge/-8A629A-8A629A?style=flat-square) | ![#5F9EA0](https://img.shields.io/badge/-5F9EA0-5F9EA0?style=flat-square) | ![#D2691E](https://img.shields.io/badge/-D2691E-D2691E?style=flat-square) |
 | **Jazz Theatre** | ![#8A629A](https://img.shields.io/badge/-8A629A-8A629A?style=flat-square) | ![#5F9EA0](https://img.shields.io/badge/-5F9EA0-5F9EA0?style=flat-square) | ![#D2691E](https://img.shields.io/badge/-D2691E-D2691E?style=flat-square) |
 | **The Roadhouse** | ![#8B4513](https://img.shields.io/badge/-8B4513-8B4513?style=flat-square) | ![#D2691E](https://img.shields.io/badge/-D2691E-D2691E?style=flat-square) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) |
-
-### Rock, Metal & Punk
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **Seek & Destroy** | ![#FF0000](https://img.shields.io/badge/-FF0000-FF0000?style=flat-square) | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) | ![#808080](https://img.shields.io/badge/-808080-808080?style=flat-square) |
 | **Sonic Reducer** | ![#FFFF00](https://img.shields.io/badge/-FFFF00-FFFF00?style=flat-square&labelColor=FFFF00) | ![#FF00FF](https://img.shields.io/badge/-FF00FF-FF00FF?style=flat-square) | ![#00FF00](https://img.shields.io/badge/-00FF00-00FF00?style=flat-square&labelColor=00FF00) |
 | **90.TEEN** | ![#FF007F](https://img.shields.io/badge/-FF007F-FF007F?style=flat-square) | ![#00FFFF](https://img.shields.io/badge/-00FFFF-00FFFF?style=flat-square&labelColor=00FFFF) | ![#FFFF00](https://img.shields.io/badge/-FFFF00-FFFF00?style=flat-square&labelColor=FFFF00) |
-
-### Pacific Northwest & Local
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **Pacific Notions** | ![#B0C4DE](https://img.shields.io/badge/-B0C4DE-B0C4DE?style=flat-square&labelColor=B0C4DE) | ![#C6D5D8](https://img.shields.io/badge/-C6D5D8-C6D5D8?style=flat-square) | ![#A9A9A9](https://img.shields.io/badge/-A9A9A9-A9A9A9?style=flat-square) |
 | **Vinelands** | ![#800020](https://img.shields.io/badge/-800020-800020?style=flat-square) | ![#6B8E23](https://img.shields.io/badge/-6B8E23-6B8E23?style=flat-square) | ![#DAA520](https://img.shields.io/badge/-DAA520-DAA520?style=flat-square) |
-
-### Special Programming
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **Live on KEXP** | ![#FF4500](https://img.shields.io/badge/-FF4500-FF4500?style=flat-square) | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) | ![#8A2BE2](https://img.shields.io/badge/-8A2BE2-8A2BE2?style=flat-square) |
 | **Sound & Vision** | ![#FF1493](https://img.shields.io/badge/-FF1493-FF1493?style=flat-square) | ![#00FF7F](https://img.shields.io/badge/-00FF7F-00FF7F?style=flat-square&labelColor=00FF7F) | ![#FFA500](https://img.shields.io/badge/-FFA500-FFA500?style=flat-square) |
 | **Variety Mix** | ![#FF6347](https://img.shields.io/badge/-FF6347-FF6347?style=flat-square) | ![#40E0D0](https://img.shields.io/badge/-40E0D0-40E0D0?style=flat-square&labelColor=40E0D0) | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) |
-
-### Default
-
-| Show | Artist Color | Song Color | Info Color |
-|------|--------------|------------|------------|
 | **KEXP Default** | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) | ![#64C8FF](https://img.shields.io/badge/-64C8FF-64C8FF?style=flat-square) | ![#FFC864](https://img.shields.io/badge/-FFC864-FFC864?style=flat-square&labelColor=FFC864) |
 
-*Used for shows without a specific color scheme or when show information is unavailable.*
+*KEXP Default is used for shows without a specific color scheme or when show information is unavailable.*
 ## Troubleshooting
 
 ### Display is flickering

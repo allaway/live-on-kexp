@@ -39,40 +39,20 @@ def create_badge(hex_color):
 def generate_color_table():
     """Generate the color schemes section for README"""
 
-    # Organize shows by category
-    categories = {
-        'Daily Programming': [
-            'Early', 'The Morning Show', 'The Midday Show', 'The Afternoon Show', 'Drive Time'
-        ],
-        'Electronic & Dance': [
-            'Midnight in a Perfect World', 'Mechanical Breakdown', 'Astral Plane'
-        ],
-        'World Music': [
-            'Audioasis', "Wo' Pop", 'El Sonido', 'Eastern Echoes',
-            'Sounds of Survivance', 'The Continent'
-        ],
-        'Reggae & Caribbean': [
-            'Positive Vibrations'
-        ],
-        'Hip-Hop, R&B & Soul': [
-            'Street Sounds', 'Sunday Soul'
-        ],
-        'Jazz, Blues & Roots': [
-            'Expansions', 'Jazz Theatre', 'The Roadhouse'
-        ],
-        'Rock, Metal & Punk': [
-            'Seek & Destroy', 'Sonic Reducer', '90.TEEN'
-        ],
-        'Pacific Northwest & Local': [
-            'Pacific Notions', 'Vinelands'
-        ],
-        'Special Programming': [
-            'Live on KEXP', 'Sound & Vision', 'Variety Mix'
-        ],
-        'Default': [
-            'KEXP Default'
-        ]
-    }
+    # All shows in a single list
+    shows = [
+        'Early', 'The Morning Show', 'The Midday Show', 'The Afternoon Show', 'Drive Time',
+        'Midnight in a Perfect World', 'Mechanical Breakdown', 'Astral Plane',
+        'Audioasis', "Wo' Pop", 'El Sonido', 'Eastern Echoes',
+        'Sounds of Survivance', 'The Continent',
+        'Positive Vibrations',
+        'Street Sounds', 'Sunday Soul',
+        'Expansions', 'Jazz Theatre', 'The Roadhouse',
+        'Seek & Destroy', 'Sonic Reducer', '90.TEEN',
+        'Pacific Notions', 'Vinelands',
+        'Live on KEXP', 'Sound & Vision', 'Variety Mix',
+        'KEXP Default'
+    ]
 
     output = []
     output.append("## Color Schemes\n")
@@ -81,38 +61,35 @@ def generate_color_table():
     output.append("- **Song Color**: Used for the song title (middle line)")
     output.append("- **Info Color**: Used for show name or station ID (bottom line)\n")
 
-    for category, shows in categories.items():
-        output.append(f"### {category}\n")
-        output.append("| Show | Artist Color | Song Color | Info Color |")
-        output.append("|------|--------------|------------|------------|")
+    output.append("| Show | Artist Color | Song Color | Info Color |")
+    output.append("|------|--------------|------------|------------|")
 
-        for show in shows:
-            # Find the scheme for this show
-            scheme_key = None
-            if show in SHOW_COLOR_MAPPING:
-                scheme_key = SHOW_COLOR_MAPPING[show]
-            elif show == 'KEXP Default':
-                scheme_key = 'kexp_default'
+    for show in shows:
+        # Find the scheme for this show
+        scheme_key = None
+        if show in SHOW_COLOR_MAPPING:
+            scheme_key = SHOW_COLOR_MAPPING[show]
+        elif show == 'KEXP Default':
+            scheme_key = 'kexp_default'
 
-            if not scheme_key or scheme_key not in COLOR_SCHEMES:
-                continue
+        if not scheme_key or scheme_key not in COLOR_SCHEMES:
+            continue
 
-            scheme = COLOR_SCHEMES[scheme_key]
+        scheme = COLOR_SCHEMES[scheme_key]
 
-            # Convert RGB to hex and create badges
-            artist_hex = rgb_to_hex(scheme.artist)
-            song_hex = rgb_to_hex(scheme.song)
-            info_hex = rgb_to_hex(scheme.info)
+        # Convert RGB to hex and create badges
+        artist_hex = rgb_to_hex(scheme.artist)
+        song_hex = rgb_to_hex(scheme.song)
+        info_hex = rgb_to_hex(scheme.info)
 
-            artist_badge = create_badge(artist_hex)
-            song_badge = create_badge(song_hex)
-            info_badge = create_badge(info_hex)
+        artist_badge = create_badge(artist_hex)
+        song_badge = create_badge(song_hex)
+        info_badge = create_badge(info_hex)
 
-            output.append(f"| **{show}** | {artist_badge} | {song_badge} | {info_badge} |")
+        output.append(f"| **{show}** | {artist_badge} | {song_badge} | {info_badge} |")
 
-        output.append("")
-
-    output.append("*Used for shows without a specific color scheme or when show information is unavailable.*")
+    output.append("")
+    output.append("*KEXP Default is used for shows without a specific color scheme or when show information is unavailable.*")
 
     return '\n'.join(output)
 
