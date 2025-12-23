@@ -9,16 +9,15 @@ A Raspberry Pi RGB LED matrix display that shows the current show and now playin
 - Scrolling text support for long track/artist names
 - Configurable display settings and update intervals
 - Automatic updates via KEXP's public API
-- Simulation mode for testing without hardware
 
 ## Hardware Requirements
 
-- Raspberry Pi (tested on Pi 3 and Pi 4)
-- RGB LED Matrix display (e.g., 64x32 or 64x64)
-- Adafruit RGB Matrix Bonnet HAT (or compatible)
+- Raspberry Pi (tested on Pi Zero 2 W)
+- RGB LED Matrix display 
+- Adafruit RGB Matrix Bonnet HAT 
 - Power supply for the LED matrix
 
-This project is based on the same hardware setup as [FlightTracker](https://github.com/ColinWaddell/FlightTracker/).
+This project uses the same hardware setup as [FlightTracker](https://github.com/ColinWaddell/FlightTracker/).
 
 ## Installation
 
