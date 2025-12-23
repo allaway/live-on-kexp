@@ -21,6 +21,8 @@ This project uses the same hardware setup as [FlightTracker](https://github.com/
 
 ## Installation
 
+Pls note - I need to run through these instructions again to make sure they are accurate, as I think I may have installed a slightly different way. If you run into issues, please drop me a note. 
+
 ### 1. Install RGB Matrix Library
 
 First, install the rpi-rgb-led-matrix library:
