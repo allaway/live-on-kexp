@@ -14,84 +14,84 @@ class ColorScheme:
 
 # Define color schemes for different shows with creative, precise colors
 COLOR_SCHEMES = {
-    # Morning Show - Sunrise gradient (warm coral to golden yellow)
+    # Morning Show - Sunrise
     'morning_show': ColorScheme(
         'Morning Show',
-        artist_color=(255, 127, 80),   # Coral
-        song_color=(255, 215, 0),      # Gold
-        info_color=(135, 206, 250)     # Light sky blue
+        artist_color=(255, 127, 80),
+        song_color=(255, 215, 0),
+        info_color=(135, 206, 250)
     ),
 
-    # Afternoon - Balanced midday brightness
+    # Afternoon - Midday brightness
     'afternoon': ColorScheme(
         'Afternoon',
-        artist_color=(255, 255, 255),  # Pure white
-        song_color=(70, 130, 180),     # Steel blue
-        info_color=(255, 195, 77)      # Amber
+        artist_color=(255, 255, 255),
+        song_color=(70, 130, 180),
+        info_color=(255, 195, 77)
     ),
 
-    # Drive Time - Traffic light energy (bold primaries)
+    # Drive Time - Traffic light
     'drive_time': ColorScheme(
         'Drive Time',
-        artist_color=(220, 20, 60),    # Crimson
-        song_color=(255, 255, 255),    # White
-        info_color=(255, 165, 0)       # Orange
+        artist_color=(234, 50, 76),
+        song_color=(242, 172, 66),
+        info_color=(0, 179, 138)
     ),
 
-    # Midnight in a Perfect World - Deep space electronic
+    # Midnight in a Perfect World - Deep space
     'midnight_perfect_world': ColorScheme(
         'Midnight in a Perfect World',
-        artist_color=(138, 43, 226),   # Blue violet
-        song_color=(0, 191, 255),      # Deep sky blue
-        info_color=(186, 85, 211)      # Medium orchid
+        artist_color=(138, 43, 226),   
+        song_color=(0, 191, 255), 
+        info_color=(186, 85, 211)
     ),
 
-    # Audioasis - Desert world music palette
+    # Audioasis - PNW
     'audioasis': ColorScheme(
         'Audioasis',
-        artist_color=(205, 92, 92),    # Indian red/terracotta
-        song_color=(189, 183, 107),    # Dark khaki
-        info_color=(244, 164, 96)      # Sandy brown
+        artist_color=(84, 112, 103),   # Misty sage green
+        song_color=(64, 89, 94),        # Stormy Pacific blue-gray
+        info_color=(142, 160, 145)      # Soft moss green
     ),
-
-    # Street Sounds - Urban neon graffiti
+    
+    # Street Sounds - Neon
     'street_sounds': ColorScheme(
         'Street Sounds',
-        artist_color=(255, 20, 147),   # Deep pink
-        song_color=(0, 255, 255),      # Cyan
-        info_color=(255, 215, 0)       # Gold
+        artist_color=(255, 20, 147),
+        song_color=(0, 255, 255), 
+        info_color=(255, 215, 0)
     ),
 
-    # Expansions - Smoky jazz club (warm, sophisticated)
+    # Expansions - Genre-fluid mix from the acid jazz era
     'expansions': ColorScheme(
         'Expansions',
-        artist_color=(210, 180, 140),  # Tan
-        song_color=(176, 196, 222),    # Light steel blue
-        info_color=(218, 165, 32)      # Goldenrod
+        artist_color=(138, 98, 154),     # Deep purple (acid jazz/trip-hop)
+        song_color=(95, 158, 160),       # Cadet blue (chill/ambient)
+        info_color=(210, 105, 30)        # Chocolate orange (warm vinyl)    
     ),
 
     # Seek and Destroy - Metal (high contrast, aggressive)
     'seek_destroy': ColorScheme(
         'Seek and Destroy',
-        artist_color=(255, 0, 0),      # Pure red
-        song_color=(255, 255, 255),    # Pure white
-        info_color=(128, 128, 128)     # Gray
+        artist_color=(255, 0, 0),
+        song_color=(255, 255, 255),
+        info_color=(128, 128, 128)
     ),
 
-    # Sonic Reducer - Punk chaos (clashing colors)
+    # Sonic Reducer - Punk
     'sonic_reducer': ColorScheme(
         'Sonic Reducer',
         artist_color=(255, 255, 0),    # Yellow
         song_color=(255, 0, 255),      # Magenta
         info_color=(0, 255, 0)         # Lime green
     ),
-
-    # Pacific Notions - Pacific Northwest (mossy, misty)
+    
+    # Pacific Notions - Neo-classical Sunday morning meditation
     'pacific_notions': ColorScheme(
         'Pacific Notions',
-        artist_color=(102, 205, 170),  # Medium aquamarine
-        song_color=(176, 224, 230),    # Powder blue
-        info_color=(119, 136, 153)     # Light slate gray
+        artist_color=(176, 196, 222),    # Light steel blue (dawn sky)
+        song_color=(198, 213, 216),      # Pale blue-gray (morning mist)
+        info_color=(169, 169, 169)       # Silver gray (ethereal stillness)
     ),
 
     # Wo' Pop - Eclectic world pop (vibrant, playful)
@@ -102,7 +102,7 @@ COLOR_SCHEMES = {
         info_color=(255, 215, 0)       # Gold
     ),
 
-    # El Sonido - Latin music (spicy, warm)
+    # El Sonido - Latin music
     'el_sonido': ColorScheme(
         'El Sonido',
         artist_color=(255, 69, 0),     # Red-orange
@@ -110,7 +110,7 @@ COLOR_SCHEMES = {
         info_color=(148, 0, 211)       # Dark violet
     ),
 
-    # Mechanical Breakdown - Industrial (metallic, harsh)
+    # Mechanical Breakdown - Industrial 
     'mechanical_breakdown': ColorScheme(
         'Mechanical Breakdown',
         artist_color=(192, 192, 192),  # Silver
@@ -118,7 +118,7 @@ COLOR_SCHEMES = {
         info_color=(0, 206, 209)       # Dark turquoise
     ),
 
-    # 90.TEEN - Youth energy (vibrant, bold)
+    # 90.TEEN - Youth energy 
     'ninety_teen': ColorScheme(
         '90.TEEN',
         artist_color=(255, 0, 127),    # Bright pink
@@ -126,7 +126,7 @@ COLOR_SCHEMES = {
         info_color=(255, 255, 0)       # Yellow
     ),
 
-    # Astral Plane - Cosmic psychedelic (space colors)
+    # Astral Plane - Cosmic psychedelic
     'astral_plane': ColorScheme(
         'Astral Plane',
         artist_color=(138, 43, 226),   # Blue violet
@@ -134,7 +134,7 @@ COLOR_SCHEMES = {
         info_color=(0, 191, 255)       # Deep sky blue
     ),
 
-    # Early - Sunrise morning (dawn colors)
+    # Early - Sunrise
     'early': ColorScheme(
         'Early',
         artist_color=(255, 182, 193),  # Light pink
@@ -142,7 +142,7 @@ COLOR_SCHEMES = {
         info_color=(255, 239, 213)     # Papaya whip
     ),
 
-    # Eastern Echoes - Asian Diaspora (Eastern-inspired)
+    # Eastern Echoes - Asian diaspora
     'eastern_echoes': ColorScheme(
         'Eastern Echoes',
         artist_color=(220, 20, 60),    # Crimson red
@@ -158,15 +158,15 @@ COLOR_SCHEMES = {
         info_color=(138, 43, 226)      # Blue violet
     ),
 
-    # Positive Vibrations - Reggae/Rasta (traditional colors)
+    # Positive Vibrations - Reggae
     'positive_vibrations': ColorScheme(
         'Positive Vibrations',
-        artist_color=(252, 209, 22),   # Rasta gold
-        song_color=(0, 155, 58),       # Rasta green
-        info_color=(206, 17, 38)       # Rasta red
+        artist_color=(252, 209, 22),
+        song_color=(0, 155, 58), 
+        info_color=(206, 17, 38)
     ),
 
-    # Sounds of Survivance - Indigenous (earth and sky)
+    # Sounds of Survivance - earth and sky
     'sounds_survivance': ColorScheme(
         'Sounds of Survivance',
         artist_color=(139, 69, 19),    # Saddle brown
@@ -174,7 +174,7 @@ COLOR_SCHEMES = {
         info_color=(135, 206, 235)     # Sky blue
     ),
 
-    # Sound & Vision - Multimedia (bold visual)
+    # Sound & Vision - Multimedia 
     'sound_vision': ColorScheme(
         'Sound & Vision',
         artist_color=(255, 20, 147),   # Deep pink
@@ -182,7 +182,7 @@ COLOR_SCHEMES = {
         info_color=(255, 165, 0)       # Orange
     ),
 
-    # Sunday Soul - Smooth soul (warm vintage)
+    # Sunday Soul - Smooth soul 
     'sunday_soul': ColorScheme(
         'Sunday Soul',
         artist_color=(184, 134, 11),   # Dark goldenrod
@@ -190,7 +190,7 @@ COLOR_SCHEMES = {
         info_color=(255, 218, 185)     # Peach puff
     ),
 
-    # The Continent - Afrobeat (African vibrant earthy)
+    # The Continent - Afrobeat
     'the_continent': ColorScheme(
         'The Continent',
         artist_color=(255, 140, 0),    # Dark orange
@@ -198,7 +198,7 @@ COLOR_SCHEMES = {
         info_color=(220, 20, 60)       # Crimson
     ),
 
-    # The Midday Show - Bright midday (full sun)
+    # The Midday Show - Bright midday 
     'midday_show': ColorScheme(
         'The Midday Show',
         artist_color=(255, 255, 0),    # Yellow
@@ -206,7 +206,7 @@ COLOR_SCHEMES = {
         info_color=(135, 206, 250)     # Light sky blue
     ),
 
-    # The Roadhouse - Honky tonk roadhouse (rustic)
+    # The Roadhouse - Honky tonk 
     'roadhouse': ColorScheme(
         'The Roadhouse',
         artist_color=(139, 69, 19),    # Saddle brown
