@@ -33,9 +33,9 @@ COLOR_SCHEMES = {
     # Drive Time - Traffic light
     'drive_time': ColorScheme(
         'Drive Time',
-        artist_color=(234, 50, 76),
-        song_color=(242, 172, 66),
-        info_color=(0, 179, 138)
+        artist_color=(205, 28, 0),
+        song_color=(255, 198, 0),
+        info_color=(0, 179, 84)
     ),
 
     # Midnight in a Perfect World - Deep space
@@ -153,9 +153,9 @@ COLOR_SCHEMES = {
     # Live on KEXP - Stage lighting (vibrant performance)
     'live_on_kexp': ColorScheme(
         'Live on KEXP',
-        artist_color=(255, 69, 0),     # Red-orange
-        song_color=(255, 255, 255),    # White spotlight
-        info_color=(138, 43, 226)      # Blue violet
+        artist_color=(234, 224, 241),     
+        song_color=(248, 199, 98),    
+        info_color=(211, 140, 251)      
     ),
 
     # Positive Vibrations - Reggae
