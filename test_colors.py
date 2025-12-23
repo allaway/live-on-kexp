@@ -58,19 +58,36 @@ class ColorTester:
         finally:
             termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings)
 
-    def display_show(self, show_name):
-        """Display sample text for a given show"""
-        # Create sample play data
+    def display_show(self, show_name, duration=None):
+        """Display sample text for a given show
+
+        Args:
+            show_name: Name of the show to display
+            duration: How long to display in seconds (default: single frame)
+        """
+        # Create sample play data with SHORT text that fits on 64px display
+        # Each character is ~6px wide, so max ~10 chars fits on screen
+        # Use very short text so it centers without scrolling
         play_data = {
-            'artist': 'Test Artist Name',
-            'song': 'Test Song Title',
+            'artist': 'ARTIST',
+            'song': 'SONG',
             'show_name': show_name if show_name != 'KEXP Default' else '',
-            'album': 'Test Album',
+            'album': '',
             'play_type': 'trackplay'
         }
 
         logger.info(f"Displaying: {show_name}")
-        self.renderer.render_now_playing(play_data)
+
+        # If duration specified, render continuously for that time
+        # This allows long show names to scroll into view
+        if duration:
+            end_time = time.time() + duration
+            while time.time() < end_time:
+                self.renderer.render_now_playing(play_data)
+                time.sleep(0.1)  # 10 FPS
+        else:
+            # Single frame render
+            self.renderer.render_now_playing(play_data)
 
     def run_manual_mode(self):
         """Run in manual mode with keyboard controls"""
@@ -148,10 +165,9 @@ class ColorTester:
                 show_name = self.shows[self.current_index]
                 print(f"[{self.current_index + 1}/{len(self.shows)}] {show_name}")
 
-                self.display_show(show_name)
-
-                # Wait for the cycle delay
-                time.sleep(self.cycle_delay)
+                # Display show continuously for the full cycle delay
+                # This allows text to scroll if needed
+                self.display_show(show_name, duration=self.cycle_delay)
 
                 # Move to next show
                 self.current_index = (self.current_index + 1) % len(self.shows)
