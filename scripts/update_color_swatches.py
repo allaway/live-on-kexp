@@ -2,6 +2,7 @@
 """
 Update README color swatches from color_schemes.py
 Automatically generates shields.io badges from RGB values
+Parses color names and themes from inline comments
 """
 
 import re
@@ -26,7 +27,7 @@ def create_badge(hex_color, color_name):
     light_colors = ['FFFFFF', 'FFFF00', 'FFD700', 'FFDAB9', 'FFEFD5',
                     'FFC34D', 'FCD116', '00FFFF', '00FF00', 'FFFF00',
                     '87CEEB', 'B0E0E6', '40E0D0', '00CED1', 'FFC864',
-                    'D2B48C', 'B0C4DE', '66CDAA', '00FF7F']
+                    'D2B48C', 'B0C4DE', '66CDAA', '00FF7F', '87CEFA']
 
     badge_url = f"https://img.shields.io/badge/-{hex_color}-{hex_color}?style=flat-square"
     if hex_color in light_colors:
@@ -35,10 +36,50 @@ def create_badge(hex_color, color_name):
     return f"![#{hex_color}]({badge_url}) {color_name}"
 
 
+def parse_color_schemes_file():
+    """
+    Parse color_schemes.py to extract color names and theme descriptions
+    from inline comments
+    """
+    color_schemes_path = Path(__file__).parent.parent / 'display' / 'color_schemes.py'
+
+    with open(color_schemes_path, 'r') as f:
+        content = f.read()
+
+    # Dictionary to store parsed information
+    scheme_info = {}
+
+    # Parse each scheme definition
+    # Pattern: scheme_key followed by ColorScheme with comment above
+    pattern = r"#\s*(.+?)\s*-\s*(.+?)\s*\n\s*'(\w+)':\s*ColorScheme\(\s*['\"](.+?)['\"]\s*,\s*artist_color=\([^)]+\)\s*,?\s*#\s*([^\n]+)\n\s*song_color=\([^)]+\)\s*,?\s*#\s*([^\n]+)\n\s*info_color=\([^)]+\)\s*,?\s*#\s*([^\n]+)\n"
+
+    matches = re.finditer(pattern, content, re.MULTILINE)
+
+    for match in matches:
+        show_name = match.group(1).strip()
+        theme = match.group(2).strip()
+        scheme_key = match.group(3)
+        artist_name = match.group(5).strip()
+        song_name = match.group(6).strip()
+        info_name = match.group(7).strip()
+
+        scheme_info[scheme_key] = {
+            'theme': theme,
+            'artist_name': artist_name,
+            'song_name': song_name,
+            'info_name': info_name
+        }
+
+    return scheme_info
+
+
 def generate_color_table():
     """Generate the color schemes section for README"""
 
-    # Organize shows by category
+    # Parse the color_schemes.py file for names and themes
+    scheme_info = parse_color_schemes_file()
+
+    # Organize shows by category (this is the only hardcoded part)
     categories = {
         'Daily Programming': [
             'Early', 'The Morning Show', 'The Midday Show', 'The Afternoon Show', 'Drive Time'
@@ -73,71 +114,6 @@ def generate_color_table():
         ]
     }
 
-    # Color name mapping for display
-    color_names = {
-        'morning_show': ('Coral', 'Gold', 'Light Sky Blue'),
-        'afternoon': ('White', 'Steel Blue', 'Amber'),
-        'drive_time': ('Crimson', 'White', 'Orange'),
-        'midnight_perfect_world': ('Blue Violet', 'Deep Sky Blue', 'Medium Orchid'),
-        'audioasis': ('Indian Red', 'Dark Khaki', 'Sandy Brown'),
-        'street_sounds': ('Deep Pink', 'Cyan', 'Gold'),
-        'expansions': ('Tan', 'Light Steel Blue', 'Goldenrod'),
-        'seek_destroy': ('Pure Red', 'Pure White', 'Gray'),
-        'sonic_reducer': ('Yellow', 'Magenta', 'Lime Green'),
-        'pacific_notions': ('Medium Aquamarine', 'Powder Blue', 'Light Slate Gray'),
-        'wo_pop': ('Hot Pink', 'Turquoise', 'Gold'),
-        'el_sonido': ('Red-Orange', 'Gold', 'Dark Violet'),
-        'mechanical_breakdown': ('Silver', 'Tomato Red', 'Dark Turquoise'),
-        'ninety_teen': ('Bright Pink', 'Cyan', 'Yellow'),
-        'astral_plane': ('Blue Violet', 'Magenta', 'Deep Sky Blue'),
-        'early': ('Light Pink', 'Peach', 'Papaya Whip'),
-        'eastern_echoes': ('Crimson Red', 'Gold', 'Teal'),
-        'live_on_kexp': ('Red-Orange', 'White Spotlight', 'Blue Violet'),
-        'positive_vibrations': ('Rasta Gold', 'Rasta Green', 'Rasta Red'),
-        'sounds_survivance': ('Saddle Brown', 'Tan', 'Sky Blue'),
-        'sound_vision': ('Deep Pink', 'Spring Green', 'Orange'),
-        'sunday_soul': ('Dark Goldenrod', 'Pale Violet Red', 'Peach Puff'),
-        'the_continent': ('Dark Orange', 'Forest Green', 'Crimson'),
-        'midday_show': ('Yellow', 'Orange', 'Light Sky Blue'),
-        'roadhouse': ('Saddle Brown', 'Chocolate', 'Gold'),
-        'variety_mix': ('Tomato', 'Turquoise', 'Gold'),
-        'vinelands': ('Dark Wine Red', 'Olive Drab', 'Goldenrod'),
-        'kexp_default': ('White', 'Bright Blue', 'Warm Yellow'),
-    }
-
-    # Theme descriptions
-    themes = {
-        'Early': 'Sunrise morning',
-        'The Morning Show': 'Warm sunrise gradient',
-        'The Midday Show': 'Bright midday sun',
-        'The Afternoon Show': 'Balanced brightness',
-        'Drive Time': 'Bold primaries',
-        'Midnight in a Perfect World': 'Deep space electronic',
-        'Mechanical Breakdown': 'Industrial metallic',
-        'Astral Plane': 'Cosmic psychedelic',
-        'Audioasis': 'Desert palette',
-        "Wo' Pop": 'Vibrant eclectic',
-        'El Sonido': 'Spicy Latin warmth',
-        'Eastern Echoes': 'Eastern-inspired',
-        'Sounds of Survivance': 'Earth and sky',
-        'The Continent': 'African vibrant',
-        'Positive Vibrations': 'Rasta colors',
-        'Street Sounds': 'Urban neon graffiti',
-        'Sunday Soul': 'Warm vintage soul',
-        'Expansions': 'Smoky jazz club',
-        'Jazz Theatre': 'Smoky jazz club',
-        'The Roadhouse': 'Rustic honky tonk',
-        'Seek & Destroy': 'Aggressive metal',
-        'Sonic Reducer': 'Punk chaos',
-        '90.TEEN': 'Youth energy',
-        'Pacific Notions': 'Mossy, misty PNW',
-        'Vinelands': 'Wine country',
-        'Live on KEXP': 'Stage lighting',
-        'Sound & Vision': 'Bold multimedia',
-        'Variety Mix': 'Eclectic rainbow',
-        'KEXP Default': 'Classic station',
-    }
-
     output = []
     output.append("## Color Schemes\n")
     output.append("Each KEXP show has a unique, carefully crafted color palette that reflects its musical style and vibe. The display uses three colors for each show:")
@@ -162,19 +138,22 @@ def generate_color_table():
                 continue
 
             scheme = COLOR_SCHEMES[scheme_key]
-            theme = themes.get(show, '')
 
-            # Get color names
-            names = color_names.get(scheme_key, ('Color 1', 'Color 2', 'Color 3'))
+            # Get theme and color names from parsed file
+            info = scheme_info.get(scheme_key, {})
+            theme = info.get('theme', '')
+            artist_name = info.get('artist_name', 'Artist Color')
+            song_name = info.get('song_name', 'Song Color')
+            info_name = info.get('info_name', 'Info Color')
 
             # Convert RGB to hex and create badges
             artist_hex = rgb_to_hex(scheme.artist)
             song_hex = rgb_to_hex(scheme.song)
             info_hex = rgb_to_hex(scheme.info)
 
-            artist_badge = create_badge(artist_hex, names[0])
-            song_badge = create_badge(song_hex, names[1])
-            info_badge = create_badge(info_hex, names[2])
+            artist_badge = create_badge(artist_hex, artist_name)
+            song_badge = create_badge(song_hex, song_name)
+            info_badge = create_badge(info_hex, info_name)
 
             output.append(f"| **{show}** | {theme} | {artist_badge} | {song_badge} | {info_badge} |")
 
