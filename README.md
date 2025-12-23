@@ -164,80 +164,80 @@ Each KEXP show has a unique, carefully crafted color palette that reflects its m
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Early** | Sunrise morning | ![#FFB6C1](https://via.placeholder.com/80x20/FFB6C1/FFB6C1.png) Light Pink | ![#FFDAB9](https://via.placeholder.com/80x20/FFDAB9/FFDAB9.png) Peach | ![#FFEFD5](https://via.placeholder.com/80x20/FFEFD5/000000.png?text=+) Papaya Whip |
-| **The Morning Show** | Warm sunrise gradient | ![#FF7F50](https://via.placeholder.com/80x20/FF7F50/FF7F50.png) Coral | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold | ![#87CEEB](https://via.placeholder.com/80x20/87CEEB/000000.png?text=+) Light Sky Blue |
-| **The Midday Show** | Bright midday sun | ![#FFFF00](https://via.placeholder.com/80x20/FFFF00/000000.png?text=+) Yellow | ![#FFA500](https://via.placeholder.com/80x20/FFA500/FFA500.png) Orange | ![#87CEEB](https://via.placeholder.com/80x20/87CEEB/000000.png?text=+) Light Sky Blue |
-| **The Afternoon Show** | Balanced brightness | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) White | ![#4682B4](https://via.placeholder.com/80x20/4682B4/4682B4.png) Steel Blue | ![#FFC34D](https://via.placeholder.com/80x20/FFC34D/000000.png?text=+) Amber |
-| **Drive Time** | Bold primaries | ![#DC143C](https://via.placeholder.com/80x20/DC143C/DC143C.png) Crimson | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) White | ![#FFA500](https://via.placeholder.com/80x20/FFA500/FFA500.png) Orange |
+| **Early** | Sunrise morning | ![#FFB6C1](https://img.shields.io/badge/-FFB6C1-FFB6C1?style=flat-square) Light Pink | ![#FFDAB9](https://img.shields.io/badge/-FFDAB9-FFDAB9?style=flat-square) Peach | ![#FFEFD5](https://img.shields.io/badge/-FFEFD5-FFEFD5?style=flat-square&labelColor=FFEFD5) Papaya Whip |
+| **The Morning Show** | Warm sunrise gradient | ![#FF7F50](https://img.shields.io/badge/-FF7F50-FF7F50?style=flat-square) Coral | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) Gold | ![#87CEEB](https://img.shields.io/badge/-87CEEB-87CEEB?style=flat-square&labelColor=87CEEB) Light Sky Blue |
+| **The Midday Show** | Bright midday sun | ![#FFFF00](https://img.shields.io/badge/-FFFF00-FFFF00?style=flat-square&labelColor=FFFF00) Yellow | ![#FFA500](https://img.shields.io/badge/-FFA500-FFA500?style=flat-square) Orange | ![#87CEEB](https://img.shields.io/badge/-87CEEB-87CEEB?style=flat-square&labelColor=87CEEB) Light Sky Blue |
+| **The Afternoon Show** | Balanced brightness | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) White | ![#4682B4](https://img.shields.io/badge/-4682B4-4682B4?style=flat-square) Steel Blue | ![#FFC34D](https://img.shields.io/badge/-FFC34D-FFC34D?style=flat-square&labelColor=FFC34D) Amber |
+| **Drive Time** | Bold primaries | ![#DC143C](https://img.shields.io/badge/-DC143C-DC143C?style=flat-square) Crimson | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) White | ![#FFA500](https://img.shields.io/badge/-FFA500-FFA500?style=flat-square) Orange |
 
 ### Electronic & Dance
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Midnight in a Perfect World** | Deep space electronic | ![#8A2BE2](https://via.placeholder.com/80x20/8A2BE2/8A2BE2.png) Blue Violet | ![#00BFFF](https://via.placeholder.com/80x20/00BFFF/00BFFF.png) Deep Sky Blue | ![#BA55D3](https://via.placeholder.com/80x20/BA55D3/BA55D3.png) Medium Orchid |
-| **Mechanical Breakdown** | Industrial metallic | ![#C0C0C0](https://via.placeholder.com/80x20/C0C0C0/000000.png?text=+) Silver | ![#FF6347](https://via.placeholder.com/80x20/FF6347/FF6347.png) Tomato Red | ![#00CED1](https://via.placeholder.com/80x20/00CED1/00CED1.png) Dark Turquoise |
-| **Astral Plane** | Cosmic psychedelic | ![#8A2BE2](https://via.placeholder.com/80x20/8A2BE2/8A2BE2.png) Blue Violet | ![#FF00FF](https://via.placeholder.com/80x20/FF00FF/FF00FF.png) Magenta | ![#00BFFF](https://via.placeholder.com/80x20/00BFFF/00BFFF.png) Deep Sky Blue |
+| **Midnight in a Perfect World** | Deep space electronic | ![#8A2BE2](https://img.shields.io/badge/-8A2BE2-8A2BE2?style=flat-square) Blue Violet | ![#00BFFF](https://img.shields.io/badge/-00BFFF-00BFFF?style=flat-square&labelColor=00BFFF) Deep Sky Blue | ![#BA55D3](https://img.shields.io/badge/-BA55D3-BA55D3?style=flat-square) Medium Orchid |
+| **Mechanical Breakdown** | Industrial metallic | ![#C0C0C0](https://img.shields.io/badge/-C0C0C0-C0C0C0?style=flat-square&labelColor=C0C0C0) Silver | ![#FF6347](https://img.shields.io/badge/-FF6347-FF6347?style=flat-square) Tomato Red | ![#00CED1](https://img.shields.io/badge/-00CED1-00CED1?style=flat-square&labelColor=00CED1) Dark Turquoise |
+| **Astral Plane** | Cosmic psychedelic | ![#8A2BE2](https://img.shields.io/badge/-8A2BE2-8A2BE2?style=flat-square) Blue Violet | ![#FF00FF](https://img.shields.io/badge/-FF00FF-FF00FF?style=flat-square) Magenta | ![#00BFFF](https://img.shields.io/badge/-00BFFF-00BFFF?style=flat-square&labelColor=00BFFF) Deep Sky Blue |
 
 ### World Music
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Audioasis** | Desert palette | ![#CD5C5C](https://via.placeholder.com/80x20/CD5C5C/CD5C5C.png) Indian Red | ![#BDB76B](https://via.placeholder.com/80x20/BDB76B/BDB76B.png) Dark Khaki | ![#F4A460](https://via.placeholder.com/80x20/F4A460/F4A460.png) Sandy Brown |
-| **Wo' Pop** | Vibrant eclectic | ![#FF69B4](https://via.placeholder.com/80x20/FF69B4/FF69B4.png) Hot Pink | ![#40E0D0](https://via.placeholder.com/80x20/40E0D0/40E0D0.png) Turquoise | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold |
-| **El Sonido** | Spicy Latin warmth | ![#FF4500](https://via.placeholder.com/80x20/FF4500/FF4500.png) Red-Orange | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold | ![#9400D3](https://via.placeholder.com/80x20/9400D3/9400D3.png) Dark Violet |
-| **Eastern Echoes** | Eastern-inspired | ![#DC143C](https://via.placeholder.com/80x20/DC143C/DC143C.png) Crimson Red | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold | ![#008080](https://via.placeholder.com/80x20/008080/008080.png) Teal |
-| **Sounds of Survivance** | Earth and sky | ![#8B4513](https://via.placeholder.com/80x20/8B4513/8B4513.png) Saddle Brown | ![#D2B48C](https://via.placeholder.com/80x20/D2B48C/000000.png?text=+) Tan | ![#87CEEB](https://via.placeholder.com/80x20/87CEEB/000000.png?text=+) Sky Blue |
-| **The Continent** | African vibrant | ![#FF8C00](https://via.placeholder.com/80x20/FF8C00/FF8C00.png) Dark Orange | ![#228B22](https://via.placeholder.com/80x20/228B22/228B22.png) Forest Green | ![#DC143C](https://via.placeholder.com/80x20/DC143C/DC143C.png) Crimson |
+| **Audioasis** | Desert palette | ![#CD5C5C](https://img.shields.io/badge/-CD5C5C-CD5C5C?style=flat-square) Indian Red | ![#BDB76B](https://img.shields.io/badge/-BDB76B-BDB76B?style=flat-square&labelColor=BDB76B) Dark Khaki | ![#F4A460](https://img.shields.io/badge/-F4A460-F4A460?style=flat-square) Sandy Brown |
+| **Wo' Pop** | Vibrant eclectic | ![#FF69B4](https://img.shields.io/badge/-FF69B4-FF69B4?style=flat-square) Hot Pink | ![#40E0D0](https://img.shields.io/badge/-40E0D0-40E0D0?style=flat-square&labelColor=40E0D0) Turquoise | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) Gold |
+| **El Sonido** | Spicy Latin warmth | ![#FF4500](https://img.shields.io/badge/-FF4500-FF4500?style=flat-square) Red-Orange | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) Gold | ![#9400D3](https://img.shields.io/badge/-9400D3-9400D3?style=flat-square) Dark Violet |
+| **Eastern Echoes** | Eastern-inspired | ![#DC143C](https://img.shields.io/badge/-DC143C-DC143C?style=flat-square) Crimson Red | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) Gold | ![#008080](https://img.shields.io/badge/-008080-008080?style=flat-square) Teal |
+| **Sounds of Survivance** | Earth and sky | ![#8B4513](https://img.shields.io/badge/-8B4513-8B4513?style=flat-square) Saddle Brown | ![#D2B48C](https://img.shields.io/badge/-D2B48C-D2B48C?style=flat-square&labelColor=D2B48C) Tan | ![#87CEEB](https://img.shields.io/badge/-87CEEB-87CEEB?style=flat-square&labelColor=87CEEB) Sky Blue |
+| **The Continent** | African vibrant | ![#FF8C00](https://img.shields.io/badge/-FF8C00-FF8C00?style=flat-square) Dark Orange | ![#228B22](https://img.shields.io/badge/-228B22-228B22?style=flat-square) Forest Green | ![#DC143C](https://img.shields.io/badge/-DC143C-DC143C?style=flat-square) Crimson |
 
 ### Reggae & Caribbean
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Positive Vibrations** | Rasta colors | ![#FCD116](https://via.placeholder.com/80x20/FCD116/000000.png?text=+) Rasta Gold | ![#009B3A](https://via.placeholder.com/80x20/009B3A/009B3A.png) Rasta Green | ![#CE1126](https://via.placeholder.com/80x20/CE1126/CE1126.png) Rasta Red |
+| **Positive Vibrations** | Rasta colors | ![#FCD116](https://img.shields.io/badge/-FCD116-FCD116?style=flat-square&labelColor=FCD116) Rasta Gold | ![#009B3A](https://img.shields.io/badge/-009B3A-009B3A?style=flat-square) Rasta Green | ![#CE1126](https://img.shields.io/badge/-CE1126-CE1126?style=flat-square) Rasta Red |
 
 ### Hip-Hop, R&B & Soul
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Street Sounds** | Urban neon graffiti | ![#FF1493](https://via.placeholder.com/80x20/FF1493/FF1493.png) Deep Pink | ![#00FFFF](https://via.placeholder.com/80x20/00FFFF/00FFFF.png) Cyan | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold |
-| **Sunday Soul** | Warm vintage soul | ![#B8860B](https://via.placeholder.com/80x20/B8860B/B8860B.png) Dark Goldenrod | ![#DB7093](https://via.placeholder.com/80x20/DB7093/DB7093.png) Pale Violet Red | ![#FFDAB9](https://via.placeholder.com/80x20/FFDAB9/FFDAB9.png) Peach Puff |
+| **Street Sounds** | Urban neon graffiti | ![#FF1493](https://img.shields.io/badge/-FF1493-FF1493?style=flat-square) Deep Pink | ![#00FFFF](https://img.shields.io/badge/-00FFFF-00FFFF?style=flat-square&labelColor=00FFFF) Cyan | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) Gold |
+| **Sunday Soul** | Warm vintage soul | ![#B8860B](https://img.shields.io/badge/-B8860B-B8860B?style=flat-square) Dark Goldenrod | ![#DB7093](https://img.shields.io/badge/-DB7093-DB7093?style=flat-square) Pale Violet Red | ![#FFDAB9](https://img.shields.io/badge/-FFDAB9-FFDAB9?style=flat-square) Peach Puff |
 
 ### Jazz, Blues & Roots
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Expansions** | Smoky jazz club | ![#D2B48C](https://via.placeholder.com/80x20/D2B48C/000000.png?text=+) Tan | ![#B0C4DE](https://via.placeholder.com/80x20/B0C4DE/000000.png?text=+) Light Steel Blue | ![#DAA520](https://via.placeholder.com/80x20/DAA520/DAA520.png) Goldenrod |
-| **Jazz Theatre** | Smoky jazz club | ![#D2B48C](https://via.placeholder.com/80x20/D2B48C/000000.png?text=+) Tan | ![#B0C4DE](https://via.placeholder.com/80x20/B0C4DE/000000.png?text=+) Light Steel Blue | ![#DAA520](https://via.placeholder.com/80x20/DAA520/DAA520.png) Goldenrod |
-| **The Roadhouse** | Rustic honky tonk | ![#8B4513](https://via.placeholder.com/80x20/8B4513/8B4513.png) Saddle Brown | ![#D2691E](https://via.placeholder.com/80x20/D2691E/D2691E.png) Chocolate | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold |
+| **Expansions** | Smoky jazz club | ![#D2B48C](https://img.shields.io/badge/-D2B48C-D2B48C?style=flat-square&labelColor=D2B48C) Tan | ![#B0C4DE](https://img.shields.io/badge/-B0C4DE-B0C4DE?style=flat-square&labelColor=B0C4DE) Light Steel Blue | ![#DAA520](https://img.shields.io/badge/-DAA520-DAA520?style=flat-square) Goldenrod |
+| **Jazz Theatre** | Smoky jazz club | ![#D2B48C](https://img.shields.io/badge/-D2B48C-D2B48C?style=flat-square&labelColor=D2B48C) Tan | ![#B0C4DE](https://img.shields.io/badge/-B0C4DE-B0C4DE?style=flat-square&labelColor=B0C4DE) Light Steel Blue | ![#DAA520](https://img.shields.io/badge/-DAA520-DAA520?style=flat-square) Goldenrod |
+| **The Roadhouse** | Rustic honky tonk | ![#8B4513](https://img.shields.io/badge/-8B4513-8B4513?style=flat-square) Saddle Brown | ![#D2691E](https://img.shields.io/badge/-D2691E-D2691E?style=flat-square) Chocolate | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) Gold |
 
 ### Rock, Metal & Punk
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Seek & Destroy** | Aggressive metal | ![#FF0000](https://via.placeholder.com/80x20/FF0000/FF0000.png) Pure Red | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) Pure White | ![#808080](https://via.placeholder.com/80x20/808080/808080.png) Gray |
-| **Sonic Reducer** | Punk chaos | ![#FFFF00](https://via.placeholder.com/80x20/FFFF00/000000.png?text=+) Yellow | ![#FF00FF](https://via.placeholder.com/80x20/FF00FF/FF00FF.png) Magenta | ![#00FF00](https://via.placeholder.com/80x20/00FF00/00FF00.png) Lime Green |
-| **90.TEEN** | Youth energy | ![#FF007F](https://via.placeholder.com/80x20/FF007F/FF007F.png) Bright Pink | ![#00FFFF](https://via.placeholder.com/80x20/00FFFF/00FFFF.png) Cyan | ![#FFFF00](https://via.placeholder.com/80x20/FFFF00/000000.png?text=+) Yellow |
+| **Seek & Destroy** | Aggressive metal | ![#FF0000](https://img.shields.io/badge/-FF0000-FF0000?style=flat-square) Pure Red | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) Pure White | ![#808080](https://img.shields.io/badge/-808080-808080?style=flat-square) Gray |
+| **Sonic Reducer** | Punk chaos | ![#FFFF00](https://img.shields.io/badge/-FFFF00-FFFF00?style=flat-square&labelColor=FFFF00) Yellow | ![#FF00FF](https://img.shields.io/badge/-FF00FF-FF00FF?style=flat-square) Magenta | ![#00FF00](https://img.shields.io/badge/-00FF00-00FF00?style=flat-square&labelColor=00FF00) Lime Green |
+| **90.TEEN** | Youth energy | ![#FF007F](https://img.shields.io/badge/-FF007F-FF007F?style=flat-square) Bright Pink | ![#00FFFF](https://img.shields.io/badge/-00FFFF-00FFFF?style=flat-square&labelColor=00FFFF) Cyan | ![#FFFF00](https://img.shields.io/badge/-FFFF00-FFFF00?style=flat-square&labelColor=FFFF00) Yellow |
 
 ### Pacific Northwest & Local
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Pacific Notions** | Mossy, misty PNW | ![#66CDAA](https://via.placeholder.com/80x20/66CDAA/66CDAA.png) Medium Aquamarine | ![#B0E0E6](https://via.placeholder.com/80x20/B0E0E6/000000.png?text=+) Powder Blue | ![#778899](https://via.placeholder.com/80x20/778899/778899.png) Light Slate Gray |
-| **Vinelands** | Wine country | ![#800020](https://via.placeholder.com/80x20/800020/800020.png) Dark Wine Red | ![#6B8E23](https://via.placeholder.com/80x20/6B8E23/6B8E23.png) Olive Drab | ![#DAA520](https://via.placeholder.com/80x20/DAA520/DAA520.png) Goldenrod |
+| **Pacific Notions** | Mossy, misty PNW | ![#66CDAA](https://img.shields.io/badge/-66CDAA-66CDAA?style=flat-square&labelColor=66CDAA) Medium Aquamarine | ![#B0E0E6](https://img.shields.io/badge/-B0E0E6-B0E0E6?style=flat-square&labelColor=B0E0E6) Powder Blue | ![#778899](https://img.shields.io/badge/-778899-778899?style=flat-square) Light Slate Gray |
+| **Vinelands** | Wine country | ![#800020](https://img.shields.io/badge/-800020-800020?style=flat-square) Dark Wine Red | ![#6B8E23](https://img.shields.io/badge/-6B8E23-6B8E23?style=flat-square) Olive Drab | ![#DAA520](https://img.shields.io/badge/-DAA520-DAA520?style=flat-square) Goldenrod |
 
 ### Special Programming
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **Live on KEXP** | Stage lighting | ![#FF4500](https://via.placeholder.com/80x20/FF4500/FF4500.png) Red-Orange | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) White Spotlight | ![#8A2BE2](https://via.placeholder.com/80x20/8A2BE2/8A2BE2.png) Blue Violet |
-| **Sound & Vision** | Bold multimedia | ![#FF1493](https://via.placeholder.com/80x20/FF1493/FF1493.png) Deep Pink | ![#00FF7F](https://via.placeholder.com/80x20/00FF7F/00FF7F.png) Spring Green | ![#FFA500](https://via.placeholder.com/80x20/FFA500/FFA500.png) Orange |
-| **Variety Mix** | Eclectic rainbow | ![#FF6347](https://via.placeholder.com/80x20/FF6347/FF6347.png) Tomato | ![#40E0D0](https://via.placeholder.com/80x20/40E0D0/40E0D0.png) Turquoise | ![#FFD700](https://via.placeholder.com/80x20/FFD700/000000.png?text=+) Gold |
+| **Live on KEXP** | Stage lighting | ![#FF4500](https://img.shields.io/badge/-FF4500-FF4500?style=flat-square) Red-Orange | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) White Spotlight | ![#8A2BE2](https://img.shields.io/badge/-8A2BE2-8A2BE2?style=flat-square) Blue Violet |
+| **Sound & Vision** | Bold multimedia | ![#FF1493](https://img.shields.io/badge/-FF1493-FF1493?style=flat-square) Deep Pink | ![#00FF7F](https://img.shields.io/badge/-00FF7F-00FF7F?style=flat-square&labelColor=00FF7F) Spring Green | ![#FFA500](https://img.shields.io/badge/-FFA500-FFA500?style=flat-square) Orange |
+| **Variety Mix** | Eclectic rainbow | ![#FF6347](https://img.shields.io/badge/-FF6347-FF6347?style=flat-square) Tomato | ![#40E0D0](https://img.shields.io/badge/-40E0D0-40E0D0?style=flat-square&labelColor=40E0D0) Turquoise | ![#FFD700](https://img.shields.io/badge/-FFD700-FFD700?style=flat-square&labelColor=FFD700) Gold |
 
 ### Default
 
 | Show | Theme | Artist Color | Song Color | Info Color |
 |------|-------|--------------|------------|------------|
-| **KEXP Default** | Classic station | ![#FFFFFF](https://via.placeholder.com/80x20/FFFFFF/000000.png?text=+) White | ![#64C8FF](https://via.placeholder.com/80x20/64C8FF/64C8FF.png) Bright Blue | ![#FFC864](https://via.placeholder.com/80x20/FFC864/000000.png?text=+) Warm Yellow |
+| **KEXP Default** | Classic station | ![#FFFFFF](https://img.shields.io/badge/-FFFFFF-FFFFFF?style=flat-square&labelColor=FFFFFF) White | ![#64C8FF](https://img.shields.io/badge/-64C8FF-64C8FF?style=flat-square&labelColor=64C8FF) Bright Blue | ![#FFC864](https://img.shields.io/badge/-FFC864-FFC864?style=flat-square&labelColor=FFC864) Warm Yellow |
 
 *Used for shows without a specific color scheme or when show information is unavailable.*
 
