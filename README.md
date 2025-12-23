@@ -153,6 +153,94 @@ API endpoints used:
 - `https://api.kexp.org/v2/plays/` - Get recent plays (now playing)
 - `https://api.kexp.org/v2/shows/{id}/` - Get show details
 
+## Color Schemes
+
+Each KEXP show has a unique, carefully crafted color palette that reflects its musical style and vibe. The display uses three colors for each show:
+- **Artist Color**: Used for the artist name (top line)
+- **Song Color**: Used for the song title (middle line)
+- **Info Color**: Used for show name or station ID (bottom line)
+
+### Daily Programming
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Early** | Sunrise morning | Light Pink (255, 182, 193) | Peach (255, 218, 185) | Papaya Whip (255, 239, 213) |
+| **The Morning Show** | Warm sunrise gradient | Coral (255, 127, 80) | Gold (255, 215, 0) | Light Sky Blue (135, 206, 250) |
+| **The Midday Show** | Bright midday sun | Yellow (255, 255, 0) | Orange (255, 165, 0) | Light Sky Blue (135, 206, 250) |
+| **The Afternoon Show** | Balanced brightness | White (255, 255, 255) | Steel Blue (70, 130, 180) | Amber (255, 195, 77) |
+| **Drive Time** | Bold primaries | Crimson (220, 20, 60) | White (255, 255, 255) | Orange (255, 165, 0) |
+
+### Electronic & Dance
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Midnight in a Perfect World** | Deep space electronic | Blue Violet (138, 43, 226) | Deep Sky Blue (0, 191, 255) | Medium Orchid (186, 85, 211) |
+| **Mechanical Breakdown** | Industrial metallic | Silver (192, 192, 192) | Tomato Red (255, 99, 71) | Dark Turquoise (0, 206, 209) |
+| **Astral Plane** | Cosmic psychedelic | Blue Violet (138, 43, 226) | Magenta (255, 0, 255) | Deep Sky Blue (0, 191, 255) |
+
+### World Music
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Audioasis** | Desert palette | Indian Red (205, 92, 92) | Dark Khaki (189, 183, 107) | Sandy Brown (244, 164, 96) |
+| **Wo' Pop** | Vibrant eclectic | Hot Pink (255, 105, 180) | Turquoise (64, 224, 208) | Gold (255, 215, 0) |
+| **El Sonido** | Spicy Latin warmth | Red-Orange (255, 69, 0) | Gold (255, 215, 0) | Dark Violet (148, 0, 211) |
+| **Eastern Echoes** | Eastern-inspired | Crimson Red (220, 20, 60) | Gold (255, 215, 0) | Teal (0, 128, 128) |
+| **Sounds of Survivance** | Earth and sky | Saddle Brown (139, 69, 19) | Tan (210, 180, 140) | Sky Blue (135, 206, 235) |
+| **The Continent** | African vibrant | Dark Orange (255, 140, 0) | Forest Green (34, 139, 34) | Crimson (220, 20, 60) |
+
+### Reggae & Caribbean
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Positive Vibrations** | Rasta colors | Rasta Gold (252, 209, 22) | Rasta Green (0, 155, 58) | Rasta Red (206, 17, 38) |
+
+### Hip-Hop, R&B & Soul
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Street Sounds** | Urban neon graffiti | Deep Pink (255, 20, 147) | Cyan (0, 255, 255) | Gold (255, 215, 0) |
+| **Sunday Soul** | Warm vintage soul | Dark Goldenrod (184, 134, 11) | Pale Violet Red (219, 112, 147) | Peach Puff (255, 218, 185) |
+
+### Jazz, Blues & Roots
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Expansions** | Smoky jazz club | Tan (210, 180, 140) | Light Steel Blue (176, 196, 222) | Goldenrod (218, 165, 32) |
+| **Jazz Theatre** | Smoky jazz club | Tan (210, 180, 140) | Light Steel Blue (176, 196, 222) | Goldenrod (218, 165, 32) |
+| **The Roadhouse** | Rustic honky tonk | Saddle Brown (139, 69, 19) | Chocolate (210, 105, 30) | Gold (255, 215, 0) |
+
+### Rock, Metal & Punk
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Seek & Destroy** | Aggressive metal | Pure Red (255, 0, 0) | Pure White (255, 255, 255) | Gray (128, 128, 128) |
+| **Sonic Reducer** | Punk chaos | Yellow (255, 255, 0) | Magenta (255, 0, 255) | Lime Green (0, 255, 0) |
+| **90.TEEN** | Youth energy | Bright Pink (255, 0, 127) | Cyan (0, 255, 255) | Yellow (255, 255, 0) |
+
+### Pacific Northwest & Local
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Pacific Notions** | Mossy, misty PNW | Medium Aquamarine (102, 205, 170) | Powder Blue (176, 224, 230) | Light Slate Gray (119, 136, 153) |
+| **Vinelands** | Wine country | Dark Wine Red (128, 0, 32) | Olive Drab (107, 142, 35) | Goldenrod (218, 165, 32) |
+
+### Special Programming
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **Live on KEXP** | Stage lighting | Red-Orange (255, 69, 0) | White Spotlight (255, 255, 255) | Blue Violet (138, 43, 226) |
+| **Sound & Vision** | Bold multimedia | Deep Pink (255, 20, 147) | Spring Green (0, 255, 127) | Orange (255, 165, 0) |
+| **Variety Mix** | Eclectic rainbow | Tomato (255, 99, 71) | Turquoise (64, 224, 208) | Gold (255, 215, 0) |
+
+### Default
+
+| Show | Theme | Artist Color | Song Color | Info Color |
+|------|-------|--------------|------------|------------|
+| **KEXP Default** | Classic station | White (255, 255, 255) | Bright Blue (100, 200, 255) | Warm Yellow (255, 200, 100) |
+
+*Used for shows without a specific color scheme or when show information is unavailable.*
+
 ## Troubleshooting
 
 ### Display is flickering
