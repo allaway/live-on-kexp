@@ -42,41 +42,13 @@ git clone https://github.com/yourusername/live-on-kexp.git
 cd live-on-kexp
 ```
 
-### 3. Install System Dependencies
-
-Install required system libraries for Pillow (image processing):
-
-```bash
-sudo apt-get update
-sudo apt-get install -y \
-    libjpeg-dev \
-    libtiff5-dev \
-    libopenjp2-7-dev \
-    zlib1g-dev \
-    libfreetype6-dev \
-    liblcms2-dev \
-    libwebp-dev \
-    tcl8.6-dev \
-    tk8.6-dev \
-    python3-tk \
-    libharfbuzz-dev \
-    libfribidi-dev \
-    libxcb1-dev
-```
-
-### 4. Install Python Dependencies
+### 3. Install Python Dependencies
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-**Alternative:** If you encounter issues building Pillow, you can use a pre-built version:
-
-```bash
-pip3 install Pillow==9.5.0 requests>=2.31.0
-```
-
-### 5. Configure Settings
+### 4. Configure Settings
 
 Copy the example environment file and adjust settings:
 
@@ -153,7 +125,7 @@ All configuration can be done via the `.env` file:
 | `MATRIX_COLS` | Matrix width in pixels | 64 |
 | `BRIGHTNESS` | Display brightness (0-100) | 50 |
 | `GPIO_MAPPING` | Hardware mapping type | adafruit-hat |
-| `FONT_PATH` | Path to TrueType font | DejaVuSans.ttf |
+| `GPIO_SLOWDOWN` | GPIO slowdown for flickering | 4 |
 
 ## Project Structure
 
@@ -169,7 +141,7 @@ live-on-kexp/
 ├── display/
 │   ├── __init__.py
 │   ├── renderer.py         # RGB matrix renderer
-│   └── scrolling_text.py  # Scrolling text support
+│   └── color_schemes.py    # Color schemes for shows
 └── kexp-display.service    # Systemd service file
 ```
 
@@ -185,18 +157,7 @@ API endpoints used:
 
 ### Display is flickering
 
-Try adjusting the `gpio_slowdown` parameter in the configuration file - setting this at 2 or 3 seems best for the Pi Zero 2W. 
-
-
-### Font not found
-
-Install the DejaVu fonts package:
-
-```bash
-sudo apt-get install fonts-dejavu
-```
-
-Or specify a different font path in your `.env` file.
+Try adjusting the `GPIO_SLOWDOWN` parameter in the `.env` file - setting this at 2 or 3 seems best for the Pi Zero 2W.
 
 ## Credits
 

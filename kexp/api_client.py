@@ -5,7 +5,6 @@ Fetches current show and now playing data from KEXP API
 
 import requests
 import logging
-from datetime import datetime
 
 logger = logging.getLogger(__name__)
 

@@ -5,7 +5,6 @@ Handles rendering of KEXP data to RGB LED matrix
 
 import time
 import logging
-from PIL import Image, ImageDraw, ImageFont
 from display.color_schemes import get_color_scheme_for_show
 
 logger = logging.getLogger(__name__)
@@ -440,32 +439,6 @@ class DisplayRenderer:
         if play_data.get('comment'):
             logger.info(f"  Note:   {play_data.get('comment')}")
         logger.info("=" * 60)
-
-    def render_text(self, text, color=(255, 255, 255), y_position=0):
-        """
-        Render simple text to the display
-
-        Args:
-            text: Text to display
-            color: RGB color tuple
-            y_position: Vertical position
-        """
-        if not MATRIX_AVAILABLE:
-            logger.info(f"Display: {text}")
-            return
-
-        image = Image.new('RGB', (self.matrix.width, self.matrix.height))
-        draw = ImageDraw.Draw(image)
-
-        try:
-            font = ImageFont.truetype(self.config.font_path, self.config.medium_font_size)
-        except:
-            font = ImageFont.load_default()
-
-        draw.text((2, y_position), text, fill=color, font=font)
-
-        self.canvas.SetImage(image.convert('RGB'))
-        self.canvas = self.matrix.SwapOnVSync(self.canvas)
 
     def clear(self):
         """Clear the display"""
