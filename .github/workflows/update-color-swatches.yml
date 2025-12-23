@@ -1,0 +1,54 @@
+name: Update Color Swatches in README
+
+on:
+  push:
+    paths:
+      - 'display/color_schemes.py'
+    branches:
+      - main
+      - master
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run color swatch update script
+        run: |
+          chmod +x scripts/update_color_swatches.py
+          python3 scripts/update_color_swatches.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet README.md; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes to README.md"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "README.md has been updated"
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "Update color swatches in README from color_schemes.py
+
+          [skip ci]"
+          git push
