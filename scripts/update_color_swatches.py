@@ -21,7 +21,7 @@ def rgb_to_hex(rgb_tuple):
     return f"{r:02X}{g:02X}{b:02X}"
 
 
-def create_badge(hex_color, color_name):
+def create_badge(hex_color):
     """Create a shields.io badge URL for a color"""
     # For light colors, add labelColor for better visibility
     light_colors = ['FFFFFF', 'FFFF00', 'FFD700', 'FFDAB9', 'FFEFD5',
@@ -33,53 +33,13 @@ def create_badge(hex_color, color_name):
     if hex_color in light_colors:
         badge_url += f"&labelColor={hex_color}"
 
-    return f"![#{hex_color}]({badge_url}) {color_name}"
-
-
-def parse_color_schemes_file():
-    """
-    Parse color_schemes.py to extract color names and theme descriptions
-    from inline comments
-    """
-    color_schemes_path = Path(__file__).parent.parent / 'display' / 'color_schemes.py'
-
-    with open(color_schemes_path, 'r') as f:
-        content = f.read()
-
-    # Dictionary to store parsed information
-    scheme_info = {}
-
-    # Parse each scheme definition
-    # Pattern: scheme_key followed by ColorScheme with comment above
-    pattern = r"#\s*(.+?)\s*-\s*(.+?)\s*\n\s*'(\w+)':\s*ColorScheme\(\s*['\"](.+?)['\"]\s*,\s*artist_color=\([^)]+\)\s*,?\s*#\s*([^\n]+)\n\s*song_color=\([^)]+\)\s*,?\s*#\s*([^\n]+)\n\s*info_color=\([^)]+\)\s*,?\s*#\s*([^\n]+)\n"
-
-    matches = re.finditer(pattern, content, re.MULTILINE)
-
-    for match in matches:
-        show_name = match.group(1).strip()
-        theme = match.group(2).strip()
-        scheme_key = match.group(3)
-        artist_name = match.group(5).strip()
-        song_name = match.group(6).strip()
-        info_name = match.group(7).strip()
-
-        scheme_info[scheme_key] = {
-            'theme': theme,
-            'artist_name': artist_name,
-            'song_name': song_name,
-            'info_name': info_name
-        }
-
-    return scheme_info
+    return f"![#{hex_color}]({badge_url})"
 
 
 def generate_color_table():
     """Generate the color schemes section for README"""
 
-    # Parse the color_schemes.py file for names and themes
-    scheme_info = parse_color_schemes_file()
-
-    # Organize shows by category (this is the only hardcoded part)
+    # Organize shows by category
     categories = {
         'Daily Programming': [
             'Early', 'The Morning Show', 'The Midday Show', 'The Afternoon Show', 'Drive Time'
@@ -123,8 +83,8 @@ def generate_color_table():
 
     for category, shows in categories.items():
         output.append(f"### {category}\n")
-        output.append("| Show | Theme | Artist Color | Song Color | Info Color |")
-        output.append("|------|-------|--------------|------------|------------|")
+        output.append("| Show | Artist Color | Song Color | Info Color |")
+        output.append("|------|--------------|------------|------------|")
 
         for show in shows:
             # Find the scheme for this show
@@ -139,23 +99,16 @@ def generate_color_table():
 
             scheme = COLOR_SCHEMES[scheme_key]
 
-            # Get theme and color names from parsed file
-            info = scheme_info.get(scheme_key, {})
-            theme = info.get('theme', '')
-            artist_name = info.get('artist_name', 'Artist Color')
-            song_name = info.get('song_name', 'Song Color')
-            info_name = info.get('info_name', 'Info Color')
-
             # Convert RGB to hex and create badges
             artist_hex = rgb_to_hex(scheme.artist)
             song_hex = rgb_to_hex(scheme.song)
             info_hex = rgb_to_hex(scheme.info)
 
-            artist_badge = create_badge(artist_hex, artist_name)
-            song_badge = create_badge(song_hex, song_name)
-            info_badge = create_badge(info_hex, info_name)
+            artist_badge = create_badge(artist_hex)
+            song_badge = create_badge(song_hex)
+            info_badge = create_badge(info_hex)
 
-            output.append(f"| **{show}** | {theme} | {artist_badge} | {song_badge} | {info_badge} |")
+            output.append(f"| **{show}** | {artist_badge} | {song_badge} | {info_badge} |")
 
         output.append("")
 
