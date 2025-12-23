@@ -183,25 +183,10 @@ API endpoints used:
 
 ## Troubleshooting
 
-### "Permission denied" errors
-
-The RGB matrix library requires root access to control GPIO pins. Run with `sudo`:
-
-```bash
-sudo python3 kexp_display.py
-```
-
 ### Display is flickering
 
-Try adjusting the `gpio_slowdown` parameter in `display/renderer.py`. Raspberry Pi 4 typically needs a value of 4.
+Try adjusting the `gpio_slowdown` parameter in the configuration file - setting this at 2 or 3 seems best for the Pi Zero 2W. 
 
-### No data showing
-
-Check your internet connection and verify the KEXP API is accessible:
-
-```bash
-python3 test_api.py
-```
 
 ### Font not found
 
@@ -215,8 +200,8 @@ Or specify a different font path in your `.env` file.
 
 ## Credits
 
-- KEXP for their excellent public API
-- [FlightTracker](https://github.com/ColinWaddell/FlightTracker/) for hardware inspiration
+- KEXP for their public API
+- [FlightTracker](https://github.com/ColinWaddell/FlightTracker/) for hardware and software inspiration
 - [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix) for the display library
 
 ## License
