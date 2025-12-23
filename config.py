@@ -28,13 +28,3 @@ class Config:
 
     # GPIO slowdown (adjust for flickering - Pi 4 typically needs 4, Pi 5 may need 2-3)
     gpio_slowdown = int(os.getenv('GPIO_SLOWDOWN', '4'))
-
-    # Font settings
-    font_path = os.getenv('FONT_PATH', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf')
-    small_font_size = int(os.getenv('SMALL_FONT_SIZE', '8'))
-    medium_font_size = int(os.getenv('MEDIUM_FONT_SIZE', '10'))
-    large_font_size = int(os.getenv('LARGE_FONT_SIZE', '12'))
-
-    # Scroll settings
-    scroll_speed = float(os.getenv('SCROLL_SPEED', '0.05'))
-    scroll_pause_duration = float(os.getenv('SCROLL_PAUSE_DURATION', '2.0'))
