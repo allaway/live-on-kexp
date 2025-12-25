@@ -12,7 +12,7 @@ class ColorScheme:
         self.info = info_color
 
 
-# Define color schemes for different shows with creative, precise colors
+# Define color schemes for different shows
 COLOR_SCHEMES = {
     # Morning Show - Sunrise
     'morning_show': ColorScheme(
