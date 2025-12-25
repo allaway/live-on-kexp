@@ -33,7 +33,7 @@ COLOR_SCHEMES = {
     # Drive Time - Traffic light
     'drive_time': ColorScheme(
         'Drive Time',
-        artist_color=(205, 28, 0),
+        artist_color=(200, 10, 0),
         song_color=(255, 198, 0),
         info_color=(0, 179, 84)
     ),
